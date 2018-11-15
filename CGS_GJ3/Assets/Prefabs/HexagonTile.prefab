@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33734875079372434}
   - component: {fileID: 23950327405785734}
   - component: {fileID: 114141231057026348}
+  - component: {fileID: 64790435011488054}
   m_Layer: 0
   m_Name: HexagonTile
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798439865978590}
   m_Mesh: {fileID: 4300000, guid: f2b3d0bc1580c3c489b0e5cb70662d42, type: 3}
+--- !u!64 &64790435011488054
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798439865978590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: f2b3d0bc1580c3c489b0e5cb70662d42, type: 3}
 --- !u!114 &114141231057026348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,4 +110,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350711fa72521cd4f8f1e6ea618ace8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece: {fileID: 1798439865978590}
