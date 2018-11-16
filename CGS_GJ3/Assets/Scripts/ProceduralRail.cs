@@ -12,6 +12,7 @@ public class ProceduralRail : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         piece = transform.parent.GetComponent<Original>().originPiece; 
+        //piece = GameObject.Find("Origin").GetComponent<Original>().originPiece; 
         //CreateNewPiece("left", 0);
         //CreateNewPiece("forward", 0);
         //CreateNewPiece("right", 0); 
@@ -52,53 +53,68 @@ public class ProceduralRail : MonoBehaviour {
 
     public void CreateNewPiece(string _direction, int model)
     {
-        Vector3 size = transform.parent.GetComponent<Original>().size; 
+        //Move tile relative to the size of the tile
+        Vector3 size = transform.parent.GetComponent<Original>().size;
         switch (_direction)
         {
             case "forward":
-                Instantiate(piece, new Vector3((transform.position.x + size.x),
-                                                transform.position.y,
-                                                transform.position.z), 
-                               Quaternion.Euler(transform.rotation.eulerAngles), 
-                                                transform.parent);
+                Instantiate(piece, Vector3.Scale(transform.position + size,
+                                                 transform.forward), 
+                                                 transform.rotation, 
+                                                 transform.parent);
+                Debug.Log(size);
+                Debug.Log(transform.forward); 
 
                 break;
             case "left":
-                Instantiate(piece, new Vector3((transform.position.x + size.x * 0.5f),
-                                                transform.position.y,
-                                                transform.position.z + size.z * 0.75f),
-                   Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x,
-                                                transform.rotation.eulerAngles.y - 60f, 
-                                                transform.rotation.eulerAngles.z)), 
+                Vector3 posL = size * 0.5f;
+                posL += transform.position;
+                posL.x *= transform.forward.x;
+                posL.z *= transform.forward.z;
+                posL.y *= transform.forward.y;
+                //Vector3 posL2 = size * 0.75f;
+                //posL2.x *= -transform.right.x;
+                //posL2.z *= -transform.right.z;
+                //GameObject obj = Instantiate(piece, transform.parent, false);
+                //obj.transform.position = ((transform.position * transform.forward * (size * 0.5f)),
+                //                                           transform.position.y,
+                //                                           transform.position.z + (size.z * 0.75f));
+                //posL += posL2;
+                GameObject obj = Instantiate(piece, posL, transform.rotation,
                                                 transform.parent);
+                //Quaternion rot = transform.rotation;
+                //rot.y -= 60;
+                //obj.transform.rotation = rot;
 
                 break;
             case "right":
-                Instantiate(piece, new Vector3((transform.position.x + size.x * 0.5f),
-                                                transform.position.y,
-                                                transform.position.z - size.z * 0.75f),
-                   Quaternion.Euler(new Vector3(transform.rotation.x,
-                                                transform.rotation.y + 60f,
-                                                transform.rotation.z)), 
-                                                transform.parent);
-                break;
-            case "backLeft":
-                Instantiate(piece, new Vector3((transform.position.x - size.x * 0.5f),
-                                                transform.position.y,
-                                                transform.position.z + size.z * 0.75f),
-                   Quaternion.Euler(new Vector3(transform.rotation.x,
-                                                transform.rotation.y - 120f,
-                                                transform.rotation.z)),
-                                                transform.parent);
-                break;
-            case "backRight":
-                Instantiate(piece, new Vector3((transform.position.x - size.x * 0.5f),
-                                                transform.position.y,
-                                                transform.position.z - size.z * 0.75f),
-                   Quaternion.Euler(new Vector3(transform.rotation.x,
-                                                transform.rotation.y + 120f,
-                                                transform.rotation.z)), 
-                                                transform.parent);
+                //Rotate Right 
+                Vector3 rot = new Vector3(0, 60f);
+                transform.Rotate(rot);
+                //Go forward facing right
+                Instantiate(piece, Vector3.Scale(transform.position + size,
+                                                 transform.forward),
+                                                 transform.rotation,
+                                                 transform.parent);
+                //Return to original Orientation
+                transform.Rotate(-rot);
+
+
+                //transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y - 60f, transform.rotation.z, transform.rotation.w);
+
+
+                //Vector3 tot = transform.position + size;
+                //tot = Vector3.Scale(tot, transform.right);
+                //Instantiate(piece, tot, Quaternion.Euler(new Vector3(transform.rotation.x,
+                //                                                     transform.rotation.y + 60f,
+                //                                                     transform.rotation.z)), 
+                //                                                     transform.parent);
+                //x0.5 z0.75
+                //Instantiate(piece, Vector3.Scale(transform.position + size,
+                //                                 transform.forward),
+                //                                 transform.rotation,
+                //                                 transform.parent);
+
                 break;
             default:
                 Debug.Log("Invalid Direction"); 

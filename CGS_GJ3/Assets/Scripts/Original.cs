@@ -9,6 +9,8 @@ public class Original : MonoBehaviour
 
     private void Start()
     {
-        size = originPiece.GetComponent<MeshRenderer>().bounds.size; 
+        //size = originPiece.GetComponent<MeshRenderer>().bounds.size;
+        size = originPiece.GetComponent<Renderer>().bounds.size; 
+        Instantiate(originPiece, Vector3.zero, Quaternion.identity, transform);
     }
 }
