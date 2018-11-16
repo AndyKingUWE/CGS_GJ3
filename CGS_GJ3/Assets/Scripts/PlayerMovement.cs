@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody movingObject;
-	public Vector3 movingSpeed = new Vector3(3,0,0);
+	public Vector3 movingSpeed = new Vector3(0,0,5);
 
 	// Use this for initialization
 	void Start () {
