@@ -9,7 +9,8 @@ public class ProceduralRail : MonoBehaviour {
     GameObject pieceF;
     GameObject pieceL;
     GameObject pieceR;
-
+    float aliveTime = 0; 
+    int deathTime = 5; 
     bool used = false; 
 
 	// Use this for initialization
@@ -19,6 +20,32 @@ public class ProceduralRail : MonoBehaviour {
         pieceR = origin.forwardPieces[Random.Range(0, origin.forwardPieces.Length - 1)];
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag != "cart")
+            return; 
+
+        if (!used)
+        switch (Random.Range(0,2))
+        {
+            case 0:
+                CreateNewPiece("forward", pieceF);
+                used = true;
+                break;
+            case 1:
+                CreateNewPiece("left", pieceL);
+                used = true;
+                break;
+            case 2:
+                CreateNewPiece("right", pieceR);
+                used = true;
+                break;
+            default:
+                Debug.Log("Trigger switch broken"); 
+                break;
+        }
+    }
+
     public void SetOrigin(Original _origin)
     {
         origin = _origin; 
@@ -26,6 +53,7 @@ public class ProceduralRail : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        aliveTime += Time.deltaTime; 
         //This is just for debugging 
         if (!used)
         {
@@ -44,6 +72,10 @@ public class ProceduralRail : MonoBehaviour {
                 CreateNewPiece("right", pieceR);
                 used = true; 
             }
+        }
+        if (used && aliveTime > deathTime)
+        {
+            Destroy(gameObject); 
         }
     }
 
