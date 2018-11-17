@@ -270,8 +270,10 @@ public class HandCar : MonoBehaviour
         //check if brake lever is pulled
         if ((360 - force) < 20)
         {
-            force = 360 - force;
+            force = (360 - force) / 10;
             force = force * force;
+
+            Debug.Log(force);
             Brake(force);
         }
     }
