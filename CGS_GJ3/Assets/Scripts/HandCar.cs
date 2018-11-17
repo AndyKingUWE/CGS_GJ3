@@ -28,6 +28,7 @@ public class HandCar : MonoBehaviour
     [SerializeField] private Transform axle2;
     private float ClosestPoint;
     public float input = 0.0f;
+    public float vrinput = 0.0f;
     // Use this for initialization
     void Start()
     {
@@ -130,7 +131,7 @@ public class HandCar : MonoBehaviour
         var end = transform.position;
         end.y = 0;
         var distance = Vector3.Distance(start, end);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (distance >= 0.1f)
         {
             end.x = start.x;
@@ -187,7 +188,7 @@ public class HandCar : MonoBehaviour
         {
             if (positive)
             {
-                if (Input.GetAxis("Vertical") > 0)
+                if (vrinput > 0)
                 {
                     Debug.Log("nice one!");
                     modifier++;
@@ -202,7 +203,7 @@ public class HandCar : MonoBehaviour
             }
             else
             {
-                if (Input.GetAxis("Vertical") < 0)
+                if (vrinput < 0)
                 {
                     Debug.Log("nice one!");
                     modifier++;
@@ -252,18 +253,19 @@ public class HandCar : MonoBehaviour
 
     private void MoveLever()
     {
+        
         //within movement range
-        if (movementLever.localEulerAngles.x >= 345 || movementLever.localEulerAngles.x <= 15)
+        if (movementLever.localEulerAngles.x >= 315 || movementLever.localEulerAngles.x <= 45)
         {
-            if (Input.GetAxis("Vertical") == 0)
+            if (vrinput == 0)
             {
                 timer += Time.unscaledDeltaTime;
             }
-            else if(!coroutineStarted && Input.GetAxis("Vertical") != 0)
+            else if (!coroutineStarted && vrinput != 0)
             {
-                var force = Input.GetAxis("Vertical") * Time.fixedDeltaTime * modifier;
+                var force = vrinput * Time.fixedDeltaTime * modifier;
                 modifier += Mathf.Abs(force);
-                movementLever.Rotate(Vector3.right, force);
+                //movementLever.Rotate(Vector3.right, force);
                 timer = 0.0f;
                 input += Mathf.Abs(force / modifier);
             }
@@ -274,20 +276,20 @@ public class HandCar : MonoBehaviour
         }
 
 
-        if (movementLever.localEulerAngles.x > 10 && movementLever.localEulerAngles.x < 180)
+        if (movementLever.localEulerAngles.x > 20 && movementLever.localEulerAngles.x < 180)
         {
             if (!coroutineStarted && pumpState != PumpState.UP)
                 StartCoroutine(WaitForInput(false));
 
-            if (movementLever.localEulerAngles.x > 15)
-                movementLever.localRotation = Quaternion.Euler(14.99f, 0, 0);
+            //if (movementLever.localEulerAngles.x > 15)
+            //    movementLever.localRotation = Quaternion.Euler(14.99f, 0, 0);
             //TODO: UI
             //Debug.Log("GO DOWN");
         }
-        if (movementLever.localEulerAngles.x < 350 && movementLever.localEulerAngles.x > 180)
+        if (movementLever.localEulerAngles.x < 340 && movementLever.localEulerAngles.x > 180)
         {
-            if (movementLever.localEulerAngles.x < 345)
-                movementLever.localRotation = Quaternion.Euler(345.01f, 0, 0);
+            //if (movementLever.localEulerAngles.x < 345)
+            //    movementLever.localRotation = Quaternion.Euler(345.01f, 0, 0);
 
             if (!coroutineStarted && pumpState != PumpState.DOWN)
                 StartCoroutine(WaitForInput(true));
