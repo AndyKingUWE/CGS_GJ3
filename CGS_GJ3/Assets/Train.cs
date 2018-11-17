@@ -14,7 +14,59 @@ public class Train : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        StartCoroutine(TrainBehaviour());
+    }
 
+    IEnumerator TrainBehaviour()
+    {
+        while (true)
+        {
+            GetCurrentTrack();
+            ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
+            if (ClosestPoint > 1)
+            {
+                ClosestPoint = 1 - ClosestPoint;
+                if (backward)
+                    currentTrack = currentTrack.backwardTrack;
+                else
+                    currentTrack = currentTrack.forwardTrack;
+
+            }
+
+            var newforward = currentTrack.spline.Forward(ClosestPoint);
+            if (newforward != Vector3.zero && newforward != transform.forward)
+            {
+                if (backward)
+                {
+                    newforward = -newforward;
+                    if (currentTrack.spline.direction == Pixelplacement.SplineDirection.Backwards)
+                    {
+                        newforward = -newforward;
+                    }
+
+                }
+                else
+                {
+
+                    transform.forward = newforward;
+                    if (currentTrack.spline.direction == Pixelplacement.SplineDirection.Backwards)
+                    {
+                        newforward = -newforward;
+                    }
+                }
+                transform.forward = newforward;
+            }
+            if (speed < maxSpeed)
+                speed += Time.fixedDeltaTime;
+            else if (speed > maxSpeed)
+                speed = maxSpeed;
+            transform.position += transform.forward * Time.fixedDeltaTime * speed;
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+        }
+       
     }
 
     void GetCurrentTrack()
@@ -48,49 +100,12 @@ public class Train : MonoBehaviour
 
     void FixedUpdate()
     {
-        GetCurrentTrack();
 
-        ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
-        Debug.Log(ClosestPoint);
-        if (ClosestPoint >= 1)
-        {
-            ClosestPoint = 1 - ClosestPoint;
-            if (backward)
-                currentTrack = currentTrack.backwardTrack;
-            else
-                currentTrack = currentTrack.forwardTrack;
-            
-        }
-
-        var newforward = currentTrack.spline.Forward(ClosestPoint);
-        if (newforward != Vector3.zero )
-        {
-            if (backward )
-            {
-                transform.forward = -newforward;
-                
-                
-            }
-            else
-            {
-
-                transform.forward = newforward;
-                if(currentTrack.spline.direction==Pixelplacement.SplineDirection.Backwards)
-                {
-                    transform.forward = -transform.forward;
-                }
-            }
-        }
-
-        if (speed < maxSpeed)
-            speed += Time.fixedDeltaTime;
-        else if (speed > maxSpeed)
-            speed = maxSpeed;
-        transform.position += transform.forward * Time.fixedDeltaTime * speed;
+        
     }
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 }
