@@ -29,6 +29,7 @@ public class HandCar : MonoBehaviour
     private float ClosestPoint;
     public float input = 0.0f;
     public float vrinput = 0.0f;
+    public bool keyboardInput = false;
     // Use this for initialization
     void Start()
     {
@@ -67,8 +68,14 @@ public class HandCar : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (keyboardInput)
+        {
+            vrinput = Input.GetAxis("Vertical");
+        }
         GetCurrentTrack();
         MoveLever();
+
+        
 
         #region debug
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
