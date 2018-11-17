@@ -178,7 +178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4284215187996058}
   - component: {fileID: 114328205821108456}
-  - component: {fileID: 114383373141432854}
   - component: {fileID: 114156228240074358}
   m_Layer: 0
   m_Name: handle
@@ -211,7 +210,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4678049547710836}
   - component: {fileID: 114926016835482446}
-  - component: {fileID: 114308539045392748}
   m_Layer: 0
   m_Name: brake
   m_TagString: Untagged
@@ -3514,7 +3512,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065343300091214}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4070,7 +4068,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1231703089678052}
-  m_LocalRotation: {x: -0.16962785, y: 1.5967414e-18, z: -1.7188252e-17, w: 0.9855082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.015487671, y: 0.14801529, z: -0.029518127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4324,7 +4322,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1078219410134704}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4859,14 +4857,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809197232044882}
-  m_LocalRotation: {x: 0.1564345, y: 0, z: 0, w: 0.98768836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.005, y: 0.835, z: -0.173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4678049547710836}
   m_Father: {fileID: 4976572791068120}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 18, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4864585869928672
 Transform:
   m_ObjectHideFlags: 1
@@ -5209,7 +5207,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267554205740220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.152067, y: 0, z: 0.34378433}
+  m_LocalPosition: {x: 102, y: 0.8, z: 63.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4926897669262628}
@@ -7679,21 +7677,6 @@ MonoBehaviour:
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
   interactUse: {fileID: 0}
---- !u!114 &114308539045392748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1078219410134704}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22b451f6097595439a10739ec0d05d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllable: {fileID: 114926016835482446}
-  displayText: {fileID: 0}
-  outputOnMax: Maximum Reached
-  outputOnMin: Minimum Reached
 --- !u!114 &114317320695034394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7761,8 +7744,8 @@ MonoBehaviour:
   equalityFidelity: 0.001
   hingePoint: {fileID: 4107772604840220}
   angleLimits:
-    minimum: -45
-    maximum: 45
+    minimum: -30
+    maximum: 30
   minMaxThresholdAngle: 1
   restingAngle: 0
   forceRestingAngleThreshold: 1
@@ -7804,21 +7787,6 @@ MonoBehaviour:
   smoothsScale: 0
   maxAllowedPerFrameSizeDifference: 0.003
   _moment: 2
---- !u!114 &114383373141432854
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065343300091214}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22b451f6097595439a10739ec0d05d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllable: {fileID: 114328205821108456}
-  displayText: {fileID: 0}
-  outputOnMax: Maximum Reached
-  outputOnMin: Minimum Reached
 --- !u!114 &114387803536798498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7830,7 +7798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eb64f0f2fd6d64faddbcf5d7d3bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useButton: 3
+  useButton: 4
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
@@ -8327,7 +8295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947b27445602ed640b885db7e667dfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabButton: 7
+  grabButton: 4
   grabPrecognition: 0
   throwMultiplier: 1
   createRigidBodyWhenNotTouching: 0
@@ -8486,7 +8454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947b27445602ed640b885db7e667dfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabButton: 7
+  grabButton: 4
   grabPrecognition: 0
   throwMultiplier: 1
   createRigidBodyWhenNotTouching: 0
@@ -8689,7 +8657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eb64f0f2fd6d64faddbcf5d7d3bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useButton: 3
+  useButton: 4
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
@@ -8719,6 +8687,7 @@ MonoBehaviour:
   currentTrack: {fileID: 0}
   speedModifier: 15
   movementLever: {fileID: 4284215187996058}
+  brakeLever: {fileID: 4678049547710836}
   motorWheels:
   - {fileID: 146859190664511102}
   - {fileID: 146275728761702178}
@@ -8809,8 +8778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   operateAxis: 0
-  ignoreCollisionsWith:
-  - {fileID: 0}
+  ignoreCollisionsWith: []
   excludeColliderCheckOn: []
   equalityFidelity: 0.001
   hingePoint: {fileID: 4707486246427196}
@@ -8832,7 +8800,7 @@ MonoBehaviour:
   precisionGrab: 1
   detachDistance: 1
   rotationAction: 0
-  grabbedFriction: 1.5
+  grabbedFriction: 1
   releasedFriction: 1
   onlyInteractWith: []
 --- !u!114 &114928055754415452
@@ -9095,7 +9063,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.05
+  m_Radius: 0.07
   m_Height: 2
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: -1.32}
@@ -9134,7 +9102,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.05
+  m_Radius: 0.07
   m_Height: 0.3
   m_Direction: 1
   m_Center: {x: 0.57, y: 1.53, z: 0.01}
@@ -9147,7 +9115,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.05
+  m_Radius: 0.07
   m_Height: 2
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 1.32}
@@ -9541,7 +9509,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -16.152067, y: 0, z: 0.34378433}
+  m_ConnectedAnchor: {x: 102, y: 0.8, z: 63.5}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
