@@ -301,6 +301,18 @@ Prefab:
       value: 
       objectReference: {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9,
         type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: leftPieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 1892509897767776, guid: f016228fe1e8ef84498229c763f14821,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: rightPieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 1759356678113652, guid: 8dcd4a06316b59f4a89d9d8c35f9f36c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
   m_IsPrefabAsset: 0

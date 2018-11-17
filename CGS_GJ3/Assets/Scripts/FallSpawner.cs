@@ -7,18 +7,21 @@ public class FallSpawner : MonoBehaviour {
 	//Transform childToFall;
 	public Vector3 startPos;
 	public Vector3 endPos;
-    public float speed; 
-	float fallDistance; 
-	bool triggered = true;
+    ProceduralRail tile; 
 
-	// Use this for initialization
-	void Start()
+    float fallDistance, startTime;
+
+    bool triggered = true;
+    int heightUp = 5;
+    // Use this for initialization
+    void Start()
 	{
-        //childToFall = transform.GetChild(0);
+        tile = transform.parent.parent.GetComponent<ProceduralRail>(); 
+        startPos = transform.position + transform.up * heightUp;
         endPos = transform.position;
-        startPos = new Vector3(transform.localPosition.x, transform.localPosition.y + 20, transform.localPosition.z);
-		transform.position = startPos;
-        fallDistance = Vector3.Distance(startPos, endPos); 
+        transform.position = startPos;
+        fallDistance = Vector3.Distance(startPos, endPos);
+        startTime = Time.time; 
 	}
 
 	// Update is called once per frame
@@ -26,14 +29,41 @@ public class FallSpawner : MonoBehaviour {
 	{
 		if (triggered)
 		{
-            //Distance moved = time * speed 
-            float distCovered = Time.time * speed;
-            //Fraction of journey completed
-            float fracJourney = distCovered / fallDistance; 
-            //Lerp by fraction of distance covered
-			transform.position = Vector3.Lerp(startPos, endPos, fracJourney);
-		}
+            float t = (Time.time - startTime) / tile.fallSpeed;
+            t = Mathf.Sin(t * Mathf.PI * 0.5f);
+            transform.position = Vector3.Lerp(startPos, endPos, t);
+            //Stop lerp sin waving back up
+            if (transform.position.y < endPos.y + 0.01f)
+            {
+                triggered = false;
+                transform.position = endPos; 
+            }
+                
+        }
 	}
+
+    //Vector3 CustomLerp()
+    //{
+
+    //      if ((Input.GetKey("left")) && (Speed < MaxSpeed))
+    //            Speed = Speed - Acceleration  Time.deltaTime;
+
+    //    else if ((Input.GetKey("right")) && (Speed > -MaxSpeed))
+    //            Speed = Speed + Acceleration  Time.deltaTime;
+    //    else
+    //    {
+    //                    if (Speed > Deceleration  Time.deltaTime)
+    //            Speed = Speed - Deceleration  Time.deltaTime;
+    //        else if (Speed < -Deceleration  Time.deltaTime)
+    //            Speed = Speed + Deceleration  Time.deltaTime;
+    //        else
+    //            Speed = 0;
+    //        }
+
+
+    //        transform.position.x = transform.position.x + Speed* Time.deltaTime;
+    //    }
+    //}
 
 	private void OnTriggerEnter(Collider other)
 	{

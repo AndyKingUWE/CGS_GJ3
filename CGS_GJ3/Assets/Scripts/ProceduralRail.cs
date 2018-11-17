@@ -6,18 +6,26 @@ using UnityEditor;
 public class ProceduralRail : MonoBehaviour {
 
     public Original origin;
+    public float fallSpeed = 1f;
+    public int deathTime = 5;
     GameObject pieceF;
     GameObject pieceL;
     GameObject pieceR;
-    float aliveTime = 0; 
-    int deathTime = 5; 
-    bool used = false; 
+    float aliveTime = 0;
+    float timePassed = 0; 
+    int counter = 0;
+    float spawntime = 1f; 
+    bool used = false;
+    bool finishedRailPlacing = false; 
+
+    public GameObject[] tracks; 
+    
 
 	// Use this for initialization
 	void Start () {
         pieceF = origin.forwardPieces[Random.Range(0, origin.forwardPieces.Length - 1)];
-        pieceL = origin.forwardPieces[Random.Range(0, origin.forwardPieces.Length - 1)];
-        pieceR = origin.forwardPieces[Random.Range(0, origin.forwardPieces.Length - 1)];
+        pieceL = origin.leftPieces[Random.Range(0, origin.leftPieces.Length - 1)];
+        pieceR = origin.rightPieces[Random.Range(0, origin.rightPieces.Length - 1)];
     }
 
     void OnTriggerEnter(Collider other)
@@ -52,30 +60,55 @@ public class ProceduralRail : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        aliveTime += Time.deltaTime; 
+	void Update ()
+    {
+        aliveTime += Time.deltaTime;
+        timePassed += Time.deltaTime; 
         //This is just for debugging 
+        CheckInput(); 
+        
+        //Delete past tracks
+        if (used && aliveTime > deathTime)
+        {
+            Destroy(gameObject); 
+        }
+
+        if(!finishedRailPlacing)
+            UpdateRailFalling();
+
+    }
+
+    void UpdateRailFalling()
+    {
+        if (timePassed > spawntime)
+        {
+            tracks[counter].SetActive(true);
+            timePassed = 0;
+            counter++;
+            if (counter == tracks.Length)
+                finishedRailPlacing = true; 
+        }
+    }
+
+    void CheckInput()
+    {
         if (!used)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
                 CreateNewPiece("forward", pieceF);
-                used = true; 
+                used = true;
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 CreateNewPiece("left", pieceL);
-                used = true; 
+                used = true;
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CreateNewPiece("right", pieceR);
-                used = true; 
+                used = true;
             }
-        }
-        if (used && aliveTime > deathTime)
-        {
-            Destroy(gameObject); 
         }
     }
 
