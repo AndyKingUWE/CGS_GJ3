@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4284215187996058}
   - component: {fileID: 114328205821108456}
   - component: {fileID: 114383373141432854}
+  - component: {fileID: 114156228240074358}
   m_Layer: 0
   m_Name: handle
   m_TagString: Untagged
@@ -2038,7 +2039,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1913136092054312}
-  m_LocalRotation: {x: -0.12884381, y: 2.2526765e-24, z: -2.8609074e-17, w: 0.9916649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 2.1576605, z: 0.15386963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2506,7 +2507,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267554205740220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.152067, y: 0, z: 0.34378433}
+  m_LocalPosition: {x: 102, y: 0.8, z: 63.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4926897669262628}
@@ -4359,6 +4360,20 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
+--- !u!114 &114156228240074358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065343300091214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6718d135befc7d24eba374c94725135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hc: {fileID: 114890399939221442}
+  prevangle: 0
+  curangle: 0
 --- !u!114 &114193299820706236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5161,6 +5176,7 @@ MonoBehaviour:
   axle: {fileID: 4444284030381972}
   axle2: {fileID: 4827791080477472}
   input: 0
+  vrinput: 0
 --- !u!114 &114925297691943494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5601,7 +5617,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -16.152067, y: 0, z: 0.34378433}
+  m_ConnectedAnchor: {x: 102, y: 0.8, z: 63.5}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -5879,7 +5895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1100, y: -70}
+  m_AnchoredPosition: {x: 425, y: -70}
   m_SizeDelta: {x: 142, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224427861076764112
