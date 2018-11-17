@@ -51,18 +51,23 @@ public class HandCar : MonoBehaviour
         //layerMask = ~layerMask;
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position + transform.up*10, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(transform.position + transform.up*5, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
         {
-            Debug.DrawRay(transform.position + transform.up * 10, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+            Debug.DrawRay(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
             var prevTrack = currentTrack;
         
             currentTrack = hit.collider.gameObject.GetComponent<Track>();
             if(currentTrack!=prevTrack)
             {
-                ResetPosition();
+                //ResetPosition();
             }
         }
-
+        else
+        {
+            Debug.DrawRay(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down) * 1000, Color.white);
+        }
+       
+       
         
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
@@ -94,14 +99,23 @@ public class HandCar : MonoBehaviour
         {
             AddForce(modifier * Time.unscaledDeltaTime);
         }
+        ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
+
+        var newforward = currentTrack.spline.Forward(ClosestPoint);
+
+        transform.forward = Vector3.Lerp(transform.forward, newforward, Time.fixedTime);
+        transform.position += transform.forward * Time.fixedDeltaTime * speedModifier;
+
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        //ResetPosition();
-        //if(myRigidbody.velocity.magnitude<3)
+        
+        //var distance = Vector3.Distance(currentTrack.spline.GetPosition(ClosestPoint), transform.position);
+        //if (distance >= 0.74f || distance <= 0.72f)
         //{
-        //    myRigidbody.
+        //    Debug.Log(distance);
+        //    ResetPosition();
         //}
     }
 
@@ -115,12 +129,10 @@ public class HandCar : MonoBehaviour
 
     internal void ResetPosition()
     {
-        ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
         var newPos = transform.position;
-        newPos.x = currentTrack.spline.GetPosition(ClosestPoint,true,10000).x;
-        newPos.z = currentTrack.spline.GetPosition(ClosestPoint, true, 10000).z;
+        newPos.x = currentTrack.spline.GetPosition(ClosestPoint,true,1000).x;
+        newPos.z = currentTrack.spline.GetPosition(ClosestPoint, true, 1000).z;
         myRigidbody.MovePosition(newPos);
-        myRigidbody.MoveRotation(Quaternion.Euler(0, 0, 0));
     }
 
     //private void OnDrawGizmos()
@@ -198,14 +210,13 @@ public class HandCar : MonoBehaviour
             ClosestPoint = 1 - ClosestPoint;
             currentTrack = currentTrack.forwardTrack;
         }
-        SetPosition();
-        Debug.Log(force * speedModifier);
+        //SetPosition();
         //GetComponent<Rigidbody>().AddForce(transform.forward * force * speedModifier);
         //axle.Rotate(Vector3.right * force* speedModifier);
         //axle2.Rotate(Vector3.right * force* speedModifier);
         foreach (var wheel in motorWheels)
         {
-            //wheel.motorTorque = force * speedModifier;
+            wheel.motorTorque = force * speedModifier;
         }
     }
 
