@@ -56,17 +56,9 @@ public class Train : MonoBehaviour
                 }
                 transform.forward = newforward;
             }
-            if (speed < maxSpeed)
-                speed += Time.fixedDeltaTime;
-            else if (speed > maxSpeed)
-                speed = maxSpeed;
-            transform.position += transform.forward * Time.fixedDeltaTime * speed;
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(0.1f);
         }
-       
+
     }
 
     void GetCurrentTrack()
@@ -75,7 +67,7 @@ public class Train : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down), out hit, 10, layerMask))
         {
             var prevTrack = currentTrack;
 
@@ -92,8 +84,9 @@ public class Train : MonoBehaviour
     {
         ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
         var newPos = transform.position;
-        newPos.x = currentTrack.spline.GetPosition(ClosestPoint, true, 1000).x;
-        newPos.z = currentTrack.spline.GetPosition(ClosestPoint, true, 1000).z;
+        var pos = currentTrack.spline.GetPosition(ClosestPoint);
+        newPos.x = pos.x;
+        newPos.z = pos.z;
         transform.position = newPos;
     }
 
@@ -101,11 +94,16 @@ public class Train : MonoBehaviour
     void FixedUpdate()
     {
 
-        
+
     }
     // Update is called once per frame
     void Update()
     {
-       
+        
+        if (speed < maxSpeed)
+            speed += Time.deltaTime;
+        else if (speed > maxSpeed)
+            speed = maxSpeed;
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
 }
