@@ -6,7 +6,6 @@ using Pixelplacement;
 
 public class HandCar : MonoBehaviour
 {
-
     enum PumpState
     {
         IDLE = 0,
@@ -15,19 +14,20 @@ public class HandCar : MonoBehaviour
     }
     [SerializeField]
     private Track currentTrack;
-    [SerializeField] private float speedModifier =5;
+    [SerializeField] private float speedModifier = 5;
     [SerializeField] private Transform movementLever;
     [SerializeField]
     private List<WheelCollider> motorWheels;
     [SerializeField] private List<BoxCollider> triggers;
     private bool coroutineStarted = false;
-    private float modifier = 20;
+    private float modifier = 1;
     private PumpState pumpState = PumpState.IDLE;
     private float timer = 0.0f;
     private Rigidbody myRigidbody;
     [SerializeField] private Transform axle;
     [SerializeField] private Transform axle2;
     private float ClosestPoint;
+    public float input = 0.0f;
     // Use this for initialization
     void Start()
     {
@@ -44,31 +44,32 @@ public class HandCar : MonoBehaviour
         //}
     }
 
+    void GetCurrentTrack()
+    {
+        int layerMask = 1 << LayerMask.NameToLayer("Tracks");
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
+        {
+            var prevTrack = currentTrack;
+
+            currentTrack = hit.collider.gameObject.GetComponent<Track>();
+
+            if (currentTrack != prevTrack)
+            {
+                ResetPosition();
+            }
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        int layerMask = 1 << LayerMask.NameToLayer("Tracks");
-        //layerMask = ~layerMask;
-        RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position + transform.up*5, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
-        {
-            Debug.DrawRay(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-            var prevTrack = currentTrack;
-        
-            currentTrack = hit.collider.gameObject.GetComponent<Track>();
-            if(currentTrack!=prevTrack)
-            {
-                //ResetPosition();
-            }
-        }
-        else
-        {
-            Debug.DrawRay(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down) * 1000, Color.white);
-        }
-       
-       
-        
+        GetCurrentTrack();
+        MoveLever();
+
+        #region debug
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
             speedModifier++;
@@ -81,8 +82,8 @@ public class HandCar : MonoBehaviour
         {
             //wheel.motorTorque = speedModifier;
         }
-        MoveLever();
-        if(Input.GetKeyDown(KeyCode.U))
+
+        if (Input.GetKeyDown(KeyCode.U))
         {
             AddForce(1);
         }
@@ -90,33 +91,60 @@ public class HandCar : MonoBehaviour
         {
             Brake(1);
         }
-        if(Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             Brake(0);
 
         }
-        if(modifier>20)
-        {
-            AddForce(modifier * Time.unscaledDeltaTime);
-        }
+        #endregion
+
+
+
+        //if (modifier > 20)
+        //{
+        //    AddForce(modifier * Time.unscaledDeltaTime);
+        //}
+
+
         ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
 
-        var newforward = currentTrack.spline.Forward(ClosestPoint);
+        if (ClosestPoint > 1)
+        {
+            ClosestPoint = 1 - ClosestPoint;
+            currentTrack = currentTrack.forwardTrack;
+        }
 
-        transform.forward = Vector3.Lerp(transform.forward, newforward, Time.fixedTime);
-        transform.position += transform.forward * Time.fixedDeltaTime * speedModifier;
+        transform.position += transform.forward * Time.fixedDeltaTime * input * speedModifier;
+
+
+        var newforward = currentTrack.spline.Forward(ClosestPoint);
+        transform.forward = newforward;
+
+        if (pumpState==PumpState.IDLE)
+            input -= Time.fixedDeltaTime/2f;
+        if (input < 0.0f)
+            input = 0.0f;
+
+        var start = currentTrack.spline.GetPosition(ClosestPoint);
+        start.y = 0;
+        var end = transform.position;
+        end.y = 0;
+        var distance = Vector3.Distance(start, end);
+        Debug.Log(distance);
+        if (distance >= 0.1f)
+        {
+            end.x = start.x;
+            end.z = start.z;
+            end.y = transform.position.y;
+
+            //transform.position = end;
+        }
 
     }
 
     private void Update()
     {
-        
-        //var distance = Vector3.Distance(currentTrack.spline.GetPosition(ClosestPoint), transform.position);
-        //if (distance >= 0.74f || distance <= 0.72f)
-        //{
-        //    Debug.Log(distance);
-        //    ResetPosition();
-        //}
+       
     }
 
     internal void SetPosition()
@@ -129,10 +157,11 @@ public class HandCar : MonoBehaviour
 
     internal void ResetPosition()
     {
+        ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
         var newPos = transform.position;
-        newPos.x = currentTrack.spline.GetPosition(ClosestPoint,true,1000).x;
+        newPos.x = currentTrack.spline.GetPosition(ClosestPoint, true, 1000).x;
         newPos.z = currentTrack.spline.GetPosition(ClosestPoint, true, 1000).z;
-        myRigidbody.MovePosition(newPos);
+        transform.position = newPos;
     }
 
     //private void OnDrawGizmos()
@@ -161,9 +190,9 @@ public class HandCar : MonoBehaviour
                 if (Input.GetAxis("Vertical") > 0)
                 {
                     Debug.Log("nice one!");
-                    modifier ++;
+                    modifier++;
                     coroutineStarted = false;
-                    if(modifier>100)
+                    if (modifier > 100)
                     {
                         modifier = 100;
                     }
@@ -176,7 +205,7 @@ public class HandCar : MonoBehaviour
                 if (Input.GetAxis("Vertical") < 0)
                 {
                     Debug.Log("nice one!");
-                    modifier ++;
+                    modifier++;
                     if (modifier > 100)
                     {
                         modifier = 100;
@@ -192,6 +221,7 @@ public class HandCar : MonoBehaviour
         }
 
         modifier = 20;
+        coroutineStarted = false;
     }
 
     private void Brake(float force)
@@ -204,8 +234,8 @@ public class HandCar : MonoBehaviour
 
     private void AddForce(float force)
     {
-        ClosestPoint +=  Time.unscaledDeltaTime;
-        if(ClosestPoint>1)
+        ClosestPoint += Time.unscaledDeltaTime;
+        if (ClosestPoint > 1)
         {
             ClosestPoint = 1 - ClosestPoint;
             currentTrack = currentTrack.forwardTrack;
@@ -222,22 +252,23 @@ public class HandCar : MonoBehaviour
 
     private void MoveLever()
     {
+        //within movement range
         if (movementLever.localEulerAngles.x >= 345 || movementLever.localEulerAngles.x <= 15)
         {
             if (Input.GetAxis("Vertical") == 0)
             {
                 timer += Time.unscaledDeltaTime;
             }
-            else
+            else if(!coroutineStarted && Input.GetAxis("Vertical") != 0)
             {
-                var force = Input.GetAxis("Vertical") * Time.unscaledDeltaTime * modifier;
-                modifier += Mathf.Abs( force);
+                var force = Input.GetAxis("Vertical") * Time.fixedDeltaTime * modifier;
+                modifier += Mathf.Abs(force);
                 movementLever.Rotate(Vector3.right, force);
                 timer = 0.0f;
+                input += Mathf.Abs(force / modifier);
             }
             if (timer >= 1.0f)
             {
-
                 pumpState = PumpState.IDLE;
             }
         }
@@ -255,7 +286,7 @@ public class HandCar : MonoBehaviour
         }
         if (movementLever.localEulerAngles.x < 350 && movementLever.localEulerAngles.x > 180)
         {
-            if(movementLever.localEulerAngles.x < 345)
+            if (movementLever.localEulerAngles.x < 345)
                 movementLever.localRotation = Quaternion.Euler(345.01f, 0, 0);
 
             if (!coroutineStarted && pumpState != PumpState.DOWN)
@@ -265,10 +296,6 @@ public class HandCar : MonoBehaviour
             //Debug.Log("GO UP");
             //movementLever.localRotation.SetEulerAngles(14.99f, 0, 0);
         }
-        //if (movementLever.localEulerAngles.x < 165)
-        //{
-        //    movementLever.localRotation.SetEulerAngles(165, 0, 0);
-
-        //}
+        
     }
 }
