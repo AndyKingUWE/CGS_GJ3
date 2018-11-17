@@ -5,11 +5,13 @@ using UnityEngine;
 public class Rotator : MonoBehaviour {
 
     [SerializeField] private HandCar hc;
+    Transform tr;
     public float prevangle = 0.0f;
     public float curangle = 0.0f;
 	// Use this for initialization
 	void Start () {
-        prevangle = transform.localEulerAngles.x;
+        tr = transform.parent;
+        prevangle = tr.localEulerAngles.x;
         if (prevangle>180)
         {
             prevangle -= 360;
@@ -18,7 +20,7 @@ public class Rotator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        curangle = transform.localEulerAngles.x;
+        curangle = tr.localEulerAngles.x;
         if (curangle > 180)
         {
             curangle -= 360;
