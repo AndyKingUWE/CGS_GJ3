@@ -121,12 +121,13 @@ public class HandCar : MonoBehaviour
             ClosestPoint = 1 - ClosestPoint;
             currentTrack = currentTrack.forwardTrack;
         }
+        var newforward = currentTrack.spline.Forward(ClosestPoint);
+        transform.forward = newforward;
 
         transform.position += transform.forward * Time.fixedDeltaTime * input * speedModifier;
 
 
-        var newforward = currentTrack.spline.Forward(ClosestPoint);
-        transform.forward = newforward;
+        
 
         if (pumpState==PumpState.IDLE)
             input -= Time.fixedDeltaTime/2f;
