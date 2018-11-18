@@ -53,6 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4785259738982272}
+  - component: {fileID: 114631843530460188}
   m_Layer: 0
   m_Name: Wheel_Sparks
   m_TagString: Untagged
@@ -101,6 +102,17 @@ Transform:
   m_Father: {fileID: 4785259738982272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+--- !u!114 &114631843530460188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979403019578636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0568a29a5a9909248889be42de0c63f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198150061431831750
 ParticleSystem:
   m_ObjectHideFlags: 1

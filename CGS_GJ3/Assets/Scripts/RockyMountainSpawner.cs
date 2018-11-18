@@ -48,9 +48,10 @@ public class RockyMountainSpawner : MonoBehaviour
             for (int i = 0; i < numOfBoulders; i++)
             {
                 offset = new Vector3(0f, 0f, Random.Range(minimumDistanceOffset, maximumDistanceOffset));
-                Instantiate(boulderGameObjects[Random.Range(0, boulderGameObjects.Count)],
+                var bBoulder = Instantiate(boulderGameObjects[Random.Range(0, boulderGameObjects.Count)],
                     distance + offset,
                     Quaternion.identity);
+                Destroy(bBoulder, 6f);
             }
         }
     }

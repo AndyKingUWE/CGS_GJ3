@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4012289589387786}
   - component: {fileID: 33633312478783642}
   - component: {fileID: 23378496541226754}
+  - component: {fileID: 65119883013617136}
+  - component: {fileID: 64742651586885842}
+  - component: {fileID: 114097255145001116}
   m_Layer: 0
   m_Name: RockyMountainSpawner
   m_TagString: Untagged
@@ -35,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356017867760300}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28, y: 0, z: 20}
+  m_LocalPosition: {x: -16.9, y: 0, z: 22}
   m_LocalScale: {x: 5000, y: 5000, z: 5000}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,3 +87,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356017867760300}
   m_Mesh: {fileID: 4300000, guid: b3c4557bf43011541a37a6a98a099eb3, type: 3}
+--- !u!64 &64742651586885842
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1356017867760300}
+  m_Material: {fileID: 13400000, guid: 41491461fd99e784b88910526d866bfe, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: b3c4557bf43011541a37a6a98a099eb3, type: 3}
+--- !u!65 &65119883013617136
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1356017867760300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.0028, z: 0.006}
+  m_Center: {x: 0, y: 0.0012554501, z: 0.00007499987}
+--- !u!114 &114097255145001116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1356017867760300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bad8e00b7add9247a2be17e8833b3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boulderGameObjects:
+  - {fileID: 1820584939899964, guid: 4af85e8c762545041acf89ea46b2f61d, type: 2}
+  - {fileID: 1328256688842610, guid: 0935f9d24f8e90c4bba77f1acce13bf4, type: 2}
+  - {fileID: 1648480831527320, guid: 42f97bf729b684a48974a67572a3fda9, type: 2}
+  - {fileID: 1537394652794958, guid: 0a5f16ca91c628b499f03bbf62cbc2ce, type: 2}
+  playerTrigger: {fileID: 0}
+  numOfBoulders: 15
+  distanceFromGround: 15
+  distanceFromPlayer: 0.5
+  minimumDistanceOffset: 2
+  maximumDistanceOffset: 20
