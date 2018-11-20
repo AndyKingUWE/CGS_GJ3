@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4532416924677776}
   - component: {fileID: 114219211245239990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controller (left)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4926897669262628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4114557331500902}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4155923986559262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 224168363391039732}
   - component: {fileID: 222400939587971618}
   - component: {fileID: 114467802164272686}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 114698675262925296}
   - component: {fileID: 114528106495700476}
   - component: {fileID: 114541208751547802}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: SDKSetupSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974566258608526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: '[VRTK_SDKSetups]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4961167658555600}
   - component: {fileID: 114784684159099384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SceneSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4055884611341212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920887513322220}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,8 @@ GameObject:
   - component: {fileID: 4284215187996058}
   - component: {fileID: 114328205821108456}
   - component: {fileID: 114156228240074358}
-  m_Layer: 0
+  - component: {fileID: 114377151748749120}
+  m_Layer: 9
   m_Name: handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4205142600438170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WheelColliders (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +212,7 @@ GameObject:
   - component: {fileID: 4678049547710836}
   - component: {fileID: 114926016835482446}
   - component: {fileID: 114221354844375724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: brake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4183865218596322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4794405954497160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +259,7 @@ GameObject:
   - component: {fileID: 224032418500172448}
   - component: {fileID: 222603790208734482}
   - component: {fileID: 114497716737222524}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4695384702896456}
   - component: {fileID: 137413685904280970}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_BasicHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4687719030841232}
   - component: {fileID: 146859190664511102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +313,7 @@ GameObject:
   - component: {fileID: 114812755409909278}
   - component: {fileID: 114960395402395608}
   - component: {fileID: 114292399220974852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightControllerScriptAlias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4886666122553902}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4449964535219278}
   - component: {fileID: 114193299820706236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: '[SteamVR]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4422236977924056}
   - component: {fileID: 114669940527482488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +393,7 @@ GameObject:
   - component: {fileID: 4857573288789682}
   - component: {fileID: 135134185146175790}
   - component: {fileID: 114804230959971054}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Index
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4500262438544990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +426,7 @@ GameObject:
   - component: {fileID: 95962826759869322}
   - component: {fileID: 114289298608100938}
   - component: {fileID: 114145668047090046}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_LeftBasicHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317968553317448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +460,7 @@ GameObject:
   - component: {fileID: 23056179949880682}
   - component: {fileID: 136253095323572742}
   - component: {fileID: 136988390581460400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +477,7 @@ GameObject:
   - component: {fileID: 224450340511958284}
   - component: {fileID: 222687841060734542}
   - component: {fileID: 114499128773477104}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4275183808071844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4635658302265408}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4816465843973680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_4_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4341138836837092}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4748906952660994}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4163461180884090}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4838486387018816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: brake (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4777840875385690}
   - component: {fileID: 114119243667783640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SteamVR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +634,7 @@ GameObject:
   - component: {fileID: 33527629411146752}
   - component: {fileID: 23173469578231634}
   - component: {fileID: 136705143668898550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakehandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +654,7 @@ GameObject:
   - component: {fileID: 114199707934158454}
   - component: {fileID: 114437784862162224}
   - component: {fileID: 114112332452436188}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: ChooseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4986838722548652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: drivetrain (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4704720293493770}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_4_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4172197527332238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4838714477228204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +749,7 @@ GameObject:
   - component: {fileID: 4504509529073476}
   - component: {fileID: 33451385310817656}
   - component: {fileID: 23596276051682284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakehandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +766,7 @@ GameObject:
   - component: {fileID: 4789879562193230}
   - component: {fileID: 135676928375855164}
   - component: {fileID: 114025728140768462}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4615657443552622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WheelColliders (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +799,7 @@ GameObject:
   - component: {fileID: 33649030982383396}
   - component: {fileID: 23302845646115796}
   - component: {fileID: 64892822075872584}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_axle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4581234618654454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4687003934722996}
   - component: {fileID: 114214488132355130}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controller (right)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4289271930857416}
   - component: {fileID: 146739062398062176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +865,7 @@ GameObject:
   - component: {fileID: 114890399939221442}
   - component: {fileID: 114071278367502844}
   - component: {fileID: 153242747229056034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4521754412101134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4700928940078882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,7 +910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4902755383555342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4461676493965636}
   - component: {fileID: 146426156842087506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4404547908884892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -956,7 +957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4783647512443400}
   - component: {fileID: 146609067932808106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4645629386795884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4122494921236576}
   - component: {fileID: 136328025663938456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4600188925944998}
   - component: {fileID: 114738488819563526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,7 +1036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272897304764156}
   - component: {fileID: 146717346746575330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1054,7 +1055,7 @@ GameObject:
   - component: {fileID: 23965705829446670}
   - component: {fileID: 33657687095692958}
   - component: {fileID: 114758971838359078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: '[CameraRig]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1072,7 @@ GameObject:
   - component: {fileID: 4247002776927500}
   - component: {fileID: 135852223595664058}
   - component: {fileID: 114367062665284488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,7 +1087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4206368523566780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1105,7 @@ GameObject:
   - component: {fileID: 95062321899160162}
   - component: {fileID: 114292437891276484}
   - component: {fileID: 114485259786543998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_RightBasicHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4803785920019134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1134,7 +1135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4966633973063412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4765813422349754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1164,7 +1165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4073936966907420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1194,7 +1195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4823998974874160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1209,7 +1210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4699575509117634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1224,7 +1225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4352847720962716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1239,7 +1240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4367231256896784}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4908459329053652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4418740117293662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4591279363745588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1299,7 +1300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4683008114187618}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1314,7 +1315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4121804283816426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: brake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4073467242982078}
   - component: {fileID: 137904894664686074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_BasicHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1402,7 @@ GameObject:
   - component: {fileID: 114802669592970680}
   - component: {fileID: 114998952914962100}
   - component: {fileID: 114050234110213494}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: CancelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1417,7 +1418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4160612452385476}
   - component: {fileID: 146275728761702178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1433,7 +1434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4653667123397842}
   - component: {fileID: 114322881109516790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1468,7 +1469,7 @@ GameObject:
   - component: {fileID: 222201476789075836}
   - component: {fileID: 114240491587666460}
   - component: {fileID: 114925297691943494}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: SelectionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1502,7 +1503,7 @@ GameObject:
   - component: {fileID: 4235528149900476}
   - component: {fileID: 33909330099136826}
   - component: {fileID: 23729642604279554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1517,7 +1518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4408664667030574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: '[VRTK_Scripts]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1537,7 +1538,7 @@ GameObject:
   - component: {fileID: 114692882252036548}
   - component: {fileID: 114534713146972536}
   - component: {fileID: 114039778540390680}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: SwitchButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1552,7 +1553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4870029227303298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chassis (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4462730003826070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1585,7 +1586,7 @@ GameObject:
   - component: {fileID: 33052888521070758}
   - component: {fileID: 23183679338213110}
   - component: {fileID: 64660113814033596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_axle_gear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1600,7 +1601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4769596112158456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1618,7 @@ GameObject:
   - component: {fileID: 4014629489460252}
   - component: {fileID: 114967286982373716}
   - component: {fileID: 114224407796673090}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1632,7 +1633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807548468001328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1649,7 +1650,7 @@ GameObject:
   - component: {fileID: 4764726467665016}
   - component: {fileID: 135576964524950384}
   - component: {fileID: 114414027089469370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1666,7 +1667,7 @@ GameObject:
   - component: {fileID: 4694498469181282}
   - component: {fileID: 33277666396907216}
   - component: {fileID: 23227936397836708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_2_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1717,7 +1718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361316524272826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1732,7 +1733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4522962835807322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1749,7 +1750,7 @@ GameObject:
   - component: {fileID: 224720612537968224}
   - component: {fileID: 222820376305936360}
   - component: {fileID: 114971186098236964}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: CurrentText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1781,7 +1782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604526119306456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1798,7 +1799,7 @@ GameObject:
   - component: {fileID: 4222055590249816}
   - component: {fileID: 33352044155020446}
   - component: {fileID: 23246526572750580}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1815,7 +1816,7 @@ GameObject:
   - component: {fileID: 4065913829529790}
   - component: {fileID: 135144726491064286}
   - component: {fileID: 114768533355549010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Index
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1830,7 +1831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4228030514711328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1845,7 +1846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4267974624439766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,7 +1868,7 @@ GameObject:
   - component: {fileID: 114724588931326468}
   - component: {fileID: 114215333101841080}
   - component: {fileID: 114031773674684344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftControllerScriptAlias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4174866929330060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1899,7 +1900,7 @@ GameObject:
   - component: {fileID: 4901711037536768}
   - component: {fileID: 135625273064663516}
   - component: {fileID: 114029944236639456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1914,7 +1915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4854799780096482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1930,7 +1931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4836799424954606}
   - component: {fileID: 136501487620607552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1945,7 +1946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4926785877922668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Handle container '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1960,7 +1961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4948782591551450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1975,7 +1976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4155344737293366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1991,7 +1992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4517316787033096}
   - component: {fileID: 114138884842264536}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2007,7 +2008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4765670562822792}
   - component: {fileID: 54143169003325942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrabAttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2024,7 +2025,7 @@ GameObject:
   - component: {fileID: 4993994841626960}
   - component: {fileID: 33700962426031512}
   - component: {fileID: 23410170653745394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_2_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2042,7 +2043,7 @@ GameObject:
   - component: {fileID: 20881649195713886}
   - component: {fileID: 124678196881493622}
   - component: {fileID: 114569721626622230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera (eye)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2057,7 +2058,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4820912424786082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2076,7 +2077,7 @@ GameObject:
   - component: {fileID: 23245429893905186}
   - component: {fileID: 65447502299225304}
   - component: {fileID: 65638138716638006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_chassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2091,7 +2092,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4853498560063670}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2128,7 +2129,7 @@ GameObject:
   - component: {fileID: 64031519459754442}
   - component: {fileID: 136077597415036814}
   - component: {fileID: 114354683092946808}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pickaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2143,7 +2144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4574507314990252}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2161,7 +2162,7 @@ GameObject:
   - component: {fileID: 222601488592080336}
   - component: {fileID: 114656709639543294}
   - component: {fileID: 114451097542879716}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2176,7 +2177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4366964967350756}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2191,7 +2192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4112396999029112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2223,7 +2224,7 @@ GameObject:
   - component: {fileID: 224721119398633348}
   - component: {fileID: 222850384876670434}
   - component: {fileID: 114829818603918244}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2239,7 +2240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4793270691064552}
   - component: {fileID: 146406717070146142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2257,7 +2258,7 @@ GameObject:
   - component: {fileID: 222305628305009064}
   - component: {fileID: 114050338543033906}
   - component: {fileID: 114928055754415452}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: StatusPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2288,7 +2289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4376625450171846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2306,7 +2307,7 @@ GameObject:
   - component: {fileID: 20333108038171164}
   - component: {fileID: 114067129579440380}
   - component: {fileID: 92373635668248350}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera (head)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2322,7 +2323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4502571170837208}
   - component: {fileID: 146073975184157346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2337,7 +2338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4864585869928672}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2352,7 +2353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4707486246427196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Brake hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2369,7 +2370,7 @@ GameObject:
   - component: {fileID: 4551265366643490}
   - component: {fileID: 135314060356408636}
   - component: {fileID: 114470243461988580}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2386,7 +2387,7 @@ GameObject:
   - component: {fileID: 4074670623262022}
   - component: {fileID: 33215463776714354}
   - component: {fileID: 23634271273172838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_crank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2401,7 +2402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4984148191994780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2433,7 +2434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4860332069230028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Brake container '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2450,7 +2451,7 @@ GameObject:
   - component: {fileID: 4730850054168950}
   - component: {fileID: 135746271767009796}
   - component: {fileID: 114008209689126408}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2465,7 +2466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4364866450016852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2481,7 +2482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4015229670442016}
   - component: {fileID: 54729060581372946}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrabAttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2496,7 +2497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4319764362385468}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2511,7 +2512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4339800409942844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2526,7 +2527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4132136744541936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2543,7 +2544,7 @@ GameObject:
   - component: {fileID: 4076352970157862}
   - component: {fileID: 81481451476421126}
   - component: {fileID: 114841589315476944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera (ears)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2558,7 +2559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4869271323822506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2575,7 +2576,7 @@ GameObject:
   - component: {fileID: 4666611679256180}
   - component: {fileID: 20486896880278626}
   - component: {fileID: 81403672432936262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2592,7 +2593,7 @@ GameObject:
   - component: {fileID: 224278002607919894}
   - component: {fileID: 222385677217728094}
   - component: {fileID: 114486366990487548}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2607,7 +2608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4277502028698306}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2622,7 +2623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4198976075194920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Middle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2637,7 +2638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4503830209103688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Ring_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2654,7 +2655,7 @@ GameObject:
   - component: {fileID: 4216478542189926}
   - component: {fileID: 33728711814338168}
   - component: {fileID: 23594108834962992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2669,7 +2670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4107772604840220}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Handle hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2686,7 +2687,7 @@ GameObject:
   - component: {fileID: 4866434407634738}
   - component: {fileID: 33874772028397700}
   - component: {fileID: 23062316783172772}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_1_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2701,7 +2702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4260265213344668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2718,7 +2719,7 @@ GameObject:
   - component: {fileID: 4579669483944950}
   - component: {fileID: 33068352649576530}
   - component: {fileID: 23842605124738282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2733,7 +2734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934573793605696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2748,7 +2749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4442051357071706}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: drivetrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2767,7 +2768,7 @@ GameObject:
   - component: {fileID: 124863433455719318}
   - component: {fileID: 92463487486266688}
   - component: {fileID: 81716388823573896}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2784,7 +2785,7 @@ GameObject:
   - component: {fileID: 4643227247233640}
   - component: {fileID: 33398892879347374}
   - component: {fileID: 23240337767855734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_handle_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2801,7 +2802,7 @@ GameObject:
   - component: {fileID: 4520942140684408}
   - component: {fileID: 33080709015386394}
   - component: {fileID: 23253917743425982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2816,7 +2817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4662538755059280}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Thumb_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2831,7 +2832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4948036257343942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_5_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2846,7 +2847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4870708129797766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2863,7 +2864,7 @@ GameObject:
   - component: {fileID: 4893356079866582}
   - component: {fileID: 135262190902487354}
   - component: {fileID: 114393873688436562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pinky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2880,7 +2881,7 @@ GameObject:
   - component: {fileID: 4316170142633662}
   - component: {fileID: 135527469147257272}
   - component: {fileID: 114404164173722376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pinky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2897,7 +2898,7 @@ GameObject:
   - component: {fileID: 4556939746001022}
   - component: {fileID: 114317320695034394}
   - component: {fileID: 114499424188910984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: '[VRTK_SDKManager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2914,7 +2915,7 @@ GameObject:
   - component: {fileID: 4072323211337120}
   - component: {fileID: 33127686140780256}
   - component: {fileID: 23468856359566482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handcar_brakeblock_1_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2929,7 +2930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4107395561117068}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Index_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2944,7 +2945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4949966514313064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VRTK_Hand_Bone_Pinkie_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3049,7 +3050,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787770733192472}
-  m_LocalRotation: {x: 0.43708783, y: -4.992129e-17, z: 1.476856e-16, w: 0.89941883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.13202667, y: 0.7284177, z: -0.24789429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4291,7 +4292,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1933416569743574}
   m_LocalRotation: {x: -0.11768288, y: -1.5398851e-16, z: -1.1854861e-16, w: 0.99305123}
-  m_LocalPosition: {x: 0.061683655, y: 1.997623, z: -0.4479828}
+  m_LocalPosition: {x: 0.0715, y: 2.1806, z: -0.4819}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4986838722548652}
@@ -6528,8 +6529,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: cde4075ab58138d4ea3e220497e95c1c, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8277d3824a334214f8d597d342fb0921, type: 2}
+  - {fileID: 2100000, guid: ecd1ea7d868d0d246a63f0c96132e685, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7966,6 +7967,45 @@ MonoBehaviour:
   smoothsScale: 0
   maxAllowedPerFrameSizeDifference: 0.003
   _moment: 2
+--- !u!114 &114377151748749120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065343300091214}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbb29cbe7e86b842b09702b4ae1b57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operateAxis: 0
+  ignoreCollisionsWith: []
+  excludeColliderCheckOn: []
+  equalityFidelity: 0.001
+  connectedTo: {fileID: 0}
+  hingePoint: {fileID: 4107772604840220}
+  angleLimits:
+    minimum: -30
+    maximum: 30
+  minMaxThresholdAngle: 1
+  restingAngle: 0
+  forceRestingAngleThreshold: 1
+  angleTarget: 0
+  isLocked: 0
+  stepValueRange:
+    minimum: 0
+    maximum: 1
+  stepSize: 0.1
+  useStepAsValue: 1
+  snapToStep: 0
+  snapForce: 10
+  grabMechanic: 1
+  precisionGrab: 1
+  detachDistance: 1
+  useFrictionOverrides: 0
+  grabbedFriction: 0
+  releasedFriction: 0
+  onlyInteractWith: []
 --- !u!114 &114387803536798498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8865,7 +8905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowdownSpeed: 0.5
   currentTrack: {fileID: 0}
-  speedModifier: 15
+  speedModifier: 2
   movementLever: {fileID: 4284215187996058}
   brakeLever: {fileID: 4678049547710836}
   motorWheels:
