@@ -150,8 +150,9 @@ public class HandCar : MonoBehaviour
 
     private void Update()
     {
-        axle.Rotate(Vector3.right, speed);
-        axle2.Rotate(Vector3.right, speed);
+        float spd = input * 3.14f;
+        axle.Rotate(Vector3.right, spd);
+        axle2.Rotate(Vector3.right, spd);
     }
 
     internal void SetPosition()
