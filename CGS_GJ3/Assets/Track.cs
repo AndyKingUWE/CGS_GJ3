@@ -6,22 +6,39 @@ public class Track : MonoBehaviour {
     public Pixelplacement.Spline spline;
     public Track forwardTrack;
     public Track backwardTrack;
+    public Transform ForwardDetection;
+    public Transform BackwardDetection;
     // Use this for initialization
     void Start () {
-        spline = GetComponent<Pixelplacement.Spline>();
+        
+        if(ForwardDetection==null)
+        {
+            ForwardDetection = transform;
+        }
+        if(BackwardDetection==null)
+        {
+            BackwardDetection = transform;
+        }
+        if(spline==null)
+        {
+            spline = GetComponent<Pixelplacement.Spline>();
+
+        }
         int layerMask = 1 << LayerMask.NameToLayer("Tracks");
         //layerMask = ~layerMask;
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward ), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(ForwardDetection.position, ForwardDetection.TransformDirection(Vector3.forward ), out hit, Mathf.Infinity, layerMask))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Debug.DrawRay(ForwardDetection.position, ForwardDetection.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            if(forwardTrack==null)
             forwardTrack = hit.collider.gameObject.GetComponent<Track>();
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(BackwardDetection.position, BackwardDetection.TransformDirection(Vector3.back), out hit, Mathf.Infinity, layerMask))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow);
-            backwardTrack = hit.collider.gameObject.GetComponent<Track>();
+            Debug.DrawRay(BackwardDetection.position, BackwardDetection.TransformDirection(Vector3.back) * hit.distance, Color.yellow);
+            if (backwardTrack == null)
+                backwardTrack = hit.collider.gameObject.GetComponent<Track>();
         }
     }
 	

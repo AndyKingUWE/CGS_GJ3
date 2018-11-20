@@ -16,7 +16,6 @@ public class HandCar : MonoBehaviour
     private Track currentTrack;
     [SerializeField] private float speedModifier = 5;
     [SerializeField] private Transform movementLever;
-    [SerializeField] private Transform brakeLever;
     [SerializeField]
     private List<WheelCollider> motorWheels;
     [SerializeField] private List<BoxCollider> triggers;
@@ -30,6 +29,7 @@ public class HandCar : MonoBehaviour
     private float ClosestPoint;
     public float input = 0.0f;
     public float vrinput = 0.0f;
+    public bool keyboardInput = false;
     // Use this for initialization
     void Start()
     {
@@ -68,9 +68,14 @@ public class HandCar : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (keyboardInput)
+        {
+            vrinput = Input.GetAxis("Vertical");
+        }
         GetCurrentTrack();
-        BrakeLever();
-        MoveLever();        
+        MoveLever();
+
+        
 
         #region debug
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
@@ -116,17 +121,16 @@ public class HandCar : MonoBehaviour
             ClosestPoint = 1 - ClosestPoint;
             currentTrack = currentTrack.forwardTrack;
         }
+        var newforward = currentTrack.spline.Forward(ClosestPoint);
+        transform.forward = newforward;
 
         transform.position += transform.forward * Time.fixedDeltaTime * input * speedModifier;
 
 
-        var newforward = currentTrack.spline.Forward(ClosestPoint);
-        transform.forward = newforward;
-
-        float slowdownSpeed = 2.0f;
+        
 
         if (pumpState==PumpState.IDLE)
-            input -= Time.fixedDeltaTime/slowdownSpeed;
+            input -= Time.fixedDeltaTime/2f;
         if (input < 0.0f)
             input = 0.0f;
 
@@ -231,18 +235,9 @@ public class HandCar : MonoBehaviour
 
     private void Brake(float force)
     {
-        //foreach (var wheel in motorWheels)
-        //{
-        //    wheel.brakeTorque = force * speedModifier;
-        //}
-
-        float dampeningForce = 0.001f;
-
-        input -= (force * dampeningForce);
-
-        if (input < 0)
+        foreach (var wheel in motorWheels)
         {
-            input = 0;
+            wheel.brakeTorque = force * speedModifier;
         }
     }
 
@@ -261,20 +256,6 @@ public class HandCar : MonoBehaviour
         foreach (var wheel in motorWheels)
         {
             wheel.motorTorque = force * speedModifier;
-        }
-    }
-
-    private void BrakeLever()
-    {
-        float force = brakeLever.localEulerAngles.x;
-        //check if brake lever is pulled
-        if ((360 - force) < 20)
-        {
-            force = (360 - force) / 10;
-            force = force * force;
-
-            Debug.Log(force);
-            Brake(force);
         }
     }
 
