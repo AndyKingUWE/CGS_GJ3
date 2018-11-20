@@ -32,6 +32,7 @@ public class HandCar : MonoBehaviour
     private float ClosestPoint;
     public float input = 0.0f;
     public float vrinput = 0.0f;
+    public float speed;
     // Use this for initialization
     void Start()
     {
@@ -110,7 +111,6 @@ public class HandCar : MonoBehaviour
         //    AddForce(modifier * Time.unscaledDeltaTime);
         //}
 
-
         ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
 
         if (ClosestPoint > 1)
@@ -145,12 +145,13 @@ public class HandCar : MonoBehaviour
 
             //transform.position = end;
         }
-
+        speed = myRigidbody.velocity.magnitude;
     }
 
     private void Update()
     {
-       
+        axle.Rotate(Vector3.right, speed);
+        axle2.Rotate(Vector3.right, speed);
     }
 
     internal void SetPosition()
