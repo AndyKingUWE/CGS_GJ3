@@ -9,7 +9,7 @@ public class Rotator : MonoBehaviour {
     public float curangle = 0.0f;
 	// Use this for initialization
 	void Start () {
-        prevangle = transform.localEulerAngles.x;
+        prevangle = transform.parent.localEulerAngles.x;
         if (prevangle>180)
         {
             prevangle -= 360;
@@ -18,7 +18,7 @@ public class Rotator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        curangle = transform.localEulerAngles.x;
+        curangle = transform.parent.localEulerAngles.x;
         if (curangle > 180)
         {
             curangle -= 360;
