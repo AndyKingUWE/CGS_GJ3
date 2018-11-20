@@ -51,12 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4ab36dfcf8b804390a882c5ae1b336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPiece: {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9,
+  originPiece: {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b,
     type: 2}
   forwardPieces:
-  - {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9, type: 2}
+  - {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b, type: 2}
   leftPieces:
-  - {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9, type: 2}
+  - {fileID: 1892509897767776, guid: f016228fe1e8ef84498229c763f14821, type: 2}
   rightPieces:
-  - {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9, type: 2}
+  - {fileID: 1759356678113652, guid: 8dcd4a06316b59f4a89d9d8c35f9f36c, type: 2}
   size: {x: 0, y: 0, z: 0}
