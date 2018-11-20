@@ -5,19 +5,17 @@ using UnityEngine;
 public class FallSpawner : MonoBehaviour {
 
 	//Transform childToFall;
-	public Vector3 startPos;
-	public Vector3 endPos;
+	Vector3 startPos;
+	Vector3 endPos;
     ProceduralRail tile; 
-
     float fallDistance, startTime;
-
     bool triggered = true;
-    int heightUp = 5;
+
     // Use this for initialization
     void Start()
 	{
         tile = transform.parent.parent.GetComponent<ProceduralRail>(); 
-        startPos = transform.position + transform.up * heightUp;
+        startPos = transform.position + transform.up * tile.origin.heightUp;
         endPos = transform.position;
         transform.position = startPos;
         fallDistance = Vector3.Distance(startPos, endPos);
@@ -29,7 +27,7 @@ public class FallSpawner : MonoBehaviour {
 	{
 		if (triggered)
 		{
-            float t = (Time.time - startTime) / tile.fallSpeed;
+            float t = (Time.time - startTime) / tile.origin.speed;
             t = Mathf.Sin(t * Mathf.PI * 0.5f);
             transform.position = Vector3.Lerp(startPos, endPos, t);
             //Stop lerp sin waving back up

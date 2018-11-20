@@ -6,15 +6,13 @@ using UnityEditor;
 public class ProceduralRail : MonoBehaviour {
 
     public Original origin;
-    public float fallSpeed = 1f;
-    public int deathTime = 5;
     GameObject pieceF;
     GameObject pieceL;
     GameObject pieceR;
     float aliveTime = 0;
     float timePassed = 0; 
     int counter = 0;
-    float spawntime = 1f; 
+    
     bool used = false;
     bool finishedRailPlacing = false; 
 
@@ -31,7 +29,10 @@ public class ProceduralRail : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "cart")
-            return; 
+            return;
+
+        // The faster you go the smaller speed is (Because smaller speed = faster)
+        origin.speed = 1 / ((other.attachedRigidbody.velocity.magnitude * 5) / 100); 
 
         if (!used)
         switch (0)
@@ -81,7 +82,7 @@ public class ProceduralRail : MonoBehaviour {
 
     void UpdateRailFalling()
     {
-        if (timePassed > spawntime)
+        if (timePassed > origin.speed)
         {
             tracks[counter].SetActive(true);
             timePassed = 0;
