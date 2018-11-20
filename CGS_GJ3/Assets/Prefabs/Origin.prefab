@@ -51,12 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4ab36dfcf8b804390a882c5ae1b336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPiece: {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9,
+  originPiece: {fileID: 1798439865978590, guid: 8afdef0360d29c3439572e3085996281,
     type: 2}
-  forwardPieces:
-  - {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9, type: 2}
-  leftPieces:
-  - {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9, type: 2}
-  rightPieces:
-  - {fileID: 1735840672855066, guid: 944fa3444b15d344593638ab8304eeb9, type: 2}
   size: {x: 0, y: 0, z: 0}

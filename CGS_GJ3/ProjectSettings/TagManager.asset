@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - SpawnTrigger
-  - Rock
+  - Tracks
+  - X
   layers:
   - Default
   - TransparentFX
@@ -16,8 +16,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Vehicle
+  - Tracks
   - 
   - 
   - 
