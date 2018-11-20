@@ -10,8 +10,10 @@ public class HandCar : MonoBehaviour
     {
         IDLE = 0,
         UP = 1,
-        DOWN = 2
+        DOWN = 2,
+        GRABBED = 3
     }
+    public float slowdownSpeed = 2.0f;
     [SerializeField]
     private Track currentTrack;
     [SerializeField] private float speedModifier = 5;
@@ -22,7 +24,7 @@ public class HandCar : MonoBehaviour
     [SerializeField] private List<BoxCollider> triggers;
     private bool coroutineStarted = false;
     private float modifier = 1;
-    private PumpState pumpState = PumpState.IDLE;
+    [SerializeField] private PumpState pumpState = PumpState.IDLE;
     private float timer = 0.0f;
     private Rigidbody myRigidbody;
     [SerializeField] private Transform axle;
@@ -122,11 +124,10 @@ public class HandCar : MonoBehaviour
 
         var newforward = currentTrack.spline.Forward(ClosestPoint);
         transform.forward = newforward;
-
-        float slowdownSpeed = 2.0f;
+        
 
         if (pumpState==PumpState.IDLE)
-            input -= Time.fixedDeltaTime/slowdownSpeed;
+            input += (0-input)* (slowdownSpeed/100f);
         if (input < 0.0f)
             input = 0.0f;
 
@@ -282,7 +283,7 @@ public class HandCar : MonoBehaviour
     {
         
         //within movement range
-        if (movementLever.localEulerAngles.x >= 315 || movementLever.localEulerAngles.x <= 45)
+        if (movementLever.parent.localEulerAngles.x >= 330 || movementLever.parent.localEulerAngles.x <= 30)
         {
             if (vrinput == 0)
             {
@@ -290,6 +291,10 @@ public class HandCar : MonoBehaviour
             }
             else if (!coroutineStarted && vrinput != 0)
             {
+                if(pumpState==PumpState.IDLE)
+                {
+                    pumpState = PumpState.GRABBED;
+                }
                 var force = vrinput * Time.fixedDeltaTime * modifier;
                 modifier += Mathf.Abs(force);
                 //movementLever.Rotate(Vector3.right, force);
@@ -303,7 +308,7 @@ public class HandCar : MonoBehaviour
         }
 
 
-        if (movementLever.localEulerAngles.x > 20 && movementLever.localEulerAngles.x < 180)
+        if (movementLever.parent.localEulerAngles.x > 20 && movementLever.parent.localEulerAngles.x < 180)
         {
             if (!coroutineStarted && pumpState != PumpState.UP)
                 StartCoroutine(WaitForInput(false));
@@ -313,7 +318,7 @@ public class HandCar : MonoBehaviour
             //TODO: UI
             //Debug.Log("GO DOWN");
         }
-        if (movementLever.localEulerAngles.x < 340 && movementLever.localEulerAngles.x > 180)
+        if (movementLever.parent.localEulerAngles.x < 340 && movementLever.parent.localEulerAngles.x > 180)
         {
             //if (movementLever.localEulerAngles.x < 345)
             //    movementLever.localRotation = Quaternion.Euler(345.01f, 0, 0);
