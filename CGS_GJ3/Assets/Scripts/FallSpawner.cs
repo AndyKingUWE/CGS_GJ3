@@ -7,19 +7,30 @@ public class FallSpawner : MonoBehaviour {
 	//Transform childToFall;
 	Vector3 startPos;
 	Vector3 endPos;
+    Quaternion startRot;
+    Quaternion endRot; 
     ProceduralRail tile; 
     float fallDistance, startTime;
     bool triggered = true;
+    public bool first = false; 
 
     // Use this for initialization
     void Start()
 	{
-        tile = transform.parent.parent.GetComponent<ProceduralRail>(); 
-        startPos = transform.position + transform.up * tile.origin.heightUp;
-        endPos = transform.position;
-        transform.position = startPos;
-        fallDistance = Vector3.Distance(startPos, endPos);
-        startTime = Time.time; 
+        if (!first)
+        {
+            tile = transform.parent.parent.GetComponent<ProceduralRail>();
+            startPos = transform.position + transform.up * tile.origin.heightUp;
+            startRot = Quaternion.Euler(-90, 0, 0);
+            endRot = transform.rotation;
+            endPos = transform.position;
+            transform.position = startPos;
+            transform.rotation = startRot; 
+            fallDistance = Vector3.Distance(startPos, endPos);
+            startTime = Time.time;
+        }
+        else
+            enabled = false; 
 	}
 
 	// Update is called once per frame
@@ -27,9 +38,10 @@ public class FallSpawner : MonoBehaviour {
 	{
 		if (triggered)
 		{
-            float t = (Time.time - startTime) / tile.origin.speed;
-            t = Mathf.Sin(t * Mathf.PI * 0.5f);
+            float t = (Time.time - startTime) / tile.origin.trackLaySpeed;
+            //t = Mathf.Sin(t * Mathf.PI * 0.5f);
             transform.position = Vector3.Lerp(startPos, endPos, t);
+            transform.rotation = Quaternion.Lerp(startRot, endRot, t); 
             //Stop lerp sin waving back up
             if (transform.position.y < endPos.y + 0.01f)
             {

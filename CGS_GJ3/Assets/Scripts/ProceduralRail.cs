@@ -6,15 +6,20 @@ using UnityEditor;
 public class ProceduralRail : MonoBehaviour {
 
     public Original origin;
+    public bool firstTile = false; 
     GameObject pieceF;
     GameObject pieceL;
     GameObject pieceR;
-    float aliveTime = 0;
-    float timePassed = 0; 
+    float tracksLaidfreq = 0;
+    float distanceTravelled = 50;
     int counter = 0;
+    int trackCount = 0; 
+    Vector3 startTrackPos = new Vector3(0, 2.45f, -19.64f);
+    Vector3 startHandCarPos = new Vector3(0, 5.7f, -41.5f);
     
     bool used = false;
-    bool finishedRailPlacing = false; 
+    bool finishedRailPlacing = false;
+    bool waitingForPreviousTile = true; 
 
     public GameObject[] tracks; 
     
@@ -33,7 +38,7 @@ public class ProceduralRail : MonoBehaviour {
 
         // The faster you go the smaller speed is (Because smaller speed = faster)
        
-            origin.speed = 0.2f;
+            //origin.speed = 0.2f;
             //origin.speed = 1 / ((hc.speed * 5) / 100);
             //if (origin.speed > 1)
             //    origin.speed = 1;
@@ -72,30 +77,70 @@ public class ProceduralRail : MonoBehaviour {
 	void Update ()
     {
         //aliveTime += Time.deltaTime;
-        timePassed += Time.deltaTime; 
-        //This is just for debugging 
-        CheckInput(); 
+        tracksLaidfreq = trackCount / Time.deltaTime;
+        trackCount = 0; 
         
+        //This is just for debugging 
+        CheckInput();
+
         //Delete past tracks
         //if (used && aliveTime > deathTime)
         //{
         //    Destroy(gameObject); 
         //}
 
-        if(!finishedRailPlacing)
-            UpdateRailFalling();
+        //Make sure ahead tiles don't start putting down 
+        //Track until previous tile has finished
+        if (waitingForPreviousTile && !firstTile)
+        {
+            waitingForPreviousTile = origin.waitForPreviousTile;
+            //If tile is allowed to lay track, hold next tile
+            if (waitingForPreviousTile == false)
+                origin.waitForPreviousTile = true;
+            return;
+        }
+        
 
+        if (!finishedRailPlacing)
+            UpdateRailFalling();
+        //Once finished laying tiles prompt next tile to 
+        else
+        {
+            origin.waitForPreviousTile = false;
+            enabled = false; 
+        }
+
+        distanceTravelled += (origin.handCarSpeed.input*Mathf.PI) * Time.deltaTime;
+        Debug.Log(distanceTravelled);
     }
 
     void UpdateRailFalling()
     {
-        if (timePassed > origin.speed)
+        if (firstTile && counter == 0)
         {
-            tracks[counter].SetActive(true);
-            timePassed = 0;
+            //Put down track for Hand car to start on 
+            GameObject segment = Instantiate(origin.track_straight_new, transform.GetChild(0));
+            segment.GetComponent<FallSpawner>().first = true; 
+            segment.transform.localPosition = startTrackPos;
+            segment.transform.localScale /= 2;
+            startTrackPos += new Vector3(0, 0, 2);
+            //Place handcar 
+            GameObject handCar = Instantiate(origin.handCar, transform.parent);
+            handCar.transform.localPosition = startHandCarPos;
+            origin.handCarSpeed = handCar.GetComponent<HandCar>();
+            counter++; 
+        }
+        if (distanceTravelled > origin.trackLayFrequency && tracksLaidfreq < origin.trackLayMaxFreq)
+        {
+            GameObject segment = Instantiate(origin.track_straight_new, transform.GetChild(0));
+            segment.transform.localPosition = startTrackPos;
+            segment.transform.localScale /= 2;
+            startTrackPos += new Vector3(0, 0, 2);
+            distanceTravelled = 0; 
             counter++;
-            if (counter == tracks.Length)
-                finishedRailPlacing = true; 
+            trackCount++;
+            if (counter == 22)
+                finishedRailPlacing = true;
         }
     }
 

@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 65258412093770338}
   - component: {fileID: 114374235809840668}
   - component: {fileID: 114882477578112550}
+  - component: {fileID: 114433688988693118}
   m_Layer: 10
   m_Name: track_straight_new
   m_TagString: Tracks
@@ -249,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705702689142546}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 88.272736, y: 22.384083, z: 101.69401}
+  m_LocalPosition: {x: 5.2934456, y: 6.791694, z: -43.381695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4995867009765740}
@@ -508,10 +509,10 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 0010c1029c470a14db05266f04c7051f, type: 2}
-  - {fileID: 2100000, guid: 4609581ab79ff6a4788926000b1fdd03, type: 2}
+  - {fileID: 2100000, guid: e7ea8770195b2834c888b12d5cdd8fc3, type: 2}
+  - {fileID: 2100000, guid: 941750a80abad4f459bc271026b22b99, type: 2}
   - {fileID: 2100000, guid: 3cfda42ac8c7bf14a9cc7198add0f6ba, type: 2}
-  - {fileID: 2100000, guid: ecd1ea7d868d0d246a63f0c96132e685, type: 2}
+  - {fileID: 2100000, guid: 2fa4bbaafe6346447a6e0baf51ead915, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -688,6 +689,18 @@ MonoBehaviour:
   _showVelocityTicks: 0
   _velocityTickCount: 20
   _velocityTickScale: 0.5
+--- !u!114 &114433688988693118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1705702689142546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  first: 0
 --- !u!114 &114879431653803920
 MonoBehaviour:
   m_ObjectHideFlags: 1

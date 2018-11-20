@@ -303,7 +303,7 @@ Prefab:
     - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
         type: 2}
       propertyPath: heightUp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
         type: 2}
@@ -311,6 +311,28 @@ Prefab:
       value: 
       objectReference: {fileID: 1334192781480140, guid: a47b8a65ba2968940ba87408d1d71ff0,
         type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: track_straight_new
+      value: 
+      objectReference: {fileID: 1705702689142546, guid: 77b6cca902dbcf742a771b5fda8c03a9,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: handCar
+      value: 
+      objectReference: {fileID: 1267554205740220, guid: c9adc18c8cecae64688aef504b097eb3,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: trackLaySpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: trackLayFrequency
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
   m_IsPrefabAsset: 0
