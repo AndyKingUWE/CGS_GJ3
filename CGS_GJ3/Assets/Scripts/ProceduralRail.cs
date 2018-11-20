@@ -5,116 +5,145 @@ using UnityEditor;
 
 public class ProceduralRail : MonoBehaviour {
 
-    GameObject piece;
+    public Original origin;
+    public float fallSpeed = 1f;
+    public int deathTime = 5;
+    GameObject pieceF;
+    GameObject pieceL;
+    GameObject pieceR;
+    float aliveTime = 0;
+    float timePassed = 0; 
+    int counter = 0;
+    float spawntime = 1f; 
+    bool used = false;
+    bool finishedRailPlacing = false; 
 
-    bool used = false; 
+    public GameObject[] tracks; 
+    
 
 	// Use this for initialization
 	void Start () {
-        piece = transform.parent.GetComponent<Original>().originPiece; 
-        //piece = GameObject.Find("Origin").GetComponent<Original>().originPiece; 
-        //CreateNewPiece("left", 0);
-        //CreateNewPiece("forward", 0);
-        //CreateNewPiece("right", 0); 
-	}
+        pieceF = origin.forwardPieces[Random.Range(0, origin.forwardPieces.Length - 1)];
+        pieceL = origin.leftPieces[Random.Range(0, origin.leftPieces.Length - 1)];
+        pieceR = origin.rightPieces[Random.Range(0, origin.rightPieces.Length - 1)];
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag != "cart")
+            return; 
+
+        if (!used)
+        switch (Random.Range(0,2))
+        {
+            case 0:
+                CreateNewPiece("forward", pieceF);
+                used = true;
+                break;
+            case 1:
+                CreateNewPiece("left", pieceL);
+                used = true;
+                break;
+            case 2:
+                CreateNewPiece("right", pieceR);
+                used = true;
+                break;
+            default:
+                Debug.Log("Trigger switch broken"); 
+                break;
+        }
+    }
+
+    public void SetOrigin(Original _origin)
+    {
+        origin = _origin; 
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        aliveTime += Time.deltaTime;
+        timePassed += Time.deltaTime; 
         //This is just for debugging 
+        CheckInput(); 
+        
+        //Delete past tracks
+        if (used && aliveTime > deathTime)
+        {
+            Destroy(gameObject); 
+        }
+
+        if(!finishedRailPlacing)
+            UpdateRailFalling();
+
+    }
+
+    void UpdateRailFalling()
+    {
+        if (timePassed > spawntime)
+        {
+            tracks[counter].SetActive(true);
+            timePassed = 0;
+            counter++;
+            if (counter == tracks.Length)
+                finishedRailPlacing = true; 
+        }
+    }
+
+    void CheckInput()
+    {
         if (!used)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                CreateNewPiece("forward", 0);
-                used = true; 
+                CreateNewPiece("forward", pieceF);
+                used = true;
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                CreateNewPiece("left", 0);
-                used = true; 
+                CreateNewPiece("left", pieceL);
+                used = true;
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                CreateNewPiece("right", 0);
-                used = true; 
+                CreateNewPiece("right", pieceR);
+                used = true;
             }
-            //if (Input.GetKeyDown(KeyCode.A))
-            //{
-            //    CreateNewPiece("backLeft", 0);
-            //    used = true;
-            //}
-            //if (Input.GetKeyDown(KeyCode.D))
-            //{
-            //    CreateNewPiece("backRight", 0);
-            //    used = true;
-            //}
         }
     }
 
-    public void CreateNewPiece(string _direction, int model)
+    public void CreateNewPiece(string _direction, GameObject _model)
     {
         //Move tile relative to the size of the tile
-        Vector3 size = transform.parent.GetComponent<Original>().size;
+        Vector3 size = origin.size;
+        Debug.Log("Size: " + size);
+        Debug.Log("Transform Forward: " + transform.forward);
+        //Reduce x by 25% as hexagons are not uniform
+        Vector3 trForward = new Vector3(transform.forward.x * 0.75f, transform.forward.y, transform.forward.z);
         switch (_direction)
         {
             case "forward":
-                Instantiate(piece, Vector3.Scale(transform.position + size,
-                                                 transform.forward), 
-                                                 transform.rotation, 
-                                                 transform.parent);
-                Debug.Log(size);
-                Debug.Log(transform.forward); 
-
+               var obj = Instantiate(_model, transform.position + Vector3.Scale(size, trForward), 
+                                   transform.rotation, 
+                                   transform.parent);
+                obj.GetComponent<ProceduralRail>().SetOrigin(origin);
                 break;
             case "left":
-                Vector3 posL = size * 0.5f;
-                posL += transform.position;
-                posL.x *= transform.forward.x;
-                posL.z *= transform.forward.z;
-                posL.y *= transform.forward.y;
-                //Vector3 posL2 = size * 0.75f;
-                //posL2.x *= -transform.right.x;
-                //posL2.z *= -transform.right.z;
-                //GameObject obj = Instantiate(piece, transform.parent, false);
-                //obj.transform.position = ((transform.position * transform.forward * (size * 0.5f)),
-                //                                           transform.position.y,
-                //                                           transform.position.z + (size.z * 0.75f));
-                //posL += posL2;
-                GameObject obj = Instantiate(piece, posL, transform.rotation,
-                                                transform.parent);
-                //Quaternion rot = transform.rotation;
-                //rot.y -= 60;
-                //obj.transform.rotation = rot;
+                var objL = Instantiate(_model, transform.position + Vector3.Scale(size, trForward),
+                   Quaternion.Euler(transform.rotation.eulerAngles.x,
+                                    transform.rotation.eulerAngles.y - 60,
+                                    transform.rotation.eulerAngles.z),
+                                    transform.parent);
+                objL.GetComponent<ProceduralRail>().SetOrigin(origin);
 
                 break;
             case "right":
-                //Rotate Right 
-                Vector3 rot = new Vector3(0, 60f);
-                transform.Rotate(rot);
-                //Go forward facing right
-                Instantiate(piece, Vector3.Scale(transform.position + size,
-                                                 transform.forward),
-                                                 transform.rotation,
-                                                 transform.parent);
-                //Return to original Orientation
-                transform.Rotate(-rot);
-
-
-                //transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y - 60f, transform.rotation.z, transform.rotation.w);
-
-
-                //Vector3 tot = transform.position + size;
-                //tot = Vector3.Scale(tot, transform.right);
-                //Instantiate(piece, tot, Quaternion.Euler(new Vector3(transform.rotation.x,
-                //                                                     transform.rotation.y + 60f,
-                //                                                     transform.rotation.z)), 
-                //                                                     transform.parent);
-                //x0.5 z0.75
-                //Instantiate(piece, Vector3.Scale(transform.position + size,
-                //                                 transform.forward),
-                //                                 transform.rotation,
-                //                                 transform.parent);
-
+                var objR = Instantiate(_model, transform.position + Vector3.Scale(size, trForward),
+                   Quaternion.Euler(transform.rotation.eulerAngles.x,
+                                    transform.rotation.eulerAngles.y + 60,
+                                    transform.rotation.eulerAngles.z),
+                                    transform.parent);
+                objR.GetComponent<ProceduralRail>().SetOrigin(origin);
                 break;
             default:
                 Debug.Log("Invalid Direction"); 
