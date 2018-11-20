@@ -310,7 +310,7 @@ public class HandCar : MonoBehaviour
         }
 
 
-        if (movementLever.parent.localEulerAngles.x > 20 && movementLever.parent.localEulerAngles.x < 180)
+        if (movementLever.parent.localEulerAngles.x > 15 && movementLever.parent.localEulerAngles.x < 180)
         {
             if (!coroutineStarted && pumpState != PumpState.UP)
                 StartCoroutine(WaitForInput(false));
@@ -320,7 +320,7 @@ public class HandCar : MonoBehaviour
             //TODO: UI
             //Debug.Log("GO DOWN");
         }
-        if (movementLever.parent.localEulerAngles.x < 340 && movementLever.parent.localEulerAngles.x > 180)
+        if (movementLever.parent.localEulerAngles.x < 345 && movementLever.parent.localEulerAngles.x > 180)
         {
             //if (movementLever.localEulerAngles.x < 345)
             //    movementLever.localRotation = Quaternion.Euler(345.01f, 0, 0);

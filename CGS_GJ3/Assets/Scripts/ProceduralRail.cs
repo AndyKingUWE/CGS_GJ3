@@ -32,11 +32,14 @@ public class ProceduralRail : MonoBehaviour {
             return;
 
         // The faster you go the smaller speed is (Because smaller speed = faster)
-        origin.speed = 1 / ((other.attachedRigidbody.velocity.magnitude * 5) / 100);
-        if (origin.speed > 1)
-            origin.speed = 1;
-        if (origin.speed < 0.1)
-            origin.speed = 0.1f;
+       
+            origin.speed = 0.2f;
+            //origin.speed = 1 / ((hc.speed * 5) / 100);
+            //if (origin.speed > 1)
+            //    origin.speed = 1;
+            //if (origin.speed < 0.1)
+            //    origin.speed = 0.1f;
+        
 
         if (!used)
         switch (0)
