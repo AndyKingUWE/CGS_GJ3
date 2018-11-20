@@ -28,11 +28,15 @@ public class ProceduralRail : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "cart")
+        if (other.gameObject.tag != "Player")
             return;
 
         // The faster you go the smaller speed is (Because smaller speed = faster)
-        origin.speed = 1 / ((other.attachedRigidbody.velocity.magnitude * 5) / 100); 
+        origin.speed = 1 / ((other.attachedRigidbody.velocity.magnitude * 5) / 100);
+        if (origin.speed > 1)
+            origin.speed = 1;
+        if (origin.speed < 0.1)
+            origin.speed = 0.1f;
 
         if (!used)
         switch (0)
