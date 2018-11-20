@@ -10,6 +10,9 @@ public class Original : MonoBehaviour
     public GameObject[] rightPieces;
     [HideInInspector]
     public Vector3 size;
+    public float speed = 0.1f;
+    public float heightUp = 5f;
+    public int deathTime = 5;
 
     private void Start()
     {
