@@ -34,7 +34,8 @@ public class ProceduralRail : MonoBehaviour {
             return; 
 
         if (!used)
-        switch (Random.Range(0,2))
+        switch (0)
+                //Random.Range(0, 2)
         {
             case 0:
                 CreateNewPiece("forward", pieceF);
@@ -62,16 +63,16 @@ public class ProceduralRail : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        aliveTime += Time.deltaTime;
+        //aliveTime += Time.deltaTime;
         timePassed += Time.deltaTime; 
         //This is just for debugging 
         CheckInput(); 
         
         //Delete past tracks
-        if (used && aliveTime > deathTime)
-        {
-            Destroy(gameObject); 
-        }
+        //if (used && aliveTime > deathTime)
+        //{
+        //    Destroy(gameObject); 
+        //}
 
         if(!finishedRailPlacing)
             UpdateRailFalling();
