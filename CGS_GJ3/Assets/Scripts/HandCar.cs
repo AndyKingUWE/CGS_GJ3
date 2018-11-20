@@ -16,6 +16,7 @@ public class HandCar : MonoBehaviour
     private Track currentTrack;
     [SerializeField] private float speedModifier = 5;
     [SerializeField] private Transform movementLever;
+    [SerializeField] private Transform brakeLever;
     [SerializeField]
     private List<WheelCollider> motorWheels;
     [SerializeField] private List<BoxCollider> triggers;
@@ -73,7 +74,8 @@ public class HandCar : MonoBehaviour
             vrinput = Input.GetAxis("Vertical");
         }
         GetCurrentTrack();
-        MoveLever();
+        BrakeLever();
+        MoveLever();        
 
         
 
@@ -129,8 +131,10 @@ public class HandCar : MonoBehaviour
 
         
 
+        float slowdownSpeed = 2.0f;
+
         if (pumpState==PumpState.IDLE)
-            input -= Time.fixedDeltaTime/2f;
+            input -= Time.fixedDeltaTime/slowdownSpeed;
         if (input < 0.0f)
             input = 0.0f;
 
@@ -235,9 +239,18 @@ public class HandCar : MonoBehaviour
 
     private void Brake(float force)
     {
-        foreach (var wheel in motorWheels)
+        //foreach (var wheel in motorWheels)
+        //{
+        //    wheel.brakeTorque = force * speedModifier;
+        //}
+
+        float dampeningForce = 0.001f;
+
+        input -= (force * dampeningForce);
+
+        if (input < 0)
         {
-            wheel.brakeTorque = force * speedModifier;
+            input = 0;
         }
     }
 
@@ -256,6 +269,20 @@ public class HandCar : MonoBehaviour
         foreach (var wheel in motorWheels)
         {
             wheel.motorTorque = force * speedModifier;
+        }
+    }
+
+    private void BrakeLever()
+    {
+        float force = brakeLever.localEulerAngles.x;
+        //check if brake lever is pulled
+        if ((360 - force) < 20)
+        {
+            force = (360 - force) / 10;
+            force = force * force;
+
+            Debug.Log(force);
+            Brake(force);
         }
     }
 
