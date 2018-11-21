@@ -53,6 +53,10 @@ namespace VRTK
         public Color nearTouchHighlight = Color.clear;
         [Tooltip("The colour to highlight the object on the touch interaction.")]
         public Color touchHighlight = Color.clear;
+
+        [Tooltip("Highlight when grabbed?")]
+        public bool canGrab = false;
+
         [Tooltip("The colour to highlight the object on the grab interaction.")]
         public Color grabHighlight = Color.clear;
         [Tooltip("The colour to highlight the object on the use interaction.")]
@@ -274,10 +278,18 @@ namespace VRTK
 
         protected virtual void GrabHighlightObject(object sender, InteractableObjectEventArgs e)
         {
-            VRTK_InteractableObject interactableObject = sender as VRTK_InteractableObject;
-            if (!interactableObject.IsUsing())
+            if (canGrab)
             {
-                Highlight(grabHighlight);
+                VRTK_InteractableObject interactableObject = sender as VRTK_InteractableObject;
+                if (!interactableObject.IsUsing())
+                {
+                    Highlight(grabHighlight);
+                    OnInteractObjectHighlighterHighlighted(SetEventArgs(VRTK_InteractableObject.InteractionType.Grab, e.interactingObject));
+                }
+            }
+            else
+            {
+                Unhighlight();
                 OnInteractObjectHighlighterHighlighted(SetEventArgs(VRTK_InteractableObject.InteractionType.Grab, e.interactingObject));
             }
         }
@@ -304,8 +316,11 @@ namespace VRTK
 
         protected virtual void UseHighlightObject(object sender, InteractableObjectEventArgs e)
         {
-            Highlight(useHighlight);
-            OnInteractObjectHighlighterHighlighted(SetEventArgs(VRTK_InteractableObject.InteractionType.Use, e.interactingObject));
+            if (canGrab)
+            {
+                Highlight(useHighlight);
+                OnInteractObjectHighlighterHighlighted(SetEventArgs(VRTK_InteractableObject.InteractionType.Use, e.interactingObject));
+            }
         }
 
         protected virtual void UseUnHighlightObject(object sender, InteractableObjectEventArgs e)

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114520728802621232}
   - component: {fileID: 54484257331200704}
   - component: {fileID: 114260591090262672}
+  - component: {fileID: 114507796809047738}
   m_Layer: 13
   m_Name: miner_lamp
   m_TagString: Untagged
@@ -2291,6 +2292,7 @@ GameObject:
   - component: {fileID: 135431142013593000}
   - component: {fileID: 135721966708009788}
   - component: {fileID: 114661130932795210}
+  - component: {fileID: 114400422464489254}
   m_Layer: 13
   m_Name: pickaxe
   m_TagString: Untagged
@@ -6539,6 +6541,26 @@ MonoBehaviour:
   smoothsScale: 0
   maxAllowedPerFrameSizeDifference: 0.003
   _moment: 2
+--- !u!114 &114400422464489254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922351868475780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4b5dd2be1cea4aaea2850b910d3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearTouchHighlight: {r: 0.99072987, g: 1, b: 0.6179246, a: 0}
+  touchHighlight: {r: 1, g: 0.9893146, b: 0.61960787, a: 0}
+  canGrab: 0
+  grabHighlight: {r: 0, g: 0, b: 0, a: 0}
+  useHighlight: {r: 0, g: 0, b: 0, a: 0}
+  objectToMonitor: {fileID: 114363969067256096}
+  objectToHighlight: {fileID: 0}
+  objectHighlighter: {fileID: 0}
+  objectToAffect: {fileID: 0}
 --- !u!114 &114404164173722376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6856,6 +6878,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceOculusFloorLevel: 1
+--- !u!114 &114507796809047738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011978858663426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4b5dd2be1cea4aaea2850b910d3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearTouchHighlight: {r: 1, g: 1, b: 0.61960787, a: 0}
+  touchHighlight: {r: 1, g: 1, b: 0.61960787, a: 0}
+  canGrab: 0
+  grabHighlight: {r: 0, g: 0, b: 0, a: 0}
+  useHighlight: {r: 0, g: 0, b: 0, a: 0}
+  objectToMonitor: {fileID: 114595556897291822}
+  objectToHighlight: {fileID: 0}
+  objectHighlighter: {fileID: 0}
+  objectToAffect: {fileID: 0}
 --- !u!114 &114520728802621232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7122,6 +7164,7 @@ MonoBehaviour:
   musicSource: {fileID: 0}
   lowPitchRange: 0.95
   highPitchRange: 1.05
+  audioClips: []
 --- !u!114 &114724588931326468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -50084,7 +50127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 629, y: -70}
+  m_AnchoredPosition: {x: 1105, y: -70}
   m_SizeDelta: {x: 142, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224427861076764112
