@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 136042075734523672}
   - component: {fileID: 114911907609168668}
   - component: {fileID: 114953439185858408}
+  - component: {fileID: 114636455103899534}
   m_Layer: 0
   m_Name: Dynamite
   m_TagString: Untagged
@@ -40,8 +41,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1869306130118622}
   m_LocalRotation: {x: 0.50000006, y: 0.49999994, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -25.206003, y: 52.619984, z: 232.66908}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: -5.815777, y: 2.5934277, z: -9.760373}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,6 +123,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114636455103899534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869306130118622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4b5dd2be1cea4aaea2850b910d3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearTouchHighlight: {r: 1, g: 1, b: 0.61960787, a: 0}
+  touchHighlight: {r: 1, g: 1, b: 0.61960787, a: 0}
+  canGrab: 0
+  grabHighlight: {r: 0, g: 0, b: 0, a: 0}
+  useHighlight: {r: 0, g: 0, b: 0, a: 0}
+  objectToMonitor: {fileID: 114953439185858408}
+  objectToHighlight: {fileID: 0}
+  objectHighlighter: {fileID: 0}
+  objectToAffect: {fileID: 0}
 --- !u!114 &114911907609168668
 MonoBehaviour:
   m_ObjectHideFlags: 1
