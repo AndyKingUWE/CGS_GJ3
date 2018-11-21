@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance = null;     //Allows other scripts to call functions from SoundManager.             
     public float lowPitchRange = .95f;              //The lowest a sound effect will be randomly pitched.
     public float highPitchRange = 1.05f;            //The highest a sound effect will be randomly pitched.
-
+    [SerializeField] List<AudioClip> audioClips;
 
     void Awake()
     {
@@ -36,10 +37,31 @@ public class SoundManager : MonoBehaviour
         efxSource.PlayOneShot(clip);
     }
 
+    public void PlaySingle(string clip)
+    {
+        var ac = GetAudioClip(clip);
+        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+        efxSource.clip = ac;
+
+        //Play the clip.
+        efxSource.PlayOneShot(ac);
+    }
+
+    public AudioClip GetAudioClip(string name)
+    {
+        return audioClips.Find(item => item.name.Substring(0) == name);
+    }
+
     public void PlaySingleDelayed(AudioClip clip, float delay)
     {
         StartCoroutine(PlaySingleDelayedCoroutine(clip, delay));
     }
+
+    public void PlaySingleDelayed(string clip, float delay)
+    {
+        StartCoroutine(PlaySingleDelayedCoroutine(GetAudioClip(clip), delay));
+    }
+
     IEnumerator PlaySingleDelayedCoroutine(AudioClip clip, float delay)
     {
         yield return new WaitForSeconds(delay);
