@@ -33,6 +33,9 @@ public class HandCar : MonoBehaviour
     public float input = 0.0f;
     public float vrinput = 0.0f;
     public float speed;
+    [SerializeField] private AudioClip track;
+    private int trackCount = 0;
+    private float soundtimer=0f;
     // Use this for initialization
     void Start()
     {
@@ -63,6 +66,27 @@ public class HandCar : MonoBehaviour
 
             if (currentTrack != prevTrack)
             {
+                trackCount++;
+                if(trackCount>= 1)
+                {
+                       var mod = input;
+                    if(mod>5)
+                    {
+                        mod = 5;
+                    }
+                    mod = 0.75f / mod;
+                    if(mod<0.1f)
+                    {
+                        mod = 0.1f;
+                    }
+                    if(soundtimer > 0.5f)
+                    {
+                        SoundManager.instance.PlaySingle(track);
+                        SoundManager.instance.PlaySingleDelayed(track, mod);
+                        soundtimer = 0;
+                    }
+                    trackCount = 0;
+                }
                 ResetPosition();
             }
         }
@@ -71,6 +95,7 @@ public class HandCar : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        soundtimer += Time.fixedDeltaTime;
         GetCurrentTrack();
         BrakeLever();
         MoveLever();        

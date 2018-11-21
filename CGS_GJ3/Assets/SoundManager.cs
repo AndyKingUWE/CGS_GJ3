@@ -33,9 +33,18 @@ public class SoundManager : MonoBehaviour
         efxSource.clip = clip;
 
         //Play the clip.
-        efxSource.Play();
+        efxSource.PlayOneShot(clip);
     }
 
+    public void PlaySingleDelayed(AudioClip clip, float delay)
+    {
+        StartCoroutine(PlaySingleDelayedCoroutine(clip, delay));
+    }
+    IEnumerator PlaySingleDelayedCoroutine(AudioClip clip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlaySingle(clip);
+    }
 
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
     public void RandomizeSfx(params AudioClip[] clips)
