@@ -263,6 +263,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: forwardPieces.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4848370589460524, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -333,6 +338,42 @@ Prefab:
       propertyPath: trackLayFrequency
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: forwardPieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 1199274743609024, guid: 89434628ca3bdd643898f290d75fff50,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: forwardPieces.Array.data[2]
+      value: 
+      objectReference: {fileID: 1661835385165604, guid: 7da82da903951b246b439498208de1f7,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: forwardPieces.Array.data[3]
+      value: 
+      objectReference: {fileID: 1897542236920246, guid: 6a2a379d92b3792448be7653dc09055b,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: forwardPieces.Array.data[4]
+      value: 
+      objectReference: {fileID: 1437669132077490, guid: f0316c8a48593db45a133e0bedec5367,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: forwardPieces.Array.data[5]
+      value: 
+      objectReference: {fileID: 1505166464393462, guid: 489c4ea2d94f14f4b8ffe0b022af66a9,
+        type: 2}
+    - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: forwardPieces.Array.data[6]
+      value: 
+      objectReference: {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
   m_IsPrefabAsset: 0
