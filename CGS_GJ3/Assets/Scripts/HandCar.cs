@@ -36,6 +36,8 @@ public class HandCar : MonoBehaviour
     [SerializeField] private AudioClip track;
     private int trackCount = 0;
     private float soundtimer=0f;
+    [SerializeField] private List<GameObject> brakingParticles;
+
     // Use this for initialization
     void Start()
     {
@@ -267,7 +269,7 @@ public class HandCar : MonoBehaviour
         float dampeningForce = 0.001f;
 
         input -= (force * dampeningForce);
-
+        
         if (input < 0)
         {
             input = 0;
@@ -300,9 +302,19 @@ public class HandCar : MonoBehaviour
         {
             force = (360 - force) / 10;
             force = force * force;
-
+            foreach (var item in brakingParticles)
+            {
+                item.SetActive(true);
+            }
             Debug.Log(force);
             Brake(force);
+        }
+        else
+        {
+            foreach (var item in brakingParticles)
+            {
+                item.SetActive(false);
+            }
         }
     }
 
