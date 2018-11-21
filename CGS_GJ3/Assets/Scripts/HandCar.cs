@@ -296,20 +296,42 @@ public class HandCar : MonoBehaviour
 
     private void BrakeLever()
     {
+        bool disable_sparks = false;
+
+        float spd = input * 3.14f;
+
         float force = brakeLever.localEulerAngles.x;
         //check if brake lever is pulled
-        if ((360 - force) < 20)
+        if ((360 - force) < 30)
         {
             force = (360 - force) / 10;
-            force = force * force;
-            foreach (var item in brakingParticles)
+            force = force * force;                       
+
+            if ((360 - force) > 10)
             {
-                item.SetActive(true);
+                if (spd > 7.0f)
+                {
+                    foreach (var item in brakingParticles)
+                    {
+                        item.SetActive(true);
+                    }
+                }
             }
-            Debug.Log(force);
+
             Brake(force);
-        }
+        }        
+
         else
+        {
+            disable_sparks = true;
+        }
+
+        if (spd < 7.0f)
+        {
+            disable_sparks = true;
+        }
+
+        if (disable_sparks)
         {
             foreach (var item in brakingParticles)
             {
