@@ -1,0 +1,45 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class dynamite : MonoBehaviour {
+
+    private bool lit = true;
+    private float fuse_timer = 0.0f;
+
+    [SerializeField] float fuse_length = 5.0f;
+
+    [SerializeField] ParticleSystem explosion_prefab;
+    [SerializeField] ParticleSystem fire_prefab;
+
+    // Use this for initialization
+    void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update ()
+    {
+		if (lit)
+        {
+            fuse_timer += Time.deltaTime;
+
+            if (fuse_timer > fuse_length)
+            {
+                Explode();
+            }
+        }
+	}
+
+    public void LightFuse()
+    {
+        lit = true;
+    }
+
+    private void Explode()
+    {
+        Instantiate(explosion_prefab, transform.position, transform.rotation);
+        Instantiate(fire_prefab, transform.position, transform.rotation);
+        Destroy(this.gameObject);
+    }
+}
