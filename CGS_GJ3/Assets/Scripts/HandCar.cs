@@ -14,22 +14,15 @@ public class HandCar : MonoBehaviour
         GRABBED = 3
     }
     public float slowdownSpeed = 2.0f;
-    [SerializeField]
     private Track currentTrack;
     [SerializeField] private float speedModifier = 5;
     [SerializeField] private Transform movementLever;
     [SerializeField] private Transform brakeLever;
-    [SerializeField]
-    private List<WheelCollider> motorWheels;
-    [SerializeField] private List<BoxCollider> triggers;
     [SerializeField] private List<Transform> wheelTransforms;
     private bool coroutineStarted = false;
-    private float modifier = 1;
-    [SerializeField] private PumpState pumpState = PumpState.IDLE;
+    private float modifier = 1;private PumpState pumpState = PumpState.IDLE;
     private float timer = 0.0f;
     private Rigidbody myRigidbody;
-    [SerializeField] private Transform axle;
-    [SerializeField] private Transform axle2;
     private float ClosestPoint;
     public float input = 0.0f;
     public float vrinput = 0.0f;
@@ -95,6 +88,8 @@ public class HandCar : MonoBehaviour
         }
     }
 
+   
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -112,10 +107,7 @@ public class HandCar : MonoBehaviour
         {
             speedModifier--;
         }
-        foreach (var wheel in motorWheels)
-        {
-            //wheel.motorTorque = speedModifier;
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.U))
         {
@@ -274,14 +266,7 @@ public class HandCar : MonoBehaviour
             ClosestPoint = 1 - ClosestPoint;
             currentTrack = currentTrack.forwardTrack;
         }
-        //SetPosition();
-        //GetComponent<Rigidbody>().AddForce(transform.forward * force * speedModifier);
-        //axle.Rotate(Vector3.right * force* speedModifier);
-        //axle2.Rotate(Vector3.right * force* speedModifier);
-        foreach (var wheel in motorWheels)
-        {
-            wheel.motorTorque = force * speedModifier;
-        }
+        
     }
 
     private void BrakeLever()
