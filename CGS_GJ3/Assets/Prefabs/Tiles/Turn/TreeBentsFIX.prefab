@@ -4321,7 +4321,7 @@ GameObject:
   - component: {fileID: 65649051590252882}
   - component: {fileID: 65516942356865660}
   m_Layer: 0
-  m_Name: TreeBents
+  m_Name: TreeBentsFIX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

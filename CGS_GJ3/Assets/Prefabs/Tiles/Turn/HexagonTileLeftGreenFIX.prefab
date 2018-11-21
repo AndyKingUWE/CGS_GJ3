@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 65002331198635410}
   - component: {fileID: 65812504307182516}
   m_Layer: 0
-  m_Name: HexagonTileLeftGreen
+  m_Name: HexagonTileLeftGreenFIX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
