@@ -331,7 +331,7 @@ Prefab:
     - target: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230,
         type: 2}
       propertyPath: trackLayFrequency
-      value: 30
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
