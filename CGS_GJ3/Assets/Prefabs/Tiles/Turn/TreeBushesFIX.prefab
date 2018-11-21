@@ -2448,7 +2448,7 @@ GameObject:
   - component: {fileID: 65177090062894556}
   - component: {fileID: 65838623125900544}
   m_Layer: 0
-  m_Name: TreeBushesFIX
+  m_Name: TreeBushes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

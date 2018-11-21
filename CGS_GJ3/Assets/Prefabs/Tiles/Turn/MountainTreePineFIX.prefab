@@ -1748,7 +1748,7 @@ GameObject:
   - component: {fileID: 65053153557496962}
   - component: {fileID: 65361149008357580}
   m_Layer: 0
-  m_Name: MountainTreePineFIX
+  m_Name: MountainTreePine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
