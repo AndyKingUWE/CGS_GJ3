@@ -22,6 +22,7 @@ public class HandCar : MonoBehaviour
     [SerializeField]
     private List<WheelCollider> motorWheels;
     [SerializeField] private List<BoxCollider> triggers;
+    [SerializeField] private List<Transform> wheelTransforms;
     private bool coroutineStarted = false;
     private float modifier = 1;
     [SerializeField] private PumpState pumpState = PumpState.IDLE;
@@ -133,10 +134,6 @@ public class HandCar : MonoBehaviour
 
 
 
-        //if (modifier > 20)
-        //{
-        //    AddForce(modifier * Time.unscaledDeltaTime);
-        //}
 
         ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
 
@@ -146,11 +143,14 @@ public class HandCar : MonoBehaviour
             currentTrack = currentTrack.forwardTrack;
         }
 
-        transform.position += transform.forward * Time.fixedDeltaTime * input * speedModifier;
+        var position = transform.position + transform.forward * Time.fixedDeltaTime * input * speedModifier;
+        myRigidbody.MovePosition(position);
 
 
         var newforward = currentTrack.spline.Forward(ClosestPoint);
-        transform.forward = newforward;
+        var transformtemp = transform;
+        transformtemp.forward = newforward;
+        myRigidbody.MoveRotation(transformtemp.rotation);
         
 
         if (pumpState==PumpState.IDLE)
@@ -158,28 +158,18 @@ public class HandCar : MonoBehaviour
         if (input < 0.0f)
             input = 0.0f;
 
-        var start = currentTrack.spline.GetPosition(ClosestPoint);
-        start.y = 0;
-        var end = transform.position;
-        end.y = 0;
-        var distance = Vector3.Distance(start, end);
-        //Debug.Log(distance);
-        if (distance >= 0.1f)
-        {
-            end.x = start.x;
-            end.z = start.z;
-            end.y = transform.position.y;
-
-            //transform.position = end;
-        }
+       
         speed = myRigidbody.velocity.magnitude;
     }
 
     private void Update()
     {
-        float spd = input * 3.14f;
-        axle.Rotate(Vector3.right, spd);
-        axle2.Rotate(Vector3.right, spd);
+        foreach (var item in wheelTransforms)
+        {
+            item.Rotate(Vector3.right, speed);
+        }
+        //axle.Rotate(Vector3.right, spd);
+        //axle2.Rotate(Vector3.right, spd);
     }
 
     internal void SetPosition()
@@ -304,7 +294,7 @@ public class HandCar : MonoBehaviour
             force = force * force;
             foreach (var item in brakingParticles)
             {
-                item.SetActive(true);
+                //item.SetActive(true);
             }
             Debug.Log(force);
             Brake(force);
@@ -313,7 +303,7 @@ public class HandCar : MonoBehaviour
         {
             foreach (var item in brakingParticles)
             {
-                item.SetActive(false);
+                //item.SetActive(false);
             }
         }
     }

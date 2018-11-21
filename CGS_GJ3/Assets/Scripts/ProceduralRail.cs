@@ -111,7 +111,7 @@ public class ProceduralRail : MonoBehaviour {
         }
 
         distanceTravelled += (origin.handCarSpeed.input*Mathf.PI) * Time.deltaTime;
-        Debug.Log(distanceTravelled);
+        //Debug.Log(distanceTravelled);
     }
 
     void UpdateRailFalling()
