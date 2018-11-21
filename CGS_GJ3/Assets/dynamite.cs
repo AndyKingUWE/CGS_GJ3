@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class dynamite : MonoBehaviour {
 
-    private bool lit = true;
+    private bool lit = false;
     private float fuse_timer = 0.0f;
 
     [SerializeField] float fuse_length = 5.0f;

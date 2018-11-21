@@ -9,21 +9,23 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1293644193987464}
+  m_RootGameObject: {fileID: 1869306130118622}
   m_IsPrefabAsset: 1
---- !u!1 &1293644193987464
+--- !u!1 &1869306130118622
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4824535267671786}
-  - component: {fileID: 33819518676942232}
-  - component: {fileID: 23255818848986278}
-  - component: {fileID: 54337979366049508}
-  - component: {fileID: 136217398876725138}
-  - component: {fileID: 114093265093034548}
+  - component: {fileID: 4327107136010350}
+  - component: {fileID: 33435749034065584}
+  - component: {fileID: 23465558114390158}
+  - component: {fileID: 95459069613725748}
+  - component: {fileID: 54855806726482768}
+  - component: {fileID: 136042075734523672}
+  - component: {fileID: 114911907609168668}
+  - component: {fileID: 114953439185858408}
   m_Layer: 0
   m_Name: Dynamite
   m_TagString: Untagged
@@ -31,25 +33,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4824535267671786
+--- !u!4 &4327107136010350
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293644193987464}
-  m_LocalRotation: {x: -0.004691023, y: -0.7070913, z: -0.7070913, w: 0.0046908967}
-  m_LocalPosition: {x: -6.254, y: 2.484, z: -6.727}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_GameObject: {fileID: 1869306130118622}
+  m_LocalRotation: {x: 0.50000006, y: 0.49999994, z: 0.5, w: -0.5}
+  m_LocalPosition: {x: -25.206003, y: 52.619984, z: 232.66908}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -179.24}
---- !u!23 &23255818848986278
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23465558114390158
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293644193987464}
+  m_GameObject: {fileID: 1869306130118622}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +61,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5c12ac9dd0cea9d42aa0e7d57e29d60f, type: 2}
+  - {fileID: 2100000, guid: b532da99fd9e8d34e8df5df3d0ac92c3, type: 3}
+  - {fileID: 2100002, guid: b532da99fd9e8d34e8df5df3d0ac92c3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,19 +82,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33819518676942232
+--- !u!33 &33435749034065584
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293644193987464}
-  m_Mesh: {fileID: 4300000, guid: 202ab4f91960ea048b9f387e54571e61, type: 3}
---- !u!54 &54337979366049508
+  m_GameObject: {fileID: 1869306130118622}
+  m_Mesh: {fileID: 4300000, guid: b532da99fd9e8d34e8df5df3d0ac92c3, type: 3}
+--- !u!54 &54855806726482768
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293644193987464}
+  m_GameObject: {fileID: 1869306130118622}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -101,12 +104,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114093265093034548
+--- !u!95 &95459069613725748
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869306130118622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b532da99fd9e8d34e8df5df3d0ac92c3, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114911907609168668
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293644193987464}
+  m_GameObject: {fileID: 1869306130118622}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0bfcce7f4efaa46ad46bfc37103099, type: 3}
@@ -116,16 +137,48 @@ MonoBehaviour:
   explosion_prefab: {fileID: 198480356236832188, guid: 7addd085b61122643b4e222b8e1f2732,
     type: 2}
   fire_prefab: {fileID: 19823612, guid: 9471d2206e57ca246a4bf982f3c29c8f, type: 2}
---- !u!136 &136217398876725138
+--- !u!114 &114953439185858408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869306130118622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  allowedNearTouchControllers: 0
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 1
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 0
+  holdButtonToUse: 1
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  objectHighlighter: {fileID: 0}
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  usingState: 0
+--- !u!136 &136042075734523672
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293644193987464}
+  m_GameObject: {fileID: 1869306130118622}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0028734235
-  m_Height: 0.024
+  m_Radius: 0.002873423
+  m_Height: 0.025
   m_Direction: 1
-  m_Center: {x: -0.00024336824, y: -0, z: 0.0026002189}
+  m_Center: {x: -0.00024336821, y: -0, z: 0.0026002189}
