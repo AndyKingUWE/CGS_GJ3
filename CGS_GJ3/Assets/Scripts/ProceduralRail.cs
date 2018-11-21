@@ -21,7 +21,7 @@ public class ProceduralRail : MonoBehaviour {
     bool finishedRailPlacing = false;
     bool waitingForPreviousTile = true; 
 
-    public GameObject[] tracks; 
+    //public GameObject[] tracks; 
     
 
 	// Use this for initialization
