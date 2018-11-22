@@ -19,8 +19,8 @@ public class ProceduralRail : MonoBehaviour {
     
     bool used = false;
     bool finishedRailPlacing = false;
-    bool waitingForPreviousTile = true; 
-
+    bool waitingForPreviousTile = true;
+    int modulo = 5;
     //public GameObject[] tracks; 
     
 
@@ -28,7 +28,7 @@ public class ProceduralRail : MonoBehaviour {
 	void Start () {
         pieceF = origin.forwardPieces[Random.Range(0, origin.forwardPieces.Length - 1)];
         pieceL = origin.leftPieces[Random.Range(0, origin.leftPieces.Length - 1)];
-        pieceR = origin.rightPieces[Random.Range(0, origin.rightPieces.Length - 1)];
+        pieceR = origin.rightPieces[Random.Range(0, origin.rightPieces.Length - 1)]; modulo = Random.Range(3, 10);
     }
 
     void OnTriggerEnter(Collider other)
@@ -139,6 +139,11 @@ public class ProceduralRail : MonoBehaviour {
             distanceTravelled = 0; 
             counter++;
             trackCount++;
+            if(counter % modulo ==0)
+            {
+                segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5,10);
+                modulo = Random.Range(3, 10);
+            }
             if (counter == 22)
                 finishedRailPlacing = true;
         }
