@@ -92,13 +92,13 @@ public class HandCar : MonoBehaviour
 
     private IEnumerator Shake()
     {
-        chassis.localPosition -= Vector3.up * 0.01f * UnityEngine.Random.Range(1.0f,5.0f);
-        while (chassis.localPosition.y<0)
-        {
-            chassis.localPosition += Time.fixedDeltaTime * Vector3.up;
-            yield return null;
-        }
-        chassis.localPosition = Vector3.zero;
+        //chassis.localPosition -= Vector3.up * 0.01f * UnityEngine.Random.Range(1.0f,5.0f);
+        //while (chassis.localPosition.y<0)
+        //{
+        //    chassis.localPosition += Time.fixedDeltaTime * Vector3.up;
+        //    yield return null;
+        //}
+        //chassis.localPosition = Vector3.zero;
         yield return null;
     }
 
