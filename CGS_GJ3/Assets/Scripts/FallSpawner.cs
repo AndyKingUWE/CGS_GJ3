@@ -11,15 +11,18 @@ public class FallSpawner : MonoBehaviour {
     Quaternion endRot; 
     ProceduralRail tile; 
     float fallDistance, startTime;
-    bool triggered = true;
-    public bool first = false; 
-
+    public float delay;
+    Renderer rend; 
     // Use this for initialization
     void Start()
 	{
-        if (!first)
+        if (delay != 0)
         {
-            tile = transform.parent.parent.GetComponent<ProceduralRail>();
+            tile = transform.parent.parent.parent.parent.GetComponent<ProceduralRail>();
+
+            if (tile == null)
+                Debug.Log("FallSpawner cannot find ProceduralRail in tile"); 
+
             startPos = transform.position + transform.up * tile.origin.heightUp;
             startRot = Quaternion.Euler(-90, 0, 0);
             endRot = transform.rotation;
@@ -28,6 +31,8 @@ public class FallSpawner : MonoBehaviour {
             transform.rotation = startRot; 
             fallDistance = Vector3.Distance(startPos, endPos);
             startTime = Time.time;
+            rend = gameObject.GetComponent<Renderer>();
+            rend.enabled = false; 
         }
         else
             enabled = false; 
@@ -36,19 +41,19 @@ public class FallSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		if (triggered)
+		if (Time.time - startTime > delay)
 		{
-            float t = (Time.time - startTime) / tile.origin.trackLaySpeed;
+            rend.enabled = true; 
+            float t = (Time.time - (startTime + delay)) / tile.origin.trackLaySpeed;
             //t = Mathf.Sin(t * Mathf.PI * 0.5f);
             transform.position = Vector3.Lerp(startPos, endPos, t);
             transform.rotation = Quaternion.Lerp(startRot, endRot, t); 
             //Stop lerp sin waving back up
             if (transform.position.y < endPos.y + 0.01f)
             {
-                triggered = false;
-                transform.position = endPos; 
-            }
-                
+                //transform.position = endPos;
+                enabled = false; 
+            }     
         }
 	}
 
@@ -75,9 +80,9 @@ public class FallSpawner : MonoBehaviour {
     //    }
     //}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "SpawnTrigger")
-			triggered = true;
-	}
+	//private void OnTriggerEnter(Collider other)
+	//{
+	//	if (other.tag == "SpawnTrigger")
+	//		triggered = true;
+	//}
 }
