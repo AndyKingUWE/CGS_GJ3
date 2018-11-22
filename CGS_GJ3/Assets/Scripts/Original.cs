@@ -8,6 +8,7 @@ public class Original : MonoBehaviour
     public GameObject[] forwardPieces;
     public GameObject[] leftPieces;
     public GameObject[] rightPieces;
+    public GameObject[] decorativePieces; 
     public GameObject track_straight_new;
     public GameObject track_bent_new; 
     public GameObject handCar; 

@@ -13,7 +13,8 @@ public class ProceduralRail : MonoBehaviour {
     float tracksLaidfreq = 0;
     float distanceTravelled = 50;
     int counter = 0;
-    int trackCount = 0; 
+    //Tracks per second count
+    int tpsCount = 0; 
     Vector3 startTrackPos = new Vector3(0, 2.45f, -19.64f);
     Vector3 startHandCarPos = new Vector3(0, 5.7f, -41.5f);
     
@@ -77,8 +78,8 @@ public class ProceduralRail : MonoBehaviour {
 	void Update ()
     {
         //aliveTime += Time.deltaTime;
-        tracksLaidfreq = trackCount / Time.deltaTime;
-        trackCount = 0; 
+        tracksLaidfreq = tpsCount / Time.deltaTime;
+        tpsCount = 0; 
         
         //This is just for debugging 
         CheckInput();
@@ -139,25 +140,54 @@ public class ProceduralRail : MonoBehaviour {
         }
         if (distanceTravelled > origin.trackLayFrequency && tracksLaidfreq < origin.trackLayMaxFreq)
         {
-            GameObject segment = Instantiate(origin.track_straight_new, transform.GetChild(0));
-            segment.transform.localPosition = startTrackPos;
-            FallSpawner[] fallspawners = segment.transform.GetChild(0).GetComponentsInChildren<FallSpawner>();
-            segment.transform.localScale /= 2;
-            startTrackPos += new Vector3(0, 0, 2);
-            for (int i = 0; i < fallspawners.Length; i++)
-            {
-                fallspawners[i].delay = (i / 10f) + 0.1f;
-            }
+            if (counter == 7)
+                PlaceTurnTrack();
+            else
+                PlaceStraightTrack(); 
+
             distanceTravelled = 0; 
             counter++;
-            trackCount++;
-            if(counter % modulo ==0)
-            {
-                segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5,10);
-                modulo = Random.Range(3, 10);
-            }
+            tpsCount++;
             if (counter == 22)
                 finishedRailPlacing = true;
+        }
+    }
+
+    void PlaceTurnTrack()
+    {
+        startTrackPos += new Vector3(-7.23F, 0, 6.3F);
+        GameObject segment = Instantiate(origin.track_bent_new, transform.GetChild(0));
+        segment.transform.localPosition = startTrackPos;
+        FallSpawner[] fallspawners = segment.transform.GetChild(0).GetComponentsInChildren<FallSpawner>();
+        segment.transform.localScale /= 2;
+        startTrackPos += new Vector3(0, 0, 2);
+        for (int i = 0; i < fallspawners.Length; i++)
+        {
+            fallspawners[i].delay = (i / 20f) + 0.1f;
+        }
+        if (counter % modulo == 0)
+        {
+            segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5, 10);
+            modulo = Random.Range(3, 10);
+        }
+        counter += 7; 
+    }
+
+    void PlaceStraightTrack()
+    {
+        GameObject segment = Instantiate(origin.track_straight_new, transform.GetChild(0));
+        segment.transform.localPosition = startTrackPos;
+        FallSpawner[] fallspawners = segment.transform.GetChild(0).GetComponentsInChildren<FallSpawner>();
+        segment.transform.localScale /= 2;
+        startTrackPos += new Vector3(0, 0, 2);
+        for (int i = 0; i < fallspawners.Length; i++)
+        {
+            fallspawners[i].delay = (i / 20f) + 0.1f;
+        }
+        if (counter % modulo == 0)
+        {
+            segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5, 10);
+            modulo = Random.Range(3, 10);
         }
     }
 
@@ -198,6 +228,15 @@ public class ProceduralRail : MonoBehaviour {
                                    transform.rotation, 
                                    transform.parent);
                 obj.GetComponent<ProceduralRail>().SetOrigin(origin);
+                //Decorative Pieces
+                Instantiate(origin.decorativePieces[Random.Range(0, origin.decorativePieces.Length)],
+                            obj.transform.position - new Vector3(size.x * 0.75f, Random.Range(-1f, 1f), size.z * 0.5f),
+                            obj.transform.rotation, 
+                            obj.transform.parent);
+                Instantiate(origin.decorativePieces[Random.Range(0, origin.decorativePieces.Length)],
+                            obj.transform.position - new Vector3(-size.x * 0.75f, Random.Range(-1f, 1f), size.z * 0.5f),
+                            obj.transform.rotation,
+                            obj.transform.parent);
                 break;
             case "left":
                 var objL = Instantiate(_model, transform.position + Vector3.Scale(size, trForward),
@@ -206,7 +245,6 @@ public class ProceduralRail : MonoBehaviour {
                                     transform.rotation.eulerAngles.z),
                                     transform.parent);
                 objL.GetComponent<ProceduralRail>().SetOrigin(origin);
-
                 break;
             case "right":
                 var objR = Instantiate(_model, transform.position + Vector3.Scale(size, trForward),

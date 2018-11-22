@@ -4,14 +4,44 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Fastner_1
+    100004: Fastner_2
+    100006: Ground
+    100008: Rail_1
+    100010: Rail_2
+    100012: Sleeper_1
     400000: //RootNode
+    400002: Fastner_1
+    400004: Fastner_2
+    400006: Ground
+    400008: Rail_1
+    400010: Rail_2
+    400012: Sleeper_1
     2100000: grey_light
     2100002: grey_mid
     2100004: wood_light
     2100006: metal_light
     2300000: //RootNode
+    2300002: Fastner_1
+    2300004: Fastner_2
+    2300006: Ground
+    2300008: Rail_1
+    2300010: Rail_2
+    2300012: Sleeper_1
     3300000: //RootNode
+    3300002: Fastner_1
+    3300004: Fastner_2
+    3300006: Ground
+    3300008: Rail_1
+    3300010: Rail_2
+    3300012: Sleeper_1
     4300000: 1_straight.000
+    4300002: Ground
+    4300004: Rail_2
+    4300006: Rail_1
+    4300008: Fastner_1
+    4300010: Fastner_2
+    4300012: Sleeper_1
   externalObjects:
   - first:
       type: UnityEngine:Material

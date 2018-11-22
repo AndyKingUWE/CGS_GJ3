@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: 122c05ace2b7c6c4d97ece6784a46fbb
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: WideDoubleTrack_Gate_1
+    100004: WideDoubleTrack_Gate_2
+    100006: WideDoubleTrack_Gate_3
+    100008: WideDoubleTrack_Gate_4
+    100010: WideDoubleTrack_Ground_Road
+    100012: WideDoubleTrack_Ground_Track
+    100014: WideDoubleTrack_Island_1
+    100016: WideDoubleTrack_Island_2
+    100018: WideDoubleTrack_Island_3
+    100020: WideDoubleTrack_Rail_1
+    100022: WideDoubleTrack_Rail_2
+    100024: WideDoubleTrack_Rail_3
+    100026: WideDoubleTrack_Rail_4
+    100028: WideDoubleTrack_Sleeper_1
+    100030: WideDoubleTrack_Sleeper_2
+    100032: WideDoubleTrack_Sleeper_3
+    100034: WideDoubleTrack_Sleeper_4
+    100036: WideDoubleTrack_Sleeper_5
+    100038: WideDoubleTrack_Sleeper_6
+    100040: WideDoubleTrack_Sleeper_7
+    100042: WideDoubleTrack_Sleeper_8
+    400000: //RootNode
+    400002: WideDoubleTrack_Gate_1
+    400004: WideDoubleTrack_Gate_2
+    400006: WideDoubleTrack_Gate_3
+    400008: WideDoubleTrack_Gate_4
+    400010: WideDoubleTrack_Ground_Road
+    400012: WideDoubleTrack_Ground_Track
+    400014: WideDoubleTrack_Island_1
+    400016: WideDoubleTrack_Island_2
+    400018: WideDoubleTrack_Island_3
+    400020: WideDoubleTrack_Rail_1
+    400022: WideDoubleTrack_Rail_2
+    400024: WideDoubleTrack_Rail_3
+    400026: WideDoubleTrack_Rail_4
+    400028: WideDoubleTrack_Sleeper_1
+    400030: WideDoubleTrack_Sleeper_2
+    400032: WideDoubleTrack_Sleeper_3
+    400034: WideDoubleTrack_Sleeper_4
+    400036: WideDoubleTrack_Sleeper_5
+    400038: WideDoubleTrack_Sleeper_6
+    400040: WideDoubleTrack_Sleeper_7
+    400042: WideDoubleTrack_Sleeper_8
+    2100000: 03 - Default
+    2100002: 08 - Default
+    2100004: 01 - Default
+    2100006: 02 - Default
+    2100008: 09 - Default
+    2100010: 07 - Default
+    2300000: WideDoubleTrack_Gate_1
+    2300002: WideDoubleTrack_Gate_2
+    2300004: WideDoubleTrack_Gate_3
+    2300006: WideDoubleTrack_Gate_4
+    2300008: WideDoubleTrack_Ground_Road
+    2300010: WideDoubleTrack_Ground_Track
+    2300012: WideDoubleTrack_Island_1
+    2300014: WideDoubleTrack_Island_2
+    2300016: WideDoubleTrack_Island_3
+    2300018: WideDoubleTrack_Rail_1
+    2300020: WideDoubleTrack_Rail_2
+    2300022: WideDoubleTrack_Rail_3
+    2300024: WideDoubleTrack_Rail_4
+    2300026: WideDoubleTrack_Sleeper_1
+    2300028: WideDoubleTrack_Sleeper_2
+    2300030: WideDoubleTrack_Sleeper_3
+    2300032: WideDoubleTrack_Sleeper_4
+    2300034: WideDoubleTrack_Sleeper_5
+    2300036: WideDoubleTrack_Sleeper_6
+    2300038: WideDoubleTrack_Sleeper_7
+    2300040: WideDoubleTrack_Sleeper_8
+    3300000: WideDoubleTrack_Gate_1
+    3300002: WideDoubleTrack_Gate_2
+    3300004: WideDoubleTrack_Gate_3
+    3300006: WideDoubleTrack_Gate_4
+    3300008: WideDoubleTrack_Ground_Road
+    3300010: WideDoubleTrack_Ground_Track
+    3300012: WideDoubleTrack_Island_1
+    3300014: WideDoubleTrack_Island_2
+    3300016: WideDoubleTrack_Island_3
+    3300018: WideDoubleTrack_Rail_1
+    3300020: WideDoubleTrack_Rail_2
+    3300022: WideDoubleTrack_Rail_3
+    3300024: WideDoubleTrack_Rail_4
+    3300026: WideDoubleTrack_Sleeper_1
+    3300028: WideDoubleTrack_Sleeper_2
+    3300030: WideDoubleTrack_Sleeper_3
+    3300032: WideDoubleTrack_Sleeper_4
+    3300034: WideDoubleTrack_Sleeper_5
+    3300036: WideDoubleTrack_Sleeper_6
+    3300038: WideDoubleTrack_Sleeper_7
+    3300040: WideDoubleTrack_Sleeper_8
+    4300000: WideDoubleTrack_Sleeper_1
+    4300002: WideDoubleTrack_Sleeper_2
+    4300004: WideDoubleTrack_Sleeper_3
+    4300006: WideDoubleTrack_Sleeper_4
+    4300008: WideDoubleTrack_Sleeper_5
+    4300010: WideDoubleTrack_Sleeper_6
+    4300012: WideDoubleTrack_Sleeper_7
+    4300014: WideDoubleTrack_Sleeper_8
+    4300016: WideDoubleTrack_Ground_Track
+    4300018: WideDoubleTrack_Island_1
+    4300020: WideDoubleTrack_Island_2
+    4300022: WideDoubleTrack_Island_3
+    4300024: WideDoubleTrack_Ground_Road
+    4300026: WideDoubleTrack_Gate_1
+    4300028: WideDoubleTrack_Gate_2
+    4300030: WideDoubleTrack_Gate_4
+    4300032: WideDoubleTrack_Gate_3
+    4300034: WideDoubleTrack_Rail_1
+    4300036: WideDoubleTrack_Rail_2
+    4300038: WideDoubleTrack_Rail_3
+    4300040: WideDoubleTrack_Rail_4
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

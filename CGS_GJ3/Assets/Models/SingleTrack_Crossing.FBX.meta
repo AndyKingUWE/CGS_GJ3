@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 4104ef900c7d84a48b0e2e5d6841fd3a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: SingleTrack_Barrier_1
+    100002: SingleTrack_Barrier_2
+    100004: SingleTrack_Barrier_3
+    100006: SingleTrack_Barrier_4
+    100008: SingleTrack_BarrierMount_1
+    100010: SingleTrack_BarrierMount_2
+    100012: SingleTrack_BarrierMount_3
+    100014: SingleTrack_BarrierMount_4
+    100016: //RootNode
+    100018: SingleTrack_Ground_Road
+    100020: SingleTrack_Ground_Track
+    100022: SingleTrack_Island
+    100024: SingleTrack_Rail_1
+    100026: SingleTrack_Rail_2
+    100028: SingleTrack_Sleeper_1
+    100030: SingleTrack_Sleeper_2
+    100032: SingleTrack_Sleeper_3
+    100034: SingleTrack_Sleeper_4
+    400000: SingleTrack_Barrier_1
+    400002: SingleTrack_Barrier_2
+    400004: SingleTrack_Barrier_3
+    400006: SingleTrack_Barrier_4
+    400008: SingleTrack_BarrierMount_1
+    400010: SingleTrack_BarrierMount_2
+    400012: SingleTrack_BarrierMount_3
+    400014: SingleTrack_BarrierMount_4
+    400016: //RootNode
+    400018: SingleTrack_Ground_Road
+    400020: SingleTrack_Ground_Track
+    400022: SingleTrack_Island
+    400024: SingleTrack_Rail_1
+    400026: SingleTrack_Rail_2
+    400028: SingleTrack_Sleeper_1
+    400030: SingleTrack_Sleeper_2
+    400032: SingleTrack_Sleeper_3
+    400034: SingleTrack_Sleeper_4
+    2100000: 02 - Default
+    2100002: 01 - Default
+    2100004: 07 - Default
+    2100006: 03 - Default
+    2100008: 08 - Default
+    2100010: 09 - Default
+    2300000: SingleTrack_Barrier_1
+    2300002: SingleTrack_Barrier_2
+    2300004: SingleTrack_Barrier_3
+    2300006: SingleTrack_Barrier_4
+    2300008: SingleTrack_BarrierMount_1
+    2300010: SingleTrack_BarrierMount_2
+    2300012: SingleTrack_BarrierMount_3
+    2300014: SingleTrack_BarrierMount_4
+    2300016: SingleTrack_Ground_Road
+    2300018: SingleTrack_Ground_Track
+    2300020: SingleTrack_Island
+    2300022: SingleTrack_Rail_1
+    2300024: SingleTrack_Rail_2
+    2300026: SingleTrack_Sleeper_1
+    2300028: SingleTrack_Sleeper_2
+    2300030: SingleTrack_Sleeper_3
+    2300032: SingleTrack_Sleeper_4
+    3300000: SingleTrack_Barrier_1
+    3300002: SingleTrack_Barrier_2
+    3300004: SingleTrack_Barrier_3
+    3300006: SingleTrack_Barrier_4
+    3300008: SingleTrack_BarrierMount_1
+    3300010: SingleTrack_BarrierMount_2
+    3300012: SingleTrack_BarrierMount_3
+    3300014: SingleTrack_BarrierMount_4
+    3300016: SingleTrack_Ground_Road
+    3300018: SingleTrack_Ground_Track
+    3300020: SingleTrack_Island
+    3300022: SingleTrack_Rail_1
+    3300024: SingleTrack_Rail_2
+    3300026: SingleTrack_Sleeper_1
+    3300028: SingleTrack_Sleeper_2
+    3300030: SingleTrack_Sleeper_3
+    3300032: SingleTrack_Sleeper_4
+    4300000: SingleTrack_Ground_Road
+    4300002: SingleTrack_Rail_1
+    4300004: SingleTrack_Rail_2
+    4300006: SingleTrack_Sleeper_1
+    4300008: SingleTrack_Sleeper_2
+    4300010: SingleTrack_Sleeper_3
+    4300012: SingleTrack_Sleeper_4
+    4300014: SingleTrack_Ground_Track
+    4300016: SingleTrack_Island
+    4300018: SingleTrack_BarrierMount_1
+    4300020: SingleTrack_Barrier_1
+    4300022: SingleTrack_Barrier_2
+    4300024: SingleTrack_Barrier_3
+    4300026: SingleTrack_Barrier_4
+    4300028: SingleTrack_BarrierMount_3
+    4300030: SingleTrack_BarrierMount_2
+    4300032: SingleTrack_BarrierMount_4
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
