@@ -9,6 +9,7 @@ public class Original : MonoBehaviour
     public GameObject[] leftPieces;
     public GameObject[] rightPieces;
     public GameObject track_straight_new;
+    public GameObject track_bent_new; 
     public GameObject handCar; 
     [HideInInspector]
     public Vector3 size;

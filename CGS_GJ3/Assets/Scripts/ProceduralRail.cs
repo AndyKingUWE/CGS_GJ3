@@ -120,7 +120,14 @@ public class ProceduralRail : MonoBehaviour {
         {
             //Put down track for Hand car to start on 
             GameObject segment = Instantiate(origin.track_straight_new, transform.GetChild(0));
-            segment.GetComponent<FallSpawner>().first = true; 
+            FallSpawner[] fallspawners = segment.transform.GetComponentsInChildren<FallSpawner>();
+
+            //Set first track to not come down one at a time
+            foreach (FallSpawner fs in fallspawners)
+            {
+                fs.delay = 0;
+            }
+
             segment.transform.localPosition = startTrackPos;
             segment.transform.localScale /= 2;
             startTrackPos += new Vector3(0, 0, 2);
@@ -134,8 +141,13 @@ public class ProceduralRail : MonoBehaviour {
         {
             GameObject segment = Instantiate(origin.track_straight_new, transform.GetChild(0));
             segment.transform.localPosition = startTrackPos;
+            FallSpawner[] fallspawners = segment.transform.GetChild(0).GetComponentsInChildren<FallSpawner>();
             segment.transform.localScale /= 2;
             startTrackPos += new Vector3(0, 0, 2);
+            for (int i = 0; i < fallspawners.Length; i++)
+            {
+                fallspawners[i].delay = (i / 10f) + 0.1f;
+            }
             distanceTravelled = 0; 
             counter++;
             trackCount++;
