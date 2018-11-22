@@ -59,7 +59,7 @@ public class HandCar : MonoBehaviour
         {
             var prevTrack = currentTrack;
 
-            currentTrack = hit.collider.gameObject.GetComponent<Track>();
+            currentTrack = hit.collider.gameObject.GetComponentInParent<Track>();
 
             if (currentTrack != prevTrack)
             {
