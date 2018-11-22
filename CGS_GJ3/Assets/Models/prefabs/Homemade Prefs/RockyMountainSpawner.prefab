@@ -127,8 +127,6 @@ MonoBehaviour:
   boulderGameObjects:
   - {fileID: 1820584939899964, guid: 4af85e8c762545041acf89ea46b2f61d, type: 2}
   - {fileID: 1328256688842610, guid: 0935f9d24f8e90c4bba77f1acce13bf4, type: 2}
-  - {fileID: 1648480831527320, guid: 42f97bf729b684a48974a67572a3fda9, type: 2}
-  - {fileID: 1537394652794958, guid: 0a5f16ca91c628b499f03bbf62cbc2ce, type: 2}
   playerTrigger: {fileID: 0}
   numOfBoulders: 15
   distanceFromGround: 15

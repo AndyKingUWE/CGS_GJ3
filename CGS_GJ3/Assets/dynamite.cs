@@ -11,6 +11,8 @@ public class dynamite : MonoBehaviour {
 
     [SerializeField] ParticleSystem explosion_prefab;
     [SerializeField] ParticleSystem fire_prefab;
+    [SerializeField] ParticleSystem sparks;
+    //[SerializeField] VRTK_InteractableObject linkedObject;
 
     // Use this for initialization
     void Start () {
@@ -34,6 +36,7 @@ public class dynamite : MonoBehaviour {
     public void LightFuse()
     {
         lit = true;
+        sparks.Play();
     }
 
     private void Explode()
@@ -42,4 +45,9 @@ public class dynamite : MonoBehaviour {
         Instantiate(fire_prefab, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
+
+    //protected virtual void InteractableObjectUsed(object sender, InteractableObjectEventArgs e)
+    //{
+    //    FireProjectile();
+    //}
 }

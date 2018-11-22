@@ -28,17 +28,17 @@ public class Track : MonoBehaviour {
         //layerMask = ~layerMask;
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(ForwardDetection.position, ForwardDetection.TransformDirection(Vector3.forward ), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(ForwardDetection.position, ForwardDetection.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(ForwardDetection.position, ForwardDetection.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             if(forwardTrack==null)
-            forwardTrack = hit.collider.gameObject.GetComponent<Track>();
+            forwardTrack = hit.collider.gameObject.GetComponentInParent<Track>();
         }
-        if (Physics.Raycast(BackwardDetection.position, BackwardDetection.TransformDirection(Vector3.back), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(BackwardDetection.position, -ForwardDetection.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(BackwardDetection.position, BackwardDetection.TransformDirection(Vector3.back) * hit.distance, Color.yellow);
             if (backwardTrack == null)
-                backwardTrack = hit.collider.gameObject.GetComponent<Track>();
+                backwardTrack = hit.collider.gameObject.GetComponentInParent<Track>();
         }
     }
 	
