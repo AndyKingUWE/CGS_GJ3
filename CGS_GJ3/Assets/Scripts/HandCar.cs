@@ -155,6 +155,11 @@ public class HandCar : MonoBehaviour
 
         var newforward = currentTrack.spline.Forward(ClosestPoint);
         var transformtemp = transform;
+        if (currentTrack.spline.direction == Pixelplacement.SplineDirection.Backwards)
+        {
+            newforward = -newforward;
+        }
+
         transformtemp.forward = newforward;
         myRigidbody.MoveRotation(transformtemp.rotation);
         
