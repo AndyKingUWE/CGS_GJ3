@@ -57,6 +57,7 @@ public class HandCar : MonoBehaviour
 
         if (Physics.Raycast(transform.position + transform.up * 5, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
         {
+
             var prevTrack = currentTrack;
 
             currentTrack = hit.collider.gameObject.GetComponentInParent<Track>();
@@ -86,6 +87,10 @@ public class HandCar : MonoBehaviour
                     trackCount = 0;
                 }
                 ResetPosition();
+            }
+            else
+            {
+                currentTrack = prevTrack;
             }
         }
     }
@@ -154,14 +159,18 @@ public class HandCar : MonoBehaviour
 
 
         var newforward = currentTrack.spline.Forward(ClosestPoint);
-        var transformtemp = transform;
-        if (currentTrack.spline.direction == Pixelplacement.SplineDirection.Backwards)
+        if(newforward!=Vector3.zero)
         {
-            newforward = -newforward;
-        }
+            var transformtemp = transform;
+            if (currentTrack.spline.direction == Pixelplacement.SplineDirection.Backwards)
+            {
+                newforward = -newforward;
+            }
 
-        transformtemp.forward = newforward;
-        myRigidbody.MoveRotation(transformtemp.rotation);
+            transformtemp.forward = newforward;
+            myRigidbody.MoveRotation(transformtemp.rotation);
+        }
+       
         
 
         if (pumpState==PumpState.IDLE)
