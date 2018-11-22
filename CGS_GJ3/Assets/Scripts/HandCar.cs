@@ -15,6 +15,7 @@ public class HandCar : MonoBehaviour
     }
     public float slowdownSpeed = 2.0f;
     private Track currentTrack;
+    [SerializeField] private Transform chassis;
     [SerializeField] private float speedModifier = 5;
     [SerializeField] private Transform movementLever;
     [SerializeField] private Transform brakeLever;
@@ -78,8 +79,9 @@ public class HandCar : MonoBehaviour
                     if(soundtimer > 0.5f)
                     {
                         SoundManager.instance.PlaySingle(track);
-                        SoundManager.instance.PlaySingleDelayed(track, mod);
+                        //SoundManager.instance.PlaySingleDelayed(track, mod);
                         soundtimer = 0;
+                        StartCoroutine(Shake());
                     }
                     trackCount = 0;
                 }
@@ -88,7 +90,19 @@ public class HandCar : MonoBehaviour
         }
     }
 
-   
+    private IEnumerator Shake()
+    {
+        chassis.localPosition -= Vector3.up * 0.01f * UnityEngine.Random.Range(1.0f,5.0f);
+        while (chassis.localPosition.y<0)
+        {
+            chassis.localPosition += Time.fixedDeltaTime * Vector3.up;
+            yield return null;
+        }
+        chassis.localPosition = Vector3.zero;
+        yield return null;
+    }
+
+
 
     // Update is called once per frame
     void FixedUpdate()

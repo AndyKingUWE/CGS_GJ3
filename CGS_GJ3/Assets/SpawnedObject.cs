@@ -10,6 +10,8 @@ public class SpawnedObject : MonoBehaviour {
     [SerializeField] private ParticleSystem spawnParticleSystem;
     [SerializeField] private ParticleSystem deathParticleSystem;
     [SerializeField] private LayerMask dieOnContactWith;
+    [SerializeField] private Animator animator;
+    [SerializeField] private string boolName= "GrowTriggered";
 
     // Use this for initialization
     void Start () {
@@ -20,6 +22,7 @@ public class SpawnedObject : MonoBehaviour {
 
     public virtual void OnSpawn()
     {
+        animator.SetBool(boolName, true);
         SoundManager.instance.PlaySingle(spawnAudioClip);
         spawnParticleSystem.Play();
     }
