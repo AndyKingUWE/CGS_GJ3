@@ -32,7 +32,7 @@ public class GrowSpawner : MonoBehaviour {
 			{
 				renderTree.enabled = true;
 			}
-			GetComponentInChildren<Animator>().SetBool("GrowTriggered", true);
+			GetComponentInChildren<Animator>().SetBool("SpawnTriggered", true);
 			leaves.Play();
 		}
 	}
