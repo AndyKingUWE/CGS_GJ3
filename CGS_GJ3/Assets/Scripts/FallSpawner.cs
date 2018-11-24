@@ -18,13 +18,14 @@ public class FallSpawner : MonoBehaviour {
 	{
         if (delay != 0)
         {
-            tile = transform.parent.parent.parent.parent.GetComponent<ProceduralRail>();
-
+            tile = transform.GetComponentInParent<ProceduralRail>();
             if (tile == null)
                 Debug.Log("FallSpawner cannot find ProceduralRail in tile"); 
 
-            startPos = transform.position + transform.up * tile.origin.heightUp;
+            startPos = transform.position + Vector3.up * tile.origin.heightUp;
             startRot = Quaternion.Euler(-90, 0, 0);
+            startRot = transform.rotation;
+           
             endRot = transform.rotation;
             endPos = transform.position;
             transform.position = startPos;
