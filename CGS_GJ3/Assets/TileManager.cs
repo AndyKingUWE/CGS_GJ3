@@ -21,7 +21,7 @@ public class TileManager : MonoSingleton<TileManager>
     public Vector3 size;
     [HideInInspector]
     public bool waitForPreviousTile = true;
-    
+    bool pastWait = false; 
 
     /// <summary>
     /// Reference to the handcar 
@@ -53,7 +53,11 @@ public class TileManager : MonoSingleton<TileManager>
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (waitForPreviousTile != pastWait)
+        {
+            Debug.Log(waitForPreviousTile);
+            pastWait = waitForPreviousTile; 
+        }
 	}
 
 

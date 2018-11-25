@@ -38,7 +38,7 @@ public class Tile : MonoBehaviour
     Vector3 startTrackPos = new Vector3(0, 2.45f, -19.64f);
     Vector3 startHandCarPos = new Vector3(0, 5.7f, -41.5f);
     float distanceTravelled = 0;
-
+    bool waitingForPreviousTile = true; 
     private TileManager tileManager;
 
     private bool initialised;
@@ -68,12 +68,14 @@ public class Tile : MonoBehaviour
 
         //Make sure ahead tiles don't start putting down 
         //Track until previous tile has finished
-        //if (waitForPreviousTile && !firstTile)
-        //{
-        //    waitForPreviousTile = tileManager.waitForPreviousTile;
-        //    //If tile is allowed to lay track, hold next tile
-        //    if (tileManager.waitForPreviousTile == false)
-        //        tileManager.waitForPreviousTile = true;
+        if (waitingForPreviousTile && !firstTile)
+        {
+            waitingForPreviousTile = tileManager.waitForPreviousTile; 
+            //If tile is allowed to lay track, hold next tile
+            if (waitingForPreviousTile == false)
+                tileManager.waitForPreviousTile = true;
+            return; 
+        }
 
         //    return;
         //}
@@ -100,24 +102,27 @@ public class Tile : MonoBehaviour
     {
         tileManager = TileManager.instance;
         modulo = Random.Range(3, 10);
-        //Put down track for Hand car to start on 
-        GameObject segment = Instantiate(tileManager.ForwardTrackPrefab, transform.GetChild(0));
-        FallSpawner[] fallspawners = segment.transform.GetComponentsInChildren<FallSpawner>();
-
-        //Set first track to not come down one at a time
-        foreach (FallSpawner fs in fallspawners)
+        //Put down tracks for Hand car to start on 
+        for (int i = 0; i < 3; i++)
         {
-            fs.delay = 0;
+            GameObject segment = Instantiate(tileManager.ForwardTrackPrefab, transform.GetChild(0));
+            FallSpawner[] fallspawners = segment.transform.GetComponentsInChildren<FallSpawner>();
+
+            //Set first track to not come down one at a time
+            foreach (FallSpawner fs in fallspawners)
+            {
+                fs.delay = 0;
+            }
+
+            segment.transform.localPosition = startTrackPos;
+            segment.transform.localScale /= 2;
+            startTrackPos += new Vector3(0, 0, 2);
+            counter++;
         }
-        tileManager.spawnedTiles.Add(this);
-        segment.transform.localPosition = startTrackPos;
-        segment.transform.localScale /= 2;
-        startTrackPos += new Vector3(0, 0, 2);
         //Place handcar 
         GameObject handCar = Instantiate(tileManager.HandCarPrefab, transform.parent);
         handCar.transform.localPosition = startHandCarPos;
         tileManager.HandCarRef = handCar.GetComponent<HandCar>();
-        counter++;
     }
 
 
