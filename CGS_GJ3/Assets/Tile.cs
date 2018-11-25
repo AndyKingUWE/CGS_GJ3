@@ -68,14 +68,14 @@ public class Tile : MonoBehaviour
 
         //Make sure ahead tiles don't start putting down 
         //Track until previous tile has finished
-        if (waitingForPreviousTile && !firstTile)
-        {
-            waitingForPreviousTile = tileManager.waitForPreviousTile; 
-            //If tile is allowed to lay track, hold next tile
-            if (waitingForPreviousTile == false)
-                tileManager.waitForPreviousTile = true;
-            return; 
-        }
+        //if (waitingForPreviousTile && !firstTile)
+        //{
+        //    waitingForPreviousTile = tileManager.waitForPreviousTile; 
+        //    //If tile is allowed to lay track, hold next tile
+        //    if (waitingForPreviousTile == false)
+        //        tileManager.waitForPreviousTile = true;
+        //    return; 
+        //}
 
         //    return;
         //}
@@ -159,7 +159,20 @@ public class Tile : MonoBehaviour
     private void PlaceTurnTrack()
     {
         startTrackPos += new Vector3(-7.23F, 0, 6.3F);
-        GameObject segment = Instantiate(tileManager.LeftTrackPrefab, transform.GetChild(0));
+        GameObject segment = null;
+        switch (direction)
+        {
+            case DIRECTION.FORWARD:
+                break;
+            case DIRECTION.RIGHT:
+                segment = Instantiate(tileManager.RightTrackPrefab, transform.GetChild(0));
+                break;
+            case DIRECTION.LEFT:
+                segment = Instantiate(tileManager.LeftTrackPrefab, transform.GetChild(0));
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         segment.transform.localPosition = startTrackPos;
         FallSpawner[] fallspawners = segment.transform.GetChild(0).GetComponentsInChildren<FallSpawner>();
         segment.transform.localScale /= 2;
@@ -175,8 +188,19 @@ public class Tile : MonoBehaviour
             modulo = Random.Range(3, 10);
         }
 
-
-        startTrackPos = new Vector3(-11.801f, 2.45f, 6.681f);
+        switch (direction)
+        {
+            case DIRECTION.FORWARD:
+                break;
+            case DIRECTION.RIGHT:
+                startTrackPos = new Vector3(11.725f, 2.45f, 6.681f);
+                break;
+            case DIRECTION.LEFT:
+                startTrackPos = new Vector3(-11.801f, 2.45f, 6.681f);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         counter += 11;
     }
 
@@ -186,8 +210,11 @@ public class Tile : MonoBehaviour
         GameObject segment = Instantiate(tileManager.ForwardTrackPrefab, transform.GetChild(0));
         if (direction == DIRECTION.LEFT && counter > 10)
         {
-            Debug.Log("rotated!");
             segment.transform.Rotate(0, -60, 0);
+        }
+        else if (direction == DIRECTION.RIGHT && counter > 10)
+        {
+            segment.transform.Rotate(0, 60, 0);
         }
 
         segment.transform.localPosition = startTrackPos;
@@ -244,7 +271,7 @@ public class Tile : MonoBehaviour
         if (!firstTile)
         {
             Debug.Log(PreviousDirection);
-            newDir = (DIRECTION) Random.Range(0, 2);
+            newDir = (DIRECTION) Random.Range(0, 3);
             switch (direction)
             {
                 case DIRECTION.RIGHT:
