@@ -128,9 +128,9 @@ GameObject:
   - component: {fileID: 4079112974807670}
   - component: {fileID: 33516188751201990}
   - component: {fileID: 23836300243721534}
-  - component: {fileID: 114907977043373194}
   - component: {fileID: 65872645094819318}
   - component: {fileID: 65904143277351080}
+  - component: {fileID: 114559759137745956}
   m_Layer: 0
   m_Name: MountainTreePines
   m_TagString: Untagged
@@ -854,7 +854,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.8388195, y: 1.1359806, z: 3.2221947}
   m_Center: {x: -0.2986269, y: 3.0743895, z: -20.039503}
---- !u!114 &114907977043373194
+--- !u!114 &114559759137745956
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -862,8 +862,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1199274743609024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350711fa72521cd4f8f1e6ea618ace8b, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
   firstTile: 0

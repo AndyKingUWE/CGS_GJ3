@@ -36,9 +36,9 @@ GameObject:
   - component: {fileID: 4711615425130930}
   - component: {fileID: 33593221195095474}
   - component: {fileID: 23639278596471176}
-  - component: {fileID: 114608487017756702}
   - component: {fileID: 65341812798038418}
   - component: {fileID: 65768567880412800}
+  - component: {fileID: 114938995494479278}
   m_Layer: 12
   m_Name: HexagonTileStart
   m_TagString: Untagged
@@ -138,8 +138,8 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 25.101185, y: 11.191559, z: 2.3847923}
-  m_Center: {x: 0.074625015, y: 5.5957794, z: -16.563318}
---- !u!114 &114608487017756702
+  m_Center: {x: 0.074625015, y: 5.5957794, z: -15}
+--- !u!114 &114938995494479278
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,8 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1334192781480140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350711fa72521cd4f8f1e6ea618ace8b, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
-  firstTile: 0
+  firstTile: 1

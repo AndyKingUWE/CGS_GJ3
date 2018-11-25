@@ -5,6 +5,13 @@ using UnityEditor;
 
 public class ProceduralRail : MonoBehaviour {
 
+    public enum DIRECTION   
+    {
+        FORWARD = 0,
+        RIGHT = 1,
+        LEFT = 2
+    }
+
     public Original origin;
     public bool firstTile = false; 
     GameObject pieceF;
@@ -140,9 +147,9 @@ public class ProceduralRail : MonoBehaviour {
         }
         if (distanceTravelled > origin.trackLayFrequency && tracksLaidfreq < origin.trackLayMaxFreq)
         {
-            if (counter == 7)
-                PlaceTurnTrack();
-            else
+            //if (counter == 7)
+            //    PlaceTurnTrack();
+            //else
                 PlaceStraightTrack(); 
 
             distanceTravelled = 0; 
@@ -230,11 +237,11 @@ public class ProceduralRail : MonoBehaviour {
                 obj.GetComponent<ProceduralRail>().SetOrigin(origin);
                 //Decorative Pieces
                 Instantiate(origin.decorativePieces[Random.Range(0, origin.decorativePieces.Length)],
-                            obj.transform.position - new Vector3(size.x * 0.75f, Random.Range(-1f, 1f), size.z * 0.5f),
+                            obj.transform.position - new Vector3(size.x * 0.75f, 0, size.z * 0.5f),
                             obj.transform.rotation, 
                             obj.transform.parent);
                 Instantiate(origin.decorativePieces[Random.Range(0, origin.decorativePieces.Length)],
-                            obj.transform.position - new Vector3(-size.x * 0.75f, Random.Range(-1f, 1f), size.z * 0.5f),
+                            obj.transform.position - new Vector3(-size.x * 0.75f, 0, size.z * 0.5f),
                             obj.transform.rotation,
                             obj.transform.parent);
                 break;

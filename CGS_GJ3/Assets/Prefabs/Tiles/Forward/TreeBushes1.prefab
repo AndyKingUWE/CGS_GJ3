@@ -8212,9 +8212,9 @@ GameObject:
   - component: {fileID: 4679063956878408}
   - component: {fileID: 33099178615998392}
   - component: {fileID: 23850894607914126}
-  - component: {fileID: 114684829170197234}
   - component: {fileID: 65832264697557840}
   - component: {fileID: 65931253699795130}
+  - component: {fileID: 114865979543160608}
   m_Layer: 0
   m_Name: TreeBushes1
   m_TagString: Untagged
@@ -34318,7 +34318,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.8388195, y: 1.1359806, z: 3.2221947}
   m_Center: {x: -0.2986269, y: 3.0743895, z: -20.039503}
---- !u!114 &114684829170197234
+--- !u!114 &114865979543160608
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34326,8 +34326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1505166464393462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350711fa72521cd4f8f1e6ea618ace8b, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
   firstTile: 0

@@ -9,7 +9,7 @@ public class FallSpawner : MonoBehaviour {
 	Vector3 endPos;
     Quaternion startRot;
     Quaternion endRot; 
-    ProceduralRail tile; 
+    Tile tile; 
     float fallDistance, startTime;
     public float delay;
     Renderer rend; 
@@ -18,11 +18,11 @@ public class FallSpawner : MonoBehaviour {
 	{
         if (delay != 0)
         {
-            tile = transform.GetComponentInParent<ProceduralRail>();
+            tile = transform.GetComponentInParent<Tile>();
             if (tile == null)
                 Debug.Log("FallSpawner cannot find ProceduralRail in tile"); 
 
-            startPos = transform.position + Vector3.up * tile.origin.heightUp;
+            startPos = transform.position + Vector3.up * TileManager.instance.heightUp;
             startRot = Quaternion.Euler(-90, 0, 0);
             startRot = transform.rotation;
            
@@ -45,7 +45,7 @@ public class FallSpawner : MonoBehaviour {
 		if (Time.time - startTime > delay)
 		{
             rend.enabled = true; 
-            float t = (Time.time - (startTime + delay)) / tile.origin.trackLaySpeed;
+            float t = (Time.time - (startTime + delay)) / TileManager.instance.trackLaySpeed;
             //t = Mathf.Sin(t * Mathf.PI * 0.5f);
             transform.position = Vector3.Lerp(startPos, endPos, t);
             transform.rotation = Quaternion.Lerp(startRot, endRot, t); 
