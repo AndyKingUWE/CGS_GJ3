@@ -31,7 +31,7 @@ public class HandCar : MonoBehaviour
     [SerializeField] private AudioClip track;
     private int trackCount = 0;
     private float soundtimer=0f;
-    [SerializeField] private List<GameObject> brakingParticles;
+    [SerializeField] private List<ParticleSystem> brakingParticles;
 
     // Use this for initialization
     void Start()
@@ -302,6 +302,7 @@ public class HandCar : MonoBehaviour
         bool disable_sparks = false;
 
         float spd = input * 3.14f;
+        float spark_amplifier = 50.0f;
 
         float force = brakeLever.localEulerAngles.x;
         //check if brake lever is pulled
@@ -315,8 +316,11 @@ public class HandCar : MonoBehaviour
                 if (spd > 7.0f)
                 {
                     foreach (var item in brakingParticles)
-                    {
-                        item.SetActive(true);
+                    {                        
+                        var emitter = item.emission;
+                        float em = spark_amplifier * input * force;
+
+                        emitter.rateOverTime = em;
                     }
                 }
             }
@@ -338,7 +342,8 @@ public class HandCar : MonoBehaviour
         {
             foreach (var item in brakingParticles)
             {
-                //item.SetActive(false);
+                var emitter = item.emission;
+                emitter.rateOverTime = 0;
             }
         }
     }
