@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848370589460524}
   - component: {fileID: 114364481724482188}
+  - component: {fileID: 114834472417840638}
   m_Layer: 0
   m_Name: Origin
   m_TagString: Untagged
@@ -46,17 +47,78 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634301609932712}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e4ab36dfcf8b804390a882c5ae1b336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPiece: {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b,
+  originPiece: {fileID: 1334192781480140, guid: a47b8a65ba2968940ba87408d1d71ff0,
     type: 2}
   forwardPieces:
   - {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b, type: 2}
+  - {fileID: 1199274743609024, guid: 89434628ca3bdd643898f290d75fff50, type: 2}
+  - {fileID: 1661835385165604, guid: 7da82da903951b246b439498208de1f7, type: 2}
+  - {fileID: 1897542236920246, guid: 6a2a379d92b3792448be7653dc09055b, type: 2}
+  - {fileID: 1437669132077490, guid: f0316c8a48593db45a133e0bedec5367, type: 2}
+  - {fileID: 1505166464393462, guid: 489c4ea2d94f14f4b8ffe0b022af66a9, type: 2}
   leftPieces:
-  - {fileID: 1892509897767776, guid: f016228fe1e8ef84498229c763f14821, type: 2}
+  - {fileID: 1395556583714826, guid: 200829bd949c2de498436fbc093f58b8, type: 2}
   rightPieces:
-  - {fileID: 1759356678113652, guid: 8dcd4a06316b59f4a89d9d8c35f9f36c, type: 2}
+  - {fileID: 1395556583714826, guid: 200829bd949c2de498436fbc093f58b8, type: 2}
+  decorativePieces:
+  - {fileID: 1505166464393462, guid: 489c4ea2d94f14f4b8ffe0b022af66a9, type: 2}
+  track_straight_new: {fileID: 1705702689142546, guid: 77b6cca902dbcf742a771b5fda8c03a9,
+    type: 2}
+  track_bent_new: {fileID: 1956226457967458, guid: bda8eb18e69e17a48b8bb09a6e6a3058,
+    type: 2}
+  handCar: {fileID: 1267554205740220, guid: c9adc18c8cecae64688aef504b097eb3, type: 2}
   size: {x: 0, y: 0, z: 0}
+  handCarSpeed: {fileID: 0}
+  waitForPreviousTile: 1
+  trackLaySpeed: 0.2
+  trackLayFrequency: 4
+  trackLayMaxFreq: 1
+  heightUp: 10
+  deathTime: 5
+--- !u!114 &114834472417840638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634301609932712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9420c5a3da1e3542b0cdeaf3e554844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingPrefab: {fileID: 1334192781480140, guid: a47b8a65ba2968940ba87408d1d71ff0,
+    type: 2}
+  ForwardPrefabs:
+  - {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b, type: 2}
+  - {fileID: 1199274743609024, guid: 89434628ca3bdd643898f290d75fff50, type: 2}
+  - {fileID: 1661835385165604, guid: 7da82da903951b246b439498208de1f7, type: 2}
+  - {fileID: 1897542236920246, guid: 6a2a379d92b3792448be7653dc09055b, type: 2}
+  - {fileID: 1437669132077490, guid: f0316c8a48593db45a133e0bedec5367, type: 2}
+  - {fileID: 1505166464393462, guid: 489c4ea2d94f14f4b8ffe0b022af66a9, type: 2}
+  LeftPrefabs:
+  - {fileID: 1395556583714826, guid: 200829bd949c2de498436fbc093f58b8, type: 2}
+  RightPrefabs:
+  - {fileID: 1395556583714826, guid: 200829bd949c2de498436fbc093f58b8, type: 2}
+  DecorativePrefabs:
+  - {fileID: 1395556583714826, guid: 200829bd949c2de498436fbc093f58b8, type: 2}
+  ForwardTrackPrefab: {fileID: 1705702689142546, guid: 77b6cca902dbcf742a771b5fda8c03a9,
+    type: 2}
+  RightTrackPrefab: {fileID: 1956226457967458, guid: bda8eb18e69e17a48b8bb09a6e6a3058,
+    type: 2}
+  LeftTrackPrefab: {fileID: 1956226457967458, guid: bda8eb18e69e17a48b8bb09a6e6a3058,
+    type: 2}
+  size: {x: 0, y: 0, z: 0}
+  waitForPreviousTile: 1
+  HandCarRef: {fileID: 0}
+  HandCarPrefab: {fileID: 1267554205740220, guid: c9adc18c8cecae64688aef504b097eb3,
+    type: 2}
+  trackLaySpeed: 0.2
+  trackLayFrequency: 4
+  trackLayMaxFreq: 1
+  heightUp: 10
+  deathTime: 5
