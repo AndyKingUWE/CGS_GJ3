@@ -15,6 +15,7 @@ public class TileManager : MonoSingleton<TileManager>
     public GameObject RightTrackPrefab;
     public GameObject LeftTrackPrefab;
 
+    public List<Tile> spawnedTiles;
 
     [HideInInspector]
     public Vector3 size;
@@ -40,7 +41,6 @@ public class TileManager : MonoSingleton<TileManager>
     public int deathTime = 5;
 
 
-
     // Use this for initialization
     void Start () {
         size = StartingPrefab.GetComponent<Renderer>().bounds.size;
@@ -55,4 +55,17 @@ public class TileManager : MonoSingleton<TileManager>
 	void Update () {
 		
 	}
+
+
+    public void removeTiles()
+    {
+       //todo: needs redoing
+        //List<Tile> toremove = new List<Tile>(spawnedTiles);
+        //toremove.RemoveRange(toremove.Count-11,11);
+        //spawnedTiles.RemoveRange(0,spawnedTiles.Count-11);
+        //foreach (var tile in toremove)
+        //{
+        //    Destroy(tile.gameObject);
+        //}
+    }
 }

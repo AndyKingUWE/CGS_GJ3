@@ -18,13 +18,15 @@ public class Tile : MonoBehaviour
         TEMPERATE = 0
     }
 
+    bool waitForPreviousTile;
+
     //private GameObject forwardPiece;
     //private GameObject forwardRightPiece;
     //private GameObject forwardLeftPiece;
-    private DIRECTION direction;
+    public DIRECTION direction;
     public DIRECTION PreviousDirection;
     public bool firstTile = false;
-
+    public bool spawnTracks = true;
 
 
     //todo: refactor & check
@@ -57,7 +59,6 @@ public class Tile : MonoBehaviour
         tracksLaidfreq = tpsCount / Time.deltaTime;
         tpsCount = 0;
 
-       
 
         //Delete past tracks
         //if (used && aliveTime > deathTime)
@@ -67,13 +68,18 @@ public class Tile : MonoBehaviour
 
         //Make sure ahead tiles don't start putting down 
         //Track until previous tile has finished
-        if (tileManager.waitForPreviousTile && !firstTile)
-        {
-            //If tile is allowed to lay track, hold next tile
-            if (tileManager.waitForPreviousTile == false)
-                tileManager.waitForPreviousTile = true;
-        }
+        //if (waitForPreviousTile && !firstTile)
+        //{
+        //    waitForPreviousTile = tileManager.waitForPreviousTile;
+        //    //If tile is allowed to lay track, hold next tile
+        //    if (tileManager.waitForPreviousTile == false)
+        //        tileManager.waitForPreviousTile = true;
 
+        //    return;
+        //}
+
+        if (!spawnTracks)
+            return;
 
         if (!finishedRailPlacing)
             UpdateRailFalling();
@@ -83,7 +89,8 @@ public class Tile : MonoBehaviour
             tileManager.waitForPreviousTile = false;
             enabled = false;
         }
-        if(tileManager.HandCarRef)
+
+        if (tileManager.HandCarRef)
             distanceTravelled += (tileManager.HandCarRef.input * Mathf.PI) * Time.deltaTime;
         //Debug.Log(distanceTravelled);
     }
@@ -102,7 +109,7 @@ public class Tile : MonoBehaviour
         {
             fs.delay = 0;
         }
-
+        tileManager.spawnedTiles.Add(this);
         segment.transform.localPosition = startTrackPos;
         segment.transform.localScale /= 2;
         startTrackPos += new Vector3(0, 0, 2);
@@ -113,9 +120,9 @@ public class Tile : MonoBehaviour
         counter++;
     }
 
+
     private void UpdateRailFalling()
     {
-       
         if (distanceTravelled > tileManager.trackLayFrequency && tracksLaidfreq < tileManager.trackLayMaxFreq)
         {
             if (direction == DIRECTION.LEFT || direction == DIRECTION.RIGHT)
@@ -123,12 +130,10 @@ public class Tile : MonoBehaviour
                 if (counter == 5)
                 {
                     PlaceTurnTrack();
-
                 }
 
                 else
                 {
-
                     PlaceStraightTrack();
                 }
             }
@@ -158,14 +163,15 @@ public class Tile : MonoBehaviour
         {
             fallspawners[i].delay = (i / 20f) + 0.1f;
         }
+
         if (counter % modulo == 0)
         {
             segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5, 10);
             modulo = Random.Range(3, 10);
         }
 
-       
-        startTrackPos = new Vector3(-11.801f,2.45f,6.681f);
+
+        startTrackPos = new Vector3(-11.801f, 2.45f, 6.681f);
         counter += 11;
     }
 
@@ -177,10 +183,10 @@ public class Tile : MonoBehaviour
         {
             Debug.Log("rotated!");
             segment.transform.Rotate(0, -60, 0);
-
         }
+
         segment.transform.localPosition = startTrackPos;
-        
+
         FallSpawner[] fallspawners = segment.transform.GetChild(0).GetComponentsInChildren<FallSpawner>();
         segment.transform.localScale /= 2;
         startTrackPos += transform.InverseTransformDirection(segment.transform.forward) * 2;
@@ -188,6 +194,7 @@ public class Tile : MonoBehaviour
         {
             fallspawners[i].delay = (i / 20f) + 0.1f;
         }
+
         if (counter % modulo == 0)
         {
             segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5, 10);
@@ -213,15 +220,17 @@ public class Tile : MonoBehaviour
 
         if (!initialised)
         {
+           
             initialised = true;
             GenerateNextTile();
+            
         }
     }
 
 
     private void GenerateNextTile()
     {
-           var size = tileManager.size;
+        var size = tileManager.size;
         //Reduce x by 25% as hexagons are not uniform
 
         GameObject prefab = null;
@@ -230,7 +239,7 @@ public class Tile : MonoBehaviour
         if (!firstTile)
         {
             Debug.Log(PreviousDirection);
-            newDir = (DIRECTION)Random.Range(0, 2);
+            newDir = (DIRECTION) Random.Range(0, 2);
             switch (direction)
             {
                 case DIRECTION.RIGHT:
@@ -242,84 +251,112 @@ public class Tile : MonoBehaviour
             }
         }
 
-        var trForward =  Quaternion.Euler(0, yrot, 0) * transform.forward;
-        if (yrot == 0)
-        {
-            //var rot = transform.rotation * Vector3.right * 0.75f;
-            //trForward.Scale();
-            trForward.x *= 0.75f;
-            Debug.Log(trForward);
-        }
-        else
-        {
+        var trForward = Quaternion.Euler(0, yrot, 0) * transform.forward;
+        var trRight = Quaternion.Euler(0, yrot, 0) * transform.right;
 
-            trForward.x *= 0.8675f;
-            Debug.Log(trForward);
-        }
+
+        GameObject obj = null;
         switch (newDir)
         {
             case DIRECTION.FORWARD:
                 prefab = tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count - 1)];
 
-                var obj = Instantiate(prefab, transform.position + Vector3.Scale(size, trForward),
-                    Quaternion.Euler(transform.rotation.eulerAngles.x,
-                        transform.rotation.eulerAngles.y +yrot,
-                        transform.rotation.eulerAngles.z),
-                    transform.parent);
-                obj.GetComponent<Tile>().PreviousDirection = direction;
-                obj.GetComponent<Tile>().direction = newDir;
-
-                //Decorative Pieces
-                //Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
-                //    obj.transform.position - new Vector3(size.x * 0.75f, 0, size.z * 0.5f),
-                //    obj.transform.rotation,
-                //    obj.transform.parent);
-                //Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
-                //    obj.transform.position - new Vector3(-size.x * 0.75f, 0, size.z * 0.5f),
-                //    obj.transform.rotation,
-                //    obj.transform.parent);
-
-
                 break;
             case DIRECTION.RIGHT:
-                prefab = tileManager.RightPrefabs[Random.Range(0, tileManager.LeftPrefabs.Count - 1)];
-                var objL = Instantiate(prefab, transform.position + Vector3.Scale(size, trForward),
-                    Quaternion.Euler(transform.rotation.eulerAngles.x,
-                        transform.rotation.eulerAngles.y,
-                        transform.rotation.eulerAngles.z),
-                    transform.parent);
-                objL.GetComponent<Tile>().PreviousDirection = direction;
-                objL.GetComponent<Tile>().direction = newDir;
+                prefab = tileManager.RightPrefabs[Random.Range(0, tileManager.RightPrefabs.Count - 1)];
+
                 break;
             case DIRECTION.LEFT:
-                prefab = tileManager.RightPrefabs[Random.Range(0, tileManager.LeftPrefabs.Count - 1)];
-                var objR = Instantiate(prefab, transform.position + Vector3.Scale(size, trForward),
-                    Quaternion.Euler(transform.rotation.eulerAngles.x,
-                        transform.rotation.eulerAngles.y + yrot,
-                        transform.rotation.eulerAngles.z),
-                    transform.parent);
-                objR.GetComponent<Tile>().PreviousDirection = direction;
-                objR.GetComponent<Tile>().direction = newDir;
+                prefab = tileManager.LeftPrefabs[Random.Range(0, tileManager.LeftPrefabs.Count - 1)];
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
 
+        obj = Instantiate(prefab, transform.position + trForward * 86.6f,
+            Quaternion.Euler(transform.rotation.eulerAngles.x,
+                transform.rotation.eulerAngles.y + yrot,
+                transform.rotation.eulerAngles.z),
+            transform.parent);
+        obj.GetComponent<Tile>().PreviousDirection = direction;
+        obj.GetComponent<Tile>().direction = newDir;
+
+        tileManager.spawnedTiles.Add(obj.GetComponent<Tile>());
+
+        GameObject decorative = null;
+        switch (direction)
+        {
+            case DIRECTION.FORWARD:
+                var xd = new Vector3(1,0,1);
+                xd= transform.forward*43.3f + transform.right *75f;
+                Debug.Log(xd* 2);
+                var off = new Vector3(75f, 0, 43.3f);
+                //off = Quaternion.Euler(transform.rotation.x,-transform.rotation.y,transform.rotation.z) * off;
+               // xd.Scale(off);
+                //Decorative Pieces
+                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                    transform.position + xd ,
+                    transform.rotation,
+                    transform.parent);
+                decorative.GetComponent<Tile>().spawnTracks = false;
+
+                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                xd = transform.forward * 43.3f + transform.right * -75f;
+                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                    transform.position + xd,
+                    transform.rotation,
+                    transform.parent);
+                decorative.GetComponent<Tile>().spawnTracks = false;
+                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                
+                
+                break;
+            case DIRECTION.RIGHT:
+                break;
+            case DIRECTION.LEFT:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        switch (newDir)
+        {
+            case DIRECTION.FORWARD:
+                break;
+            case DIRECTION.RIGHT:
+                break;
+            case DIRECTION.LEFT:
+                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                    obj.transform.position + transform.forward * 86.6f,
+                    obj.transform.rotation,
+                    obj.transform.parent);
+
+                decorative.GetComponent<Tile>().spawnTracks = false;
+                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                var frr = transform.forward * 43.3f + transform.right * 75f;
+
+                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                    obj.transform.position + frr,
+                    obj.transform.rotation,
+                    obj.transform.parent);
+                decorative.GetComponent<Tile>().spawnTracks = false;
+                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        if (PreviousDirection != DIRECTION.FORWARD)
+        {
+            TileManager.instance.removeTiles();
+        }
         if (prefab == null)
         {
             return;
         }
         else
         {
-
         }
-
-
-       
-
-       
-
     }
-
-
 }
