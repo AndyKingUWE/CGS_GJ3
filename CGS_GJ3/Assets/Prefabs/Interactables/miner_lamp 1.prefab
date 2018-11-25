@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 114960416569859766}
   - component: {fileID: 114429235969841388}
   - component: {fileID: 65481150737532312}
+  - component: {fileID: 114568601492959864}
   m_Layer: 13
   m_Name: miner_lamp 1
   m_TagString: Untagged
@@ -338,7 +339,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306893531482718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.175289, y: 1.0277902, z: -6.7073283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4649531540979016}
@@ -402,7 +403,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b12071355d9fcff4cb5485f698a923d8, type: 2}
-  - {fileID: 2100000, guid: 1d73b5735f501864cb3792bf8e953f30, type: 2}
+  - {fileID: 2100000, guid: ec4f427f68efcec499c11d853f4dfc6f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -466,7 +467,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.960937, b: 0.4292453, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -566,6 +567,23 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &114568601492959864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306893531482718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c331f828ed18a0f48861d9e2a8a9b0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linkedObject: {fileID: 114467073137101080}
+  lantern_light: {fileID: 108432730682209550}
+  flicker_intensity: 100
+  light_intensity: 1.5
+  lit_mat: {fileID: 2100000, guid: 1d73b5735f501864cb3792bf8e953f30, type: 2}
+  unlit_mat: {fileID: 2100000, guid: ec4f427f68efcec499c11d853f4dfc6f, type: 2}
 --- !u!114 &114960416569859766
 MonoBehaviour:
   m_ObjectHideFlags: 1
