@@ -13,6 +13,7 @@ public class SpawnedObject : MonoBehaviour {
     [SerializeField] private LayerMask dieOnContactWith;
     [SerializeField] private Animator animator;
     [SerializeField] private string boolName= "GrowTriggered";
+    public Vector3 desiredScale = Vector3.one;
     public bool AnimationFinished = false;
     public bool RandomRotation = false;
 
@@ -25,16 +26,25 @@ public class SpawnedObject : MonoBehaviour {
         OnSpawn();
 	}
 	
-
+    private IEnumerator WaitForFinish()
+    {
+        while(!AnimationFinished)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        animator.enabled = false;
+        transform.localScale = desiredScale;
+    }
 
     public virtual void OnSpawn()
     {
-        animator.SetBool(boolName, true);
-        if(audioSource)
-        {
-            SoundManager.instance.PlaySingleAtSource(audioSource,spawnAudioClip);
-        }
-        spawnParticleSystem.Play();
+        //animator.SetBool(boolName, true);
+        StartCoroutine(WaitForFinish());
+        //if(audioSource)
+        //{
+        //    SoundManager.instance.PlaySingleAtSource(audioSource,spawnAudioClip);
+        //}
+        //spawnParticleSystem.Play();
     }
 
     public virtual void OnDeath()

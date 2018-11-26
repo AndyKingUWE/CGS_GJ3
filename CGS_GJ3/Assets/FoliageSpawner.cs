@@ -11,10 +11,10 @@ public class FoliageSpawner : MonoBehaviour {
     [SerializeField] private List<GameObject> prefabs;
     private bool stop;
     private List<GameObject> trees = new List<GameObject>();
-	// Use this for initialization
-	void Start () {
-
-        Debug.Log("CR");
+    int counter = 0;
+    // Use this for initialization
+    void Start () {
+        SpawnTrees();
     }
 	
 	// Update is called once per frame
@@ -34,11 +34,20 @@ public class FoliageSpawner : MonoBehaviour {
         }
     }
 
+    public void SpawnTrees()
+    {
+        StartCoroutine(SpawnMaximumTrees());
+    }
+
     IEnumerator SpawnMaximumTrees()
     {
         stop = false;
         while (!stop)
         {
+            if (counter > 3)
+            {
+                yield break;
+            }
             SpawnRandomObject();
             yield return new WaitForSeconds(Random.Range(0f,0.1f));
         }
@@ -47,7 +56,6 @@ public class FoliageSpawner : MonoBehaviour {
     void SpawnRandomObject()
     {
         var prefab = prefabs[Random.Range(0, prefabs.Count)];
-        Debug.Log("CR");
         StartCoroutine(Spawn(prefab));
         
     }
@@ -55,13 +63,9 @@ public class FoliageSpawner : MonoBehaviour {
 
     IEnumerator Spawn(GameObject prefab)
     {
-        Debug.Log("CR");
         var bounds = collider.sharedMesh.bounds;
         var readyToSpawn = true;
-        int counter = 0;
         var position = Vector3.zero;
-        do
-        {
             readyToSpawn = true;
             var newX = Random.Range(bounds.min.x*2, bounds.max.x * 2);
             var newZ = Random.Range(bounds.min.z * 2, bounds.max.z * 2);
@@ -80,22 +84,15 @@ public class FoliageSpawner : MonoBehaviour {
                     Debug.Log(item.collider.gameObject);
                     readyToSpawn = false;
                     counter++;
-                    if(counter>3)
-                    {
-                        stop = true;
-                        yield break;
-                    }
-                    break;
+                    yield break;
                 }
 
             }
 
-            yield return null;
 
-        } while (!readyToSpawn);
-
-        var go = Instantiate(prefab);
+        var go = Instantiate(prefab,transform);
         go.transform.position = position;
+        go.GetComponent<SpawnedObject>().desiredScale = Vector3.one * Random.Range(0.8f, 1.2f);
         trees.Add(go);
         //go.transform.SetParent(transform);
     }

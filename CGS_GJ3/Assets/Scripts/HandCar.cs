@@ -180,6 +180,14 @@ public class HandCar : MonoBehaviour
 
         
         speed = input * 2;
+        if(speed<3)
+        {
+            myRigidbody.isKinematic = true;
+        }
+        else
+        {
+            myRigidbody.isKinematic = false;
+        }
     }
 
     private void Update()
