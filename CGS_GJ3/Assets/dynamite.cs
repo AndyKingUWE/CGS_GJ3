@@ -5,7 +5,7 @@ using VRTK;
 
 public class dynamite : MonoBehaviour {
 
-    private bool lit = false;
+    public bool lit = false;
     private float fuse_timer = 0.0f;
     private float fuse_spark_speed = 0.0f;
 
@@ -17,12 +17,13 @@ public class dynamite : MonoBehaviour {
     [SerializeField] VRTK_InteractableObject linkedObject;
     [SerializeField] Transform fuse_start_pos;
     [SerializeField] Transform fuse_end_pos;
-    
+    private AudioSource audioSource;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        audioSource = GetComponent<AudioSource>();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -55,7 +56,18 @@ public class dynamite : MonoBehaviour {
 
     private void Explode()
     {
+        lit = false;
         Instantiate(explosion_prefab, transform.position, transform.rotation);
-        Destroy(this.gameObject);
+        RaycastHit[] hits = Physics.SphereCastAll(new Ray(transform.position, new Vector3(1, 1, 1)), 25);
+        foreach (var item in hits)
+        {
+            var so = item.collider.GetComponent<SpawnedObject>();
+            if(so!=null)
+            {
+                so.OnDeath();
+            }
+        }
+        SoundManager.instance.PlaySingleAtSource(audioSource);
+        Destroy(this.gameObject,2);
     }
 }

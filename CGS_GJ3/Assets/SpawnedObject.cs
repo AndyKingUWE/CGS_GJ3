@@ -50,8 +50,13 @@ public class SpawnedObject : MonoBehaviour {
 
     public virtual void OnDeath()
     {
-        SoundManager.instance.PlaySingle(deathAudioClip);
-        deathParticleSystem.Play();
+        if (audioSource!=null && deathAudioClip !=null)
+        {
+            SoundManager.instance.PlaySingleAtSource(audioSource, deathAudioClip);
+        }
+        if (deathParticleSystem != null)
+            deathParticleSystem.Play();
+        Destroy(gameObject, 1f);
     }
 
     public virtual void OnUpdate()

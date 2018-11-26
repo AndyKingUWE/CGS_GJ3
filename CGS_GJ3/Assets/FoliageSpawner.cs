@@ -75,7 +75,6 @@ public class FoliageSpawner : MonoBehaviour {
             position = collider.ClosestPoint(position);
 
             RaycastHit[] hits = Physics.SphereCastAll(new Ray(position, new Vector3(1, 1, 1)), 1);
-            Debug.Log(hits.Length);
             foreach (var item in hits)
             {
                 if (item.collider.gameObject.layer == LayerMask.NameToLayer("SpawnedObject"))
