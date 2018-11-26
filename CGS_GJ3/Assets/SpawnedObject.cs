@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnedObject : MonoBehaviour {
 
     [SerializeField] private float breakForce;
+    private AudioSource audioSource;
     [SerializeField] private AudioClip spawnAudioClip;
     [SerializeField] private AudioClip deathAudioClip;
     [SerializeField] private ParticleSystem spawnParticleSystem;
@@ -12,9 +13,15 @@ public class SpawnedObject : MonoBehaviour {
     [SerializeField] private LayerMask dieOnContactWith;
     [SerializeField] private Animator animator;
     [SerializeField] private string boolName= "GrowTriggered";
+    public bool AnimationFinished = false;
+    public bool RandomRotation = false;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (RandomRotation)
+            transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360),0);
         OnSpawn();
 	}
 	
@@ -23,7 +30,10 @@ public class SpawnedObject : MonoBehaviour {
     public virtual void OnSpawn()
     {
         animator.SetBool(boolName, true);
-        SoundManager.instance.PlaySingle(spawnAudioClip);
+        if(audioSource)
+        {
+            SoundManager.instance.PlaySingleAtSource(audioSource,spawnAudioClip);
+        }
         spawnParticleSystem.Play();
     }
 
@@ -46,7 +56,8 @@ public class SpawnedObject : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        OnUpdate();
+        if(AnimationFinished)
+            OnUpdate();
 	}
 
     void FixedUpdate()

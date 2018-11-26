@@ -37,6 +37,29 @@ public class SoundManager : MonoBehaviour
         efxSource.PlayOneShot(clip);
     }
 
+    public void PlaySingleAtSource(AudioSource src)
+    {
+        //Play the clip.
+        src.PlayOneShot(src.clip);
+    }
+
+    public void PlaySingleAtSource(AudioSource src, string clip)
+    {
+        var ac = GetAudioClip(clip);
+        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+        src.clip = ac;
+        //Play the clip.
+        src.PlayOneShot(src.clip);
+    }
+
+    public void PlaySingleAtSource(AudioSource src, AudioClip clip)
+    {
+        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+        src.clip = clip;
+        //Play the clip.
+        src.PlayOneShot(src.clip);
+    }
+
     public void PlaySingle(string clip)
     {
         var ac = GetAudioClip(clip);
