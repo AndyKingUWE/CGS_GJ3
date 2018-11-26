@@ -331,15 +331,15 @@ public class Tile : MonoBehaviour
         switch (newDir)
         {
             case DIRECTION.FORWARD:
-                prefab = tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count - 1)];
+                prefab = tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)];
 
                 break;
             case DIRECTION.RIGHT:
-                prefab = tileManager.RightPrefabs[Random.Range(0, tileManager.RightPrefabs.Count - 1)];
+                prefab = tileManager.RightPrefabs[Random.Range(0, tileManager.RightPrefabs.Count)];
 
                 break;
             case DIRECTION.LEFT:
-                prefab = tileManager.LeftPrefabs[Random.Range(0, tileManager.LeftPrefabs.Count - 1)];
+                prefab = tileManager.LeftPrefabs[Random.Range(0, tileManager.LeftPrefabs.Count)];
 
                 break;
             default:
