@@ -173,4 +173,4 @@ MonoBehaviour:
   PreviousDirection: 0
   firstTile: 0
   spawnTracks: 1
-  AnimatorFinished: 0
+  AnimationFinished: 0

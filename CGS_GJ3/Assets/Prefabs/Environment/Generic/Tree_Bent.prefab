@@ -257,6 +257,7 @@ MonoBehaviour:
     m_Bits: 0
   animator: {fileID: 95368822417069472}
   boolName: GrowTriggered
+  desiredScale: {x: 1, y: 1, z: 1}
   AnimationFinished: 0
   RandomRotation: 1
 --- !u!136 &136535039775068102
