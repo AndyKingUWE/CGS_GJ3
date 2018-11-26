@@ -78,8 +78,8 @@ MonoBehaviour:
   HandCarRef: {fileID: 0}
   HandCarPrefab: {fileID: 1267554205740220, guid: c9adc18c8cecae64688aef504b097eb3,
     type: 2}
-  trackLaySpeed: 0.1
-  trackLayFrequency: 1
+  trackLaySpeed: 0.5
+  trackLayFrequency: 4
   trackLayMaxFreq: 1
-  heightUp: 5
+  heightUp: 20
   deathTime: 5
