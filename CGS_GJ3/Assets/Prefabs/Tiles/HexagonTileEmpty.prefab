@@ -172,4 +172,5 @@ MonoBehaviour:
   direction: 0
   PreviousDirection: 0
   firstTile: 0
-  spawnTracks: 0
+  spawnTracks: 1
+  AnimatorFinished: 0

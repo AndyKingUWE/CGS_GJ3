@@ -56,9 +56,9 @@ MonoBehaviour:
   ForwardPrefabs:
   - {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b, type: 2}
   LeftPrefabs:
-  - {fileID: 1897433454568512, guid: 392a59f7a4b5f7641a6abcaeaf65b8f5, type: 2}
+  - {fileID: 1395556583714826, guid: 200829bd949c2de498436fbc093f58b8, type: 2}
   RightPrefabs:
-  - {fileID: 1735840672855066, guid: 49d3a37072cde7647ab407856ae8884b, type: 2}
+  - {fileID: 1395556583714826, guid: 200829bd949c2de498436fbc093f58b8, type: 2}
   DecorativePrefabs:
   - {fileID: 1505380148252204, guid: 26474801ae9c95647acd9822787b3d45, type: 2}
   ForwardTrackPrefab: {fileID: 1705702689142546, guid: 77b6cca902dbcf742a771b5fda8c03a9,
