@@ -14,7 +14,6 @@ public class FoliageSpawner : MonoBehaviour {
     int counter = 0;
     // Use this for initialization
     void Start () {
-        SpawnTrees();
     }
 	
 	// Update is called once per frame
@@ -44,7 +43,7 @@ public class FoliageSpawner : MonoBehaviour {
         stop = false;
         while (!stop)
         {
-            if (counter > 3)
+            if (counter > 10)
             {
                 yield break;
             }

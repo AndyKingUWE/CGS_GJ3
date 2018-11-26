@@ -28,7 +28,7 @@ public class Tile : MonoBehaviour
     public bool firstTile = false;
     public bool spawnTracks = true;
     public bool AnimatorFinished = false;
-
+    private Animator animator;
     //todo: refactor & check
     private float tracksLaidfreq = 0;
     int tpsCount = 0;
@@ -42,15 +42,29 @@ public class Tile : MonoBehaviour
     private TileManager tileManager;
 
     private bool initialised;
-
+    private FoliageSpawner fs;
 
     // Use this for initialization
     void Start()
     {
         tileManager = TileManager.instance;
         modulo = Random.Range(3, 10);
+        fs = GetComponentInChildren<FoliageSpawner>();
+        animator = GetComponent<Animator>();
+        if (fs!=null)
+        {
+            StartCoroutine(WaitForFinish());
+        }
     }
-
+    private IEnumerator WaitForFinish()
+    {
+        while (!AnimatorFinished)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        animator.enabled = false;
+        fs.SpawnTrees();
+    }
 
     // Update is called once per frame
     void Update()
