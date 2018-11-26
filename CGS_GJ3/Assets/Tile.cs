@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
     public DIRECTION PreviousDirection;
     public bool firstTile = false;
     public bool spawnTracks = true;
-
+    public bool AnimatorFinished = false;
 
     //todo: refactor & check
     private float tracksLaidfreq = 0;
@@ -55,6 +55,10 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!AnimatorFinished)
+        {
+            return;
+        }
         //aliveTime += Time.deltaTime;
         tracksLaidfreq = tpsCount / Time.deltaTime;
         tpsCount = 0;
@@ -68,14 +72,14 @@ public class Tile : MonoBehaviour
 
         //Make sure ahead tiles don't start putting down 
         //Track until previous tile has finished
-        //if (waitingForPreviousTile && !firstTile)
-        //{
-        //    waitingForPreviousTile = tileManager.waitForPreviousTile; 
-        //    //If tile is allowed to lay track, hold next tile
-        //    if (waitingForPreviousTile == false)
-        //        tileManager.waitForPreviousTile = true;
-        //    return; 
-        //}
+        if (waitingForPreviousTile && !firstTile)
+        {
+            waitingForPreviousTile = tileManager.waitForPreviousTile;
+            //If tile is allowed to lay track, hold next tile
+            if (waitingForPreviousTile == false)
+                tileManager.waitForPreviousTile = true;
+            return;
+        }
 
         //    return;
         //}
@@ -89,11 +93,11 @@ public class Tile : MonoBehaviour
         else
         {
             tileManager.waitForPreviousTile = false;
-            enabled = false;
+           // enabled = false;
         }
 
         if (tileManager.HandCarRef)
-            distanceTravelled += (tileManager.HandCarRef.input * Mathf.PI) * Time.deltaTime;
+            distanceTravelled +=  Time.deltaTime;
         //Debug.Log(distanceTravelled);
     }
 
@@ -123,12 +127,13 @@ public class Tile : MonoBehaviour
         GameObject handCar = Instantiate(tileManager.HandCarPrefab, transform.parent);
         handCar.transform.localPosition = startHandCarPos;
         tileManager.HandCarRef = handCar.GetComponent<HandCar>();
+        AnimatorFinished = true;
     }
 
 
     private void UpdateRailFalling()
     {
-        if (distanceTravelled > tileManager.trackLayFrequency && tracksLaidfreq < tileManager.trackLayMaxFreq)
+        if (distanceTravelled > 1/tileManager.trackLayFrequency && tracksLaidfreq < tileManager.trackLayMaxFreq)
         {
             if (direction == DIRECTION.LEFT || direction == DIRECTION.RIGHT)
             {
@@ -327,7 +332,7 @@ public class Tile : MonoBehaviour
                 //off = Quaternion.Euler(transform.rotation.x,-transform.rotation.y,transform.rotation.z) * off;
                // xd.Scale(off);
                 //Decorative Pieces
-                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
                     transform.position + xd ,
                     transform.rotation,
                     transform.parent);
@@ -335,7 +340,7 @@ public class Tile : MonoBehaviour
 
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 xd = transform.forward * 43.3f + transform.right * -75f;
-                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
                     transform.position + xd,
                     transform.rotation,
                     transform.parent);
@@ -359,7 +364,7 @@ public class Tile : MonoBehaviour
             case DIRECTION.RIGHT:
                 break;
             case DIRECTION.LEFT:
-                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
                     obj.transform.position + transform.forward * 86.6f,
                     obj.transform.rotation,
                     obj.transform.parent);
@@ -368,7 +373,7 @@ public class Tile : MonoBehaviour
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 var frr = transform.forward * 43.3f + transform.right * 75f;
 
-                decorative = Instantiate(tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
                     obj.transform.position + frr,
                     obj.transform.rotation,
                     obj.transform.parent);

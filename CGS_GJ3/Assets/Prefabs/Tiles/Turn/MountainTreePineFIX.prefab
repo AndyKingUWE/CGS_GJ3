@@ -1747,6 +1747,7 @@ GameObject:
   - component: {fileID: 114207944344692888}
   - component: {fileID: 65053153557496962}
   - component: {fileID: 65361149008357580}
+  - component: {fileID: 95417790478179606}
   m_Layer: 0
   m_Name: MountainTreePineFIX
   m_TagString: Untagged
@@ -23158,6 +23159,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25.101185, y: 11.191559, z: 6.2796783}
   m_Center: {x: 0.074625015, y: 5.5957794, z: -18.510761}
+--- !u!95 &95417790478179606
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162898519114988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdc87497c15128d42b79cac8d20d10db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114097654959452486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23169,7 +23188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114138665488005524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23181,7 +23200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114207944344692888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23193,7 +23212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350711fa72521cd4f8f1e6ea618ace8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 114364481724482188, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
+  origin: {fileID: 0}
   firstTile: 0
 --- !u!114 &114261526161798688
 MonoBehaviour:
@@ -23206,7 +23225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114458421206038300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23218,7 +23237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114654017156001546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23230,7 +23249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114703938293434730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23242,7 +23261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114911423503411124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23254,7 +23273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114912217312352916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23266,7 +23285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0
 --- !u!114 &114987604995862708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23278,4 +23297,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9db70cb07ac0414899998d83e8c1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  first: 0
+  delay: 0

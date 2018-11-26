@@ -58,7 +58,9 @@ public class TileManager : MonoSingleton<TileManager>
             Debug.Log(waitForPreviousTile);
             pastWait = waitForPreviousTile; 
         }
-	}
+        trackLayFrequency = HandCarRef.input;
+
+    }
 
 
     public void removeTiles()

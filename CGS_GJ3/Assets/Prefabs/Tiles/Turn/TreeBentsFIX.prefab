@@ -4158,6 +4158,7 @@ GameObject:
   - component: {fileID: 65649051590252882}
   - component: {fileID: 65516942356865660}
   - component: {fileID: 114616885435032700}
+  - component: {fileID: 95304934047752260}
   m_Layer: 0
   m_Name: TreeBentsFIX
   m_TagString: Untagged
@@ -16315,6 +16316,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 50, y: 2.5, z: 43.3012}
   m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!95 &95304934047752260
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1897433454568512}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdc87497c15128d42b79cac8d20d10db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114616885435032700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16326,6 +16345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
   PreviousDirection: 0
   firstTile: 0
   spawnTracks: 1
+  AnimatorFinished: 0

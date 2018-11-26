@@ -8215,6 +8215,7 @@ GameObject:
   - component: {fileID: 65832264697557840}
   - component: {fileID: 65931253699795130}
   - component: {fileID: 114865979543160608}
+  - component: {fileID: 95530795356744740}
   m_Layer: 0
   m_Name: TreeBushes1
   m_TagString: Untagged
@@ -34318,6 +34319,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.8388195, y: 1.1359806, z: 3.2221947}
   m_Center: {x: -0.2986269, y: 3.0743895, z: -20.039503}
+--- !u!95 &95530795356744740
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505166464393462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdc87497c15128d42b79cac8d20d10db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114865979543160608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -34329,4 +34348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
+  PreviousDirection: 0
   firstTile: 0
+  spawnTracks: 1
+  AnimatorFinished: 0

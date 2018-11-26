@@ -178,8 +178,8 @@ public class HandCar : MonoBehaviour
         if (input < 0.0f)
             input = 0.0f;
 
-       
-        speed = myRigidbody.velocity.magnitude;
+        
+        speed = input * 2;
     }
 
     private void Update()
