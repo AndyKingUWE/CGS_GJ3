@@ -200,7 +200,7 @@ public class Tile : MonoBehaviour
         else if (direction == DIRECTION.RIGHT)
         {
             int x = 0; 
-            for (int i = fallspawners.Length - 1; i > 0; i--)
+            for (int i = fallspawners.Length - 1; i >= 0; i--)
             {
                 fallspawners[i].delay = (x / 20f) + 0.1f;
                 x++; 
