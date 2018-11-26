@@ -21,15 +21,13 @@ public class PickaxeImpact : MonoBehaviour {
     {
         Vector3 pos = col.contacts[0].point;
 
-        Debug.Log(Vector3.Distance(pos, impact_end_pos.position));
-
         if (Vector3.Distance(pos, impact_end_pos.position) < 0.5f)
         {
             if (col.impulse.magnitude > 10.0f)
             {
                 ParticleSystem obj = Instantiate(impact_sparks_prefab, pos, transform.rotation);
 
-                Destroy(obj, 1.0f);
+                Destroy(obj.gameObject, 1.0f);
             }
         }
     }

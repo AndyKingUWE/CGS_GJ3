@@ -16,21 +16,23 @@ public class Lantern : MonoBehaviour {
 
     private bool lit = false;
     private bool stop_lit = false;
+    private Material[] mats;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        mats = GetComponent<MeshRenderer>().materials;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (linkedObject.IsGrabbed() && !lit)
+        if ((linkedObject.IsGrabbed() || linkedObject.IsTouched()) && !lit)
         {
             LanternOn();
         }
 
-        else if (!linkedObject.IsGrabbed() && lit)
+        else if ((!linkedObject.IsGrabbed() && !linkedObject.IsTouched()) && lit)
         {
             LanternOff();
         }
@@ -42,21 +44,28 @@ public class Lantern : MonoBehaviour {
 
         if (!lit && lantern_light.intensity > 0)
         {
-            lantern_light.intensity -= 0.015f;
+            lantern_light.intensity -= 0.025f;
         }
     }
 
     void LanternOn()
     {
         lantern_light.intensity = light_intensity;
-        GetComponent<MeshRenderer>().materials[1] = lit_mat;
+
+        mats[1] = lit_mat;
+
+        GetComponent<MeshRenderer>().materials = mats;
+
         stop_lit = false;
     }
 
     void LanternOff()
     {
         stop_lit = true;
-        GetComponent<MeshRenderer>().materials[1] = unlit_mat;
+
+        mats[1] = unlit_mat;
+
+        GetComponent<MeshRenderer>().materials = mats;
     }
 
     private IEnumerator Flicker()

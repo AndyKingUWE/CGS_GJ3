@@ -71,14 +71,13 @@ GameObject:
   - component: {fileID: 4725197794185972}
   - component: {fileID: 33009801837020520}
   - component: {fileID: 23587202566324360}
+  - component: {fileID: 114568601492959864}
   - component: {fileID: 136880749807285400}
   - component: {fileID: 114467073137101080}
   - component: {fileID: 114148196292955376}
   - component: {fileID: 54365617951039726}
   - component: {fileID: 114960416569859766}
-  - component: {fileID: 114429235969841388}
   - component: {fileID: 65481150737532312}
-  - component: {fileID: 114568601492959864}
   m_Layer: 13
   m_Name: miner_lamp 1
   m_TagString: Untagged
@@ -339,7 +338,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306893531482718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.175289, y: 1.0277902, z: -6.7073283}
+  m_LocalPosition: {x: -6.812004, y: 1.0277907, z: -9.579689}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4649531540979016}
@@ -515,26 +514,6 @@ MonoBehaviour:
   breakForce: 1500
   strength: 1000
   damper: 50
---- !u!114 &114429235969841388
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306893531482718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc4b5dd2be1cea4aaea2850b910d3f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nearTouchHighlight: {r: 1, g: 1, b: 0.61960787, a: 0}
-  touchHighlight: {r: 1, g: 1, b: 0.61960787, a: 0}
-  canGrab: 0
-  grabHighlight: {r: 0, g: 0, b: 0, a: 0}
-  useHighlight: {r: 0, g: 0, b: 0, a: 0}
-  objectToMonitor: {fileID: 114467073137101080}
-  objectToHighlight: {fileID: 0}
-  objectHighlighter: {fileID: 0}
-  objectToAffect: {fileID: 0}
 --- !u!114 &114467073137101080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,6 +584,9 @@ MonoBehaviour:
     m_Bits: 4096
   animator: {fileID: 0}
   boolName: GrowTriggered
+  desiredScale: {x: 1, y: 1, z: 1}
+  AnimationFinished: 0
+  RandomRotation: 0
 --- !u!136 &136880749807285400
 CapsuleCollider:
   m_ObjectHideFlags: 1
