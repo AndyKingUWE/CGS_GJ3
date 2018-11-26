@@ -37,6 +37,13 @@ public class SoundManager : MonoBehaviour
         efxSource.PlayOneShot(clip);
     }
 
+    public void PlayLooped(AudioClip clip)
+    {
+        efxSource.clip = clip;
+        efxSource.Play();
+        efxSource.loop = true; 
+    }
+
     public void PlaySingleAtSource(AudioSource src)
     {
         //Play the clip.
@@ -69,6 +76,22 @@ public class SoundManager : MonoBehaviour
         //Play the clip.
         efxSource.PlayOneShot(ac);
     }
+
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
 
     public AudioClip GetAudioClip(string name)
     {
