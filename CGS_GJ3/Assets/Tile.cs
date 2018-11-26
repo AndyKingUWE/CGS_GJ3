@@ -18,7 +18,7 @@ public class Tile : MonoBehaviour
         TEMPERATE = 0
     }
 
-    bool waitForPreviousTile;
+    bool waitingForPreviousTile = true;
 
     //private GameObject forwardPiece;
     //private GameObject forwardRightPiece;
@@ -38,7 +38,7 @@ public class Tile : MonoBehaviour
     Vector3 startTrackPos = new Vector3(0, 2.45f, -19.64f);
     Vector3 startHandCarPos = new Vector3(0, 5.7f, -41.5f);
     float distanceTravelled = 0;
-    bool waitingForPreviousTile = true; 
+    float waitForTurnTrack = 0; 
     private TileManager tileManager;
 
     private bool initialised;
@@ -133,6 +133,9 @@ public class Tile : MonoBehaviour
 
     private void UpdateRailFalling()
     {
+        if (waitForTurnTrack > 0)
+            waitForTurnTrack -= Time.deltaTime;
+
         if (distanceTravelled > 1/tileManager.trackLayFrequency && tracksLaidfreq < tileManager.trackLayMaxFreq)
         {
             if (direction == DIRECTION.LEFT || direction == DIRECTION.RIGHT)
@@ -141,10 +144,15 @@ public class Tile : MonoBehaviour
                 {
                     PlaceTurnTrack();
                 }
-
-                else
+                else if (waitForTurnTrack <= 0)
                 {
                     PlaceStraightTrack();
+                }
+                else
+                {
+                    counter--;
+                    tpsCount--;
+                    Debug.Log(waitForTurnTrack); 
                 }
             }
             else
@@ -157,6 +165,7 @@ public class Tile : MonoBehaviour
             tpsCount++;
             if (counter == 22)
                 finishedRailPlacing = true;
+            Debug.Log(counter); 
         }
     }
 
@@ -182,11 +191,23 @@ public class Tile : MonoBehaviour
         FallSpawner[] fallspawners = segment.transform.GetChild(0).GetComponentsInChildren<FallSpawner>();
         segment.transform.localScale /= 2;
         startTrackPos += new Vector3(0, 0, 2);
-        for (int i = 0; i < fallspawners.Length; i++)
+
+        if (direction == DIRECTION.LEFT)
+            for (int i = 0; i < fallspawners.Length; i++)
+            {
+                fallspawners[i].delay = (i / 20f) + 0.1f;
+            }
+        else if (direction == DIRECTION.RIGHT)
         {
-            fallspawners[i].delay = (i / 20f) + 0.1f;
+            int x = 0; 
+            for (int i = fallspawners.Length - 1; i >= 0; i--)
+            {
+                fallspawners[i].delay = (x / 20f) + 0.1f;
+                x++; 
+            }
         }
 
+        waitForTurnTrack = (fallspawners.Length / 20f) + 0.1f; 
         if (counter % modulo == 0)
         {
             segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5, 10);
