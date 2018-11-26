@@ -223,6 +223,16 @@ Prefab:
       propertyPath: trackLayFrequency
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114602348699068022, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: heightUp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602348699068022, guid: c46604b2bc8bc544898435c0fa52f230,
+        type: 2}
+      propertyPath: trackLaySpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c46604b2bc8bc544898435c0fa52f230, type: 2}
   m_IsPrefabAsset: 0

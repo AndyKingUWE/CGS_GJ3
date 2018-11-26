@@ -24,7 +24,6 @@ public class FallSpawner : MonoBehaviour {
 
             startPos = transform.position + Vector3.up * TileManager.instance.heightUp;
             startRot = Quaternion.Euler(-90, 0, 0);
-            startRot = transform.rotation;
            
             endRot = transform.rotation;
             endPos = transform.position;
