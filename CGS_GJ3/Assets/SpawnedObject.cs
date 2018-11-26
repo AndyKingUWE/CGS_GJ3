@@ -44,7 +44,8 @@ public class SpawnedObject : MonoBehaviour {
         //{
         //    SoundManager.instance.PlaySingleAtSource(audioSource,spawnAudioClip);
         //}
-        //spawnParticleSystem.Play();
+        if(spawnParticleSystem!=null)
+            spawnParticleSystem.Play();
     }
 
     public virtual void OnDeath()

@@ -10923,7 +10923,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505380148252204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9674702, y: 9.564785, z: -9.805185}
+  m_LocalPosition: {x: 7.249628, y: 56.99617, z: -56.86508}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4466734684396960}
@@ -29338,6 +29338,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 1858314833604072, guid: 33d2245f550b0ef46a6f5905a34db500, type: 2}
   - {fileID: 1114862490208606, guid: ca9335a214edb3741ac3b04301ae2baf, type: 2}
+  - {fileID: 1121268550413958, guid: 9cdf5fd48698224429852a445514e917, type: 2}
 --- !u!114 &114419387137384976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29822,8 +29823,8 @@ MonoBehaviour:
   direction: 0
   PreviousDirection: 0
   firstTile: 0
-  spawnTracks: 1
-  AnimatorFinished: 0
+  spawnTracks: 0
+  AnimationFinished: 0
 --- !u!114 &114528993797886784
 MonoBehaviour:
   m_ObjectHideFlags: 1

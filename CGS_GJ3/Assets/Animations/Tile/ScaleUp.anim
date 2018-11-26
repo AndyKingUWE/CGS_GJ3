@@ -47,7 +47,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.13995877, z: 0.33333334}
       - serializedVersion: 3
         time: 2
-        value: {x: 2, y: 1.9998169, z: 2}
+        value: {x: 2, y: 2, z: 2}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -72,6 +72,15 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 1.9833333
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 2
         value: 1
         inSlope: Infinity
@@ -83,7 +92,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: AnimatorFinished
+    attribute: AnimationFinished
     path: 
     classID: 114
     script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}
@@ -104,7 +113,7 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 0
-      attribute: 2434406490
+      attribute: 1413581821
       script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}
       typeID: 114
       customType: 0
@@ -182,7 +191,7 @@ AnimationClip:
         outWeight: 0.13995877
       - serializedVersion: 3
         time: 2
-        value: 1.9998169
+        value: 2
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -237,6 +246,15 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 1.9833333
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 2
         value: 1
         inSlope: Infinity
@@ -248,7 +266,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: AnimatorFinished
+    attribute: AnimationFinished
     path: 
     classID: 114
     script: {fileID: 11500000, guid: fa7d86591f5f0b643b78df78c9597b60, type: 3}

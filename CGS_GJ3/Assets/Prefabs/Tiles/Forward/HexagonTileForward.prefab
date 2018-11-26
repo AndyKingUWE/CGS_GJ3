@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4932652638867396}
   - component: {fileID: 65623709133858968}
   m_Layer: 13
-  m_Name: GameObject
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,6 +289,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 1858314833604072, guid: 33d2245f550b0ef46a6f5905a34db500, type: 2}
   - {fileID: 1114862490208606, guid: ca9335a214edb3741ac3b04301ae2baf, type: 2}
+  - {fileID: 1121268550413958, guid: 9cdf5fd48698224429852a445514e917, type: 2}
 --- !u!114 &114899746397745868
 MonoBehaviour:
   m_ObjectHideFlags: 1
