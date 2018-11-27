@@ -50,8 +50,11 @@ public class dynamite : MonoBehaviour {
 
     public void LightFuse()
     {
-        lit = true;
-        sparks.Play();
+        if (!lit)
+        {
+            lit = true;
+            sparks.Play();
+        }
     }
 
     private void Explode()
@@ -65,6 +68,12 @@ public class dynamite : MonoBehaviour {
             if(so!=null)
             {
                 so.OnDeath();
+            }
+
+            var dy = item.collider.GetComponent<dynamite>();
+            if (dy != null)
+            {
+                dy.LightFuse();
             }
         }
         SoundManager.instance.PlaySingleAtSource(audioSource);

@@ -7,10 +7,12 @@ public class PickaxeImpact : MonoBehaviour {
     [SerializeField] ParticleSystem impact_sparks_prefab;
     [SerializeField] Transform impact_end_pos;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private AudioSource audioSource;
+
+    // Use this for initialization
+    void Start () {
+        audioSource = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,6 +27,8 @@ public class PickaxeImpact : MonoBehaviour {
         {
             if (col.impulse.magnitude > 10.0f)
             {
+                SoundManager.instance.PlaySingleAtSource(audioSource);
+
                 ParticleSystem obj = Instantiate(impact_sparks_prefab, pos, transform.rotation);
 
                 Destroy(obj.gameObject, 1.0f);
