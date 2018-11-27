@@ -8,6 +8,7 @@ public class dynamite : MonoBehaviour {
     public bool lit = false;
     private float fuse_timer = 0.0f;
     private float fuse_spark_speed = 0.0f;
+    private bool exploded = false;
 
     [SerializeField] float fuse_length = 5.0f;
 
@@ -18,10 +19,12 @@ public class dynamite : MonoBehaviour {
     [SerializeField] Transform fuse_start_pos;
     [SerializeField] Transform fuse_end_pos;
     private AudioSource audioSource;
+    private MeshRenderer mesh_r;
 
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
+        mesh_r = GetComponent<MeshRenderer>();
 
     }
 	
@@ -59,24 +62,30 @@ public class dynamite : MonoBehaviour {
 
     private void Explode()
     {
-        lit = false;
-        Instantiate(explosion_prefab, transform.position, transform.rotation);
-        RaycastHit[] hits = Physics.SphereCastAll(new Ray(transform.position, new Vector3(1, 1, 1)), 25);
-        foreach (var item in hits)
+        if (!exploded)
         {
-            var so = item.collider.GetComponent<SpawnedObject>();
-            if(so!=null)
+            exploded = true;
+            lit = false;
+            Instantiate(explosion_prefab, transform.position, transform.rotation);
+            RaycastHit[] hits = Physics.SphereCastAll(new Ray(transform.position, new Vector3(1, 1, 1)), 2);
+            foreach (var item in hits)
             {
-                so.OnDeath();
-            }
+                var so = item.collider.GetComponent<SpawnedObject>();
+                if (so != null)
+                {
+                    so.OnDeath();
+                }
 
-            var dy = item.collider.GetComponent<dynamite>();
-            if (dy != null)
-            {
-                dy.LightFuse();
+                var dy = item.collider.GetComponent<dynamite>();
+                if (dy != null)
+                {
+                    dy.LightFuse();
+                }
             }
+            SoundManager.instance.PlaySingleAtSource(audioSource);
+            sparks.gameObject.SetActive(false);
+            mesh_r.enabled = false;
+            Destroy(this.gameObject, 2);
         }
-        SoundManager.instance.PlaySingleAtSource(audioSource);
-        Destroy(this.gameObject,2);
     }
 }
