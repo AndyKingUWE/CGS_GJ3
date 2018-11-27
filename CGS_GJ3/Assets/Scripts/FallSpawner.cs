@@ -52,6 +52,7 @@ public class FallSpawner : MonoBehaviour {
             if (transform.position.y < endPos.y + 0.01f)
             {
                 //transform.position = endPos;
+                //SoundManager.instance.PlaySingle("Crash_hitWoodCrate");
                 enabled = false; 
             }     
         }

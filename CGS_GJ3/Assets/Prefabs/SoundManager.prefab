@@ -152,6 +152,6 @@ MonoBehaviour:
   lowPitchRange: 0.95
   highPitchRange: 1.05
   audioClips:
-  - {fileID: 8300000, guid: 87153f54559ebe54987b6cb8b4fb6c71, type: 3}
-  - {fileID: 8300000, guid: 46b62003026f32248a84d9f114c0c26d, type: 3}
-  - {fileID: 8300000, guid: 2658b07a24f2c9a4f96a6cc47f514736, type: 3}
+  - {fileID: 8300000, guid: 57d16db74166e1646baa0e99206b2e15, type: 3}
+  - {fileID: 8300000, guid: 304c4d7919c583b4488c8281c16c1334, type: 3}
+  - {fileID: 8300000, guid: f81468963daeda749ad4b630a7bad916, type: 3}

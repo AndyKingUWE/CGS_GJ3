@@ -21,7 +21,7 @@ public class HandCar : MonoBehaviour
     [SerializeField] private Transform brakeLever;
     [SerializeField] private List<Transform> wheelTransforms;
     private bool coroutineStarted = false;
-    private float modifier = 1;private PumpState pumpState = PumpState.IDLE;
+    private float modifier = 1; private PumpState pumpState = PumpState.IDLE;
     private float timer = 0.0f;
     private Rigidbody myRigidbody;
     private float ClosestPoint;
@@ -30,7 +30,9 @@ public class HandCar : MonoBehaviour
     public float speed;
     [SerializeField] private AudioClip track;
     private int trackCount = 0;
-    private float soundtimer=0f;
+    private float soundtimer = 0f;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSourceAmbient;
     [SerializeField] private List<ParticleSystem> brakingParticles;
 
     // Use this for initialization
@@ -64,29 +66,17 @@ public class HandCar : MonoBehaviour
 
             if (currentTrack != prevTrack)
             {
-                trackCount++;
-                if(trackCount>= 1)
+
+                if (soundtimer > 0.5f)
                 {
-                       var mod = input;
-                    if(mod>5)
+                    if (currentTrack.playSound)
                     {
-                        mod = 5;
+                        currentTrack.playSound = false;
+                        //SoundManager.instance.PlaySingleAtSource(audioSource, track);
+                        soundtimer= 0.0f;
                     }
-                    mod = 0.75f / mod;
-                    if(mod<0.1f)
-                    {
-                        mod = 0.1f;
-                    }
-                    if(soundtimer > 0.5f)
-                    {
-                        SoundManager.instance.PlaySingle(track);
-                        //SoundManager.instance.PlaySingleDelayed(track, mod);
-                        soundtimer = 0;
-                        StartCoroutine(Shake());
-                    }
-                    trackCount = 0;
                 }
-                ResetPosition();
+
             }
             else
             {
@@ -115,7 +105,7 @@ public class HandCar : MonoBehaviour
         soundtimer += Time.fixedDeltaTime;
         GetCurrentTrack();
         BrakeLever();
-        MoveLever();        
+        MoveLever();
 
         #region debug
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
@@ -126,7 +116,7 @@ public class HandCar : MonoBehaviour
         {
             speedModifier--;
         }
-        
+
 
         if (Input.GetKeyDown(KeyCode.U))
         {
@@ -159,7 +149,7 @@ public class HandCar : MonoBehaviour
 
 
         var newforward = currentTrack.spline.Forward(ClosestPoint);
-        if(newforward!=Vector3.zero)
+        if (newforward != Vector3.zero)
         {
             var transformtemp = transform;
             if (currentTrack.spline.direction == Pixelplacement.SplineDirection.Backwards)
@@ -170,17 +160,17 @@ public class HandCar : MonoBehaviour
             transformtemp.forward = newforward;
             myRigidbody.MoveRotation(transformtemp.rotation);
         }
-       
-        
 
-        if (pumpState==PumpState.IDLE)
-            input += (0-input)* (slowdownSpeed/100f);
+
+
+        if (pumpState == PumpState.IDLE)
+            input += (0 - input) * (slowdownSpeed / 100f);
         if (input < 0.0f)
             input = 0.0f;
 
-        
+
         speed = input * 2;
-        if(speed<3)
+        if (speed < 3)
         {
             myRigidbody.isKinematic = true;
         }
@@ -196,6 +186,12 @@ public class HandCar : MonoBehaviour
         {
             item.Rotate(Vector3.right, speed);
         }
+        var s2 = speed;
+        if(s2>5)
+        {
+            s2 = 5;
+        }
+        audioSourceAmbient.pitch = TileManager.instance.Remap(s2, 0, 5, 0, 1);
         //axle.Rotate(Vector3.right, spd);
         //axle2.Rotate(Vector3.right, spd);
     }
@@ -287,7 +283,7 @@ public class HandCar : MonoBehaviour
         float dampeningForce = 0.001f;
 
         input -= (force * dampeningForce);
-        
+
         if (input < 0)
         {
             input = 0;
@@ -302,7 +298,7 @@ public class HandCar : MonoBehaviour
             ClosestPoint = 1 - ClosestPoint;
             currentTrack = currentTrack.forwardTrack;
         }
-        
+
     }
 
     private void BrakeLever()
@@ -317,14 +313,14 @@ public class HandCar : MonoBehaviour
         if ((360 - force) < 30)
         {
             force = (360 - force) / 10;
-            force = force * force;                       
+            force = force * force;
 
             if ((360 - force) > 10)
             {
                 if (spd > 7.0f)
                 {
                     foreach (var item in brakingParticles)
-                    {                        
+                    {
                         var emitter = item.emission;
                         float em = spark_amplifier * input * force;
 
@@ -334,7 +330,7 @@ public class HandCar : MonoBehaviour
             }
 
             Brake(force);
-        }        
+        }
 
         else
         {
@@ -358,7 +354,7 @@ public class HandCar : MonoBehaviour
 
     private void MoveLever()
     {
-        
+
         //within movement range
         if (movementLever.parent.localEulerAngles.x >= 330 || movementLever.parent.localEulerAngles.x <= 30)
         {
@@ -368,7 +364,7 @@ public class HandCar : MonoBehaviour
             }
             else if (!coroutineStarted && vrinput != 0)
             {
-                if(pumpState==PumpState.IDLE)
+                if (pumpState == PumpState.IDLE)
                 {
                     pumpState = PumpState.GRABBED;
                 }
@@ -407,6 +403,6 @@ public class HandCar : MonoBehaviour
             //Debug.Log("GO UP");
             //movementLever.localRotation.SetEulerAngles(14.99f, 0, 0);
         }
-        
+
     }
 }

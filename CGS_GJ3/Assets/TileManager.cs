@@ -52,9 +52,14 @@ public class TileManager : MonoSingleton<TileManager>
         tile.firstTile = true;
         tile.FirstTile();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public float Remap(float value, float from1, float to1, float from2, float to2)
+    {
+        return ((value - from1) / (to1 - from1) * (to2 - from2)) + from2;
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (waitForPreviousTile != pastWait)
         {
             Debug.Log(waitForPreviousTile);

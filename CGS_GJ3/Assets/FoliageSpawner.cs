@@ -14,6 +14,7 @@ public class FoliageSpawner : MonoBehaviour {
     [SerializeField] private List<GameObject> foliagePrefabs;
     private bool stop;
     private List<GameObject> trees = new List<GameObject>();
+    public Tile currentTile;
     int counter = 0;
     int spawned = 0;
     // Use this for initialization
@@ -178,7 +179,10 @@ public class FoliageSpawner : MonoBehaviour {
 
 
         var go = Instantiate(prefab,transform);
+        yield return new WaitForEndOfFrame();
         go.transform.position = position;
+        go.GetComponent<SpawnedObject>().audioSource = currentTile.audioSource;
+        go.GetComponent<SpawnedObject>().PlaySound();
         go.GetComponent<SpawnedObject>().desiredScale = Vector3.one * Random.Range(0.8f, 1.2f);
         spawned++;
         trees.Add(go);
