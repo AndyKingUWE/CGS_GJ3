@@ -4339,6 +4339,7 @@ GameObject:
   - component: {fileID: 65811529914600130}
   - component: {fileID: 114266097574955994}
   - component: {fileID: 95695075915107002}
+  - component: {fileID: 82170833944823268}
   m_Layer: 0
   m_Name: RandomForestCrossingDecoration
   m_TagString: Untagged
@@ -27593,6 +27594,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 34.3808, y: 1.1359806, z: 5.0781555}
   m_Center: {x: -0.23356247, y: 3.0743895, z: 14.991447}
+--- !u!82 &82170833944823268
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538221129353026}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
+  m_Pitch: 0.9
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 1500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95695075915107002
 Animator:
   serializedVersion: 3
@@ -27784,6 +27880,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4102101740983392}
   BackwardDetection: {fileID: 4849494500950960}
+  playSound: 0
 --- !u!114 &114030811534533162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27930,6 +28027,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4244851888149478}
   BackwardDetection: {fileID: 4003425682702224}
+  playSound: 0
 --- !u!114 &114064997122034564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28017,6 +28115,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4430450653398406}
   BackwardDetection: {fileID: 4628259747921306}
+  playSound: 0
 --- !u!114 &114078677170549898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28081,6 +28180,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4075906818218648}
   BackwardDetection: {fileID: 4206038007430104}
+  playSound: 0
 --- !u!114 &114085582198902204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28303,6 +28403,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4223142370122230}
   BackwardDetection: {fileID: 4470779480226418}
+  playSound: 0
 --- !u!114 &114155197968540416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28760,6 +28861,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4540815532422724}
   BackwardDetection: {fileID: 4487480073312138}
+  playSound: 0
 --- !u!114 &114265689337865578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28790,6 +28892,8 @@ MonoBehaviour:
   firstTile: 0
   spawnTracks: 0
   AnimationFinished: 0
+  distance: 0
+  audioSource: {fileID: 0}
 --- !u!114 &114267052003305352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29015,6 +29119,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4280162335878222}
   BackwardDetection: {fileID: 4546942133263822}
+  playSound: 0
 --- !u!114 &114323379137643556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29042,6 +29147,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4145220121326336}
   BackwardDetection: {fileID: 4010401016975876}
+  playSound: 0
 --- !u!114 &114334172235286736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29362,6 +29468,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4433791196163156}
   BackwardDetection: {fileID: 4973044461099178}
+  playSound: 0
 --- !u!114 &114399856974550956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29413,6 +29520,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4868360039330908}
   BackwardDetection: {fileID: 4517921259617088}
+  playSound: 0
 --- !u!114 &114422837145807994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29566,6 +29674,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4840887034270770}
   BackwardDetection: {fileID: 4621774892941546}
+  playSound: 0
 --- !u!114 &114464201873134698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29783,6 +29892,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4846785312757092}
   BackwardDetection: {fileID: 4959773060785170}
+  playSound: 0
 --- !u!114 &114502566834348714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30076,10 +30186,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 64293245734077600}
-  prefabs:
-  - {fileID: 1858314833604072, guid: 33d2245f550b0ef46a6f5905a34db500, type: 2}
-  - {fileID: 1114862490208606, guid: ca9335a214edb3741ac3b04301ae2baf, type: 2}
-  - {fileID: 1121268550413958, guid: 9cdf5fd48698224429852a445514e917, type: 2}
+  buildingPrefabs: []
+  fieldPrefabs: []
+  treePrefabs: []
+  foliagePrefabs: []
+  currentTile: {fileID: 0}
 --- !u!114 &114578161718280216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30161,6 +30272,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4046174042151944}
   BackwardDetection: {fileID: 4643160228724268}
+  playSound: 0
 --- !u!114 &114601503840562266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30427,6 +30539,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4165165568186466}
   BackwardDetection: {fileID: 4894477704909984}
+  playSound: 0
 --- !u!114 &114645240012161216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30754,6 +30867,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4970681186564404}
   BackwardDetection: {fileID: 4850212724172792}
+  playSound: 0
 --- !u!114 &114730794850354126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30865,6 +30979,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4266623671989646}
   BackwardDetection: {fileID: 4928672973267868}
+  playSound: 0
 --- !u!114 &114776886318111174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31039,6 +31154,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4954530163404896}
   BackwardDetection: {fileID: 4078409475819870}
+  playSound: 0
 --- !u!114 &114795130129852142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31055,6 +31171,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4740213855700578}
   BackwardDetection: {fileID: 4107809991446106}
+  playSound: 0
 --- !u!114 &114798039169592114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31127,6 +31244,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4206872546464986}
   BackwardDetection: {fileID: 4432884778010694}
+  playSound: 0
 --- !u!114 &114810132212822702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31143,6 +31261,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4119710635310662}
   BackwardDetection: {fileID: 4804193586968602}
+  playSound: 0
 --- !u!114 &114813953281858102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31395,6 +31514,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4473323045116050}
   BackwardDetection: {fileID: 4362025769261056}
+  playSound: 0
 --- !u!114 &114862497340983414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31722,6 +31842,7 @@ MonoBehaviour:
   backwardTrack: {fileID: 0}
   ForwardDetection: {fileID: 4399051696059064}
   BackwardDetection: {fileID: 4878887296100588}
+  playSound: 0
 --- !u!114 &114945488717257526
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17,8 +17,14 @@ public class FoliageSpawner : MonoBehaviour {
     public Tile currentTile;
     int counter = 0;
     int spawned = 0;
+
+    public bool spawnTrees = false;
     // Use this for initialization
     void Start () {
+        if (spawnTrees)
+        {
+            StartCoroutine(SpawnMaximumTrees());
+        }
     }
 	
 	// Update is called once per frame

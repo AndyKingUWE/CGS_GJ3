@@ -262,13 +262,13 @@ public class Tile : MonoBehaviour
             switch (Random.Range(0, 3))
             {
                 case 0:
-                    SoundManager.instance.PlaySingle("Lego Building Sound Effect 1");
+                    SoundManager.instance.PlaySingleAtSource(audioSource ,"Lego Building Sound Effect 1");
                     break;
                 case 1:
-                    SoundManager.instance.PlaySingle("Lego Building Sound Effect 2");
+                    SoundManager.instance.PlaySingleAtSource(audioSource, "Lego Building Sound Effect 2");
                     break;
                 case 2:
-                    SoundManager.instance.PlaySingle("Lego Building Sound Effect 3");
+                    SoundManager.instance.PlaySingleAtSource(audioSource, "Lego Building Sound Effect 3");
                     break;
                 default:
                     break;

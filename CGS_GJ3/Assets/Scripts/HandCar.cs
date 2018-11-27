@@ -103,7 +103,7 @@ public class HandCar : MonoBehaviour
     void FixedUpdate()
     {
         soundtimer += Time.fixedDeltaTime;
-        GetCurrentTrack();
+            GetCurrentTrack();
         BrakeLever();
         MoveLever();
 
@@ -134,8 +134,7 @@ public class HandCar : MonoBehaviour
         #endregion
 
 
-
-
+        
         ClosestPoint = currentTrack.spline.ClosestPoint(transform.position);
 
         if (ClosestPoint > 1)
@@ -191,6 +190,7 @@ public class HandCar : MonoBehaviour
         {
             s2 = 5;
         }
+        audioSourceAmbient.volume = TileManager.instance.Remap(s2, 0.5f, 5, 0, 0.2f);
         audioSourceAmbient.pitch = TileManager.instance.Remap(s2, 0, 5, 0, 1);
         //axle.Rotate(Vector3.right, spd);
         //axle2.Rotate(Vector3.right, spd);
