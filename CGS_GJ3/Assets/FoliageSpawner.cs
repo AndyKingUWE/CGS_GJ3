@@ -170,7 +170,6 @@ public class FoliageSpawner : MonoBehaviour {
             {
                 if (item.collider.gameObject.layer == LayerMask.NameToLayer("SpawnedObject"))
                 {
-                    Debug.Log(item.collider.gameObject);
                     readyToSpawn = false;
                     counter++;
                     yield break;
