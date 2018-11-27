@@ -185,7 +185,6 @@ public class Tile : MonoBehaviour
             tpsCount++;
             if (counter == 22)
                 finishedRailPlacing = true;
-            Debug.Log(counter); 
         }
     }
 
