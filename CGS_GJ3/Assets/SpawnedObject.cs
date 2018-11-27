@@ -12,7 +12,9 @@ public class SpawnedObject : MonoBehaviour {
     [SerializeField] private ParticleSystem deathParticleSystem;
     [SerializeField] private LayerMask dieOnContactWith;
     [SerializeField] private Animator animator;
+    [SerializeField] public Collider myCollider;
     [SerializeField] private string boolName= "GrowTriggered";
+
     public Vector3 desiredScale = Vector3.one;
     public bool AnimationFinished = false;
     public bool RandomRotation = false;

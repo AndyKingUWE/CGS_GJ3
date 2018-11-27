@@ -68,6 +68,11 @@ MonoBehaviour:
   LeftTrackPrefab: {fileID: 1956226457967458, guid: bda8eb18e69e17a48b8bb09a6e6a3058,
     type: 2}
   spawnedTiles: []
+  autumnMaterials:
+  - {fileID: 2100000, guid: ad03055713b9cfe498cff3f38ef5937a, type: 2}
+  - {fileID: 2100000, guid: f39655ebefaee574e9143dccefdf6691, type: 2}
+  - {fileID: 2100000, guid: 177eaad092f983346843df5e4bc60dc5, type: 2}
+  - {fileID: 2100000, guid: 272b13b959f927844b0b13ca3c155b42, type: 2}
   size: {x: 0, y: 0, z: 0}
   waitForPreviousTile: 1
   HandCarRef: {fileID: 0}
