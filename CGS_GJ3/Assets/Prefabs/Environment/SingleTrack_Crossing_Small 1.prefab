@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4456365460664088}
   - component: {fileID: 95019309841183874}
   m_Layer: 0
-  m_Name: SingleTrack_Crossing_Small
+  m_Name: SingleTrack_Crossing_Small 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
