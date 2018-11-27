@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: bc58a098fbe0f1a43b2c18ff75429997
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Ground052
+    100002: Ground054
+    100004: Ground114
+    100006: Ground115
+    100008: Ground116
+    100010: Ground117
+    100012: Ground118
+    100014: Ground119
+    100016: Ground120
+    100018: Ground121
+    100020: Ground122
+    100022: Ground123
+    100024: Ground124
+    100026: Ground125
+    100028: Ground126
+    100030: Ground127
+    100032: Ground128
+    100034: Ground129
+    100036: Ground130
+    100038: Ground131
+    100040: Mountain_Dirt_Crater_01
+    100042: Mountain_Dirt_Crater_01 1
+    100044: //RootNode
+    400000: Ground052
+    400002: Ground054
+    400004: Ground114
+    400006: Ground115
+    400008: Ground116
+    400010: Ground117
+    400012: Ground118
+    400014: Ground119
+    400016: Ground120
+    400018: Ground121
+    400020: Ground122
+    400022: Ground123
+    400024: Ground124
+    400026: Ground125
+    400028: Ground126
+    400030: Ground127
+    400032: Ground128
+    400034: Ground129
+    400036: Ground130
+    400038: Ground131
+    400040: Mountain_Dirt_Crater_01
+    400042: Mountain_Dirt_Crater_01 1
+    400044: //RootNode
+    2100000: Color_C13
+    2100002: _Color_D18_1
+    2100004: 01 - Default
+    2300000: Ground052
+    2300002: Ground054
+    2300004: Ground114
+    2300006: Ground115
+    2300008: Ground116
+    2300010: Ground117
+    2300012: Ground118
+    2300014: Ground119
+    2300016: Ground120
+    2300018: Ground121
+    2300020: Ground122
+    2300022: Ground123
+    2300024: Ground124
+    2300026: Ground125
+    2300028: Ground126
+    2300030: Ground127
+    2300032: Ground128
+    2300034: Ground129
+    2300036: Ground130
+    2300038: Ground131
+    2300040: Mountain_Dirt_Crater_01 1
+    3300000: Ground052
+    3300002: Ground054
+    3300004: Ground114
+    3300006: Ground115
+    3300008: Ground116
+    3300010: Ground117
+    3300012: Ground118
+    3300014: Ground119
+    3300016: Ground120
+    3300018: Ground121
+    3300020: Ground122
+    3300022: Ground123
+    3300024: Ground124
+    3300026: Ground125
+    3300028: Ground126
+    3300030: Ground127
+    3300032: Ground128
+    3300034: Ground129
+    3300036: Ground130
+    3300038: Ground131
+    3300040: Mountain_Dirt_Crater_01 1
+    4300000: Mountain_Dirt_Crater_01
+    4300002: Ground052
+    4300004: Ground054
+    4300006: Ground114
+    4300008: Ground115
+    4300010: Ground116
+    4300012: Ground117
+    4300014: Ground118
+    4300016: Ground119
+    4300018: Ground120
+    4300020: Ground121
+    4300022: Ground122
+    4300024: Ground123
+    4300026: Ground124
+    4300028: Ground125
+    4300030: Ground126
+    4300032: Ground127
+    4300034: Ground128
+    4300036: Ground129
+    4300038: Ground130
+    4300040: Ground131
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 4
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.04
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
