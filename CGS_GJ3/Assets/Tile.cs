@@ -251,8 +251,31 @@ public class Tile : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
         counter += 11;
+        StartCoroutine(PlayLegoTileSound(8 , 0.2f));
     }
 
+    private IEnumerator PlayLegoTileSound(int loop, float time)
+    {
+        for (int i = 0; i < loop; i++)
+        {
+            yield return new WaitForSeconds(time);
+            switch (Random.Range(0, 3))
+            {
+                case 0:
+                    SoundManager.instance.PlaySingle("Lego Building Sound Effect 1");
+                    break;
+                case 1:
+                    SoundManager.instance.PlaySingle("Lego Building Sound Effect 2");
+                    break;
+                case 2:
+                    SoundManager.instance.PlaySingle("Lego Building Sound Effect 3");
+                    break;
+                default:
+                    break;
+
+            }
+        }
+    }
 
     private void PlaceStraightTrack()
     {
@@ -282,6 +305,7 @@ public class Tile : MonoBehaviour
             segment.GetComponent<Track>().playSound = true;
             modulo = Random.Range(3, 10);
         }
+        StartCoroutine(PlayLegoTileSound(1, 0.3f));
     }
 
 
