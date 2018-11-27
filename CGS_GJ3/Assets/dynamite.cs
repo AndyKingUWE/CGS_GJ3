@@ -18,12 +18,13 @@ public class dynamite : MonoBehaviour {
     [SerializeField] VRTK_InteractableObject linkedObject;
     [SerializeField] Transform fuse_start_pos;
     [SerializeField] Transform fuse_end_pos;
-    private AudioSource audioSource;
+    [SerializeField] AudioSource explosion_audio_source;
+    [SerializeField] AudioSource sparks_audio_source;
     private MeshRenderer mesh_r;
 
     // Use this for initialization
     void Start () {
-        audioSource = GetComponent<AudioSource>();
+
         mesh_r = GetComponent<MeshRenderer>();
 
     }
@@ -57,6 +58,7 @@ public class dynamite : MonoBehaviour {
         {
             lit = true;
             sparks.Play();
+            SoundManager.instance.PlaySingleAtSource(sparks_audio_source);
         }
     }
 
@@ -82,7 +84,8 @@ public class dynamite : MonoBehaviour {
                     dy.LightFuse();
                 }
             }
-            SoundManager.instance.PlaySingleAtSource(audioSource);
+            SoundManager.instance.PlaySingleAtSource(explosion_audio_source);
+            sparks_audio_source.Stop();
             sparks.gameObject.SetActive(false);
             mesh_r.enabled = false;
             Destroy(this.gameObject, 2);
