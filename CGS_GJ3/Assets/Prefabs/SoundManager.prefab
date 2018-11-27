@@ -151,4 +151,7 @@ MonoBehaviour:
   musicSource: {fileID: 0}
   lowPitchRange: 0.95
   highPitchRange: 1.05
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 57d16db74166e1646baa0e99206b2e15, type: 3}
+  - {fileID: 8300000, guid: 304c4d7919c583b4488c8281c16c1334, type: 3}
+  - {fileID: 8300000, guid: f81468963daeda749ad4b630a7bad916, type: 3}

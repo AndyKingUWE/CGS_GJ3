@@ -8,6 +8,9 @@ public class Track : MonoBehaviour {
     public Track backwardTrack;
     public Transform ForwardDetection;
     public Transform BackwardDetection;
+
+    public bool playSound = false;
+
     // Use this for initialization
     void Start () {
         

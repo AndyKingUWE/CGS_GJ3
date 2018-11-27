@@ -218,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858314833604072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.025152206, y: -0.04, z: -30.141119}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4302113082762916}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakForce: 0
-  spawnAudioClip: {fileID: 8300000, guid: b57f47010e0210d4e8b1c501578cf411, type: 3}
+  spawnAudioClip: {fileID: 8300000, guid: 8700b3f7be435204d92640c61187d964, type: 3}
   deathAudioClip: {fileID: 8300000, guid: b57f47010e0210d4e8b1c501578cf411, type: 3}
   spawnParticleSystem: {fileID: 198009667813942076}
   deathParticleSystem: {fileID: 198177098710488466}

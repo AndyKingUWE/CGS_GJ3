@@ -44,11 +44,13 @@ public class Tile : MonoBehaviour
     private bool initialised;
     private FoliageSpawner fs;
     [SerializeField] private float distance = 0;
+    public AudioSource audioSource;
 
     // Use this for initialization
     void Start()
     {
-        tileManager = TileManager.instance;
+        audioSource = GetComponent<AudioSource>();
+            tileManager = TileManager.instance;
         modulo = Random.Range(3, 10);
         fs = GetComponentInChildren<FoliageSpawner>();
         animator = GetComponent<Animator>();
@@ -64,9 +66,11 @@ public class Tile : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         animator.enabled = false;
+        fs.currentTile = this;
         fs.SpawnTrees();
     }
 
+   
     // Update is called once per frame
     void Update()
     {
@@ -275,7 +279,8 @@ public class Tile : MonoBehaviour
 
         if (counter % modulo == 0)
         {
-            segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(5, 10);
+            segment.transform.localPosition -= Vector3.up * 0.01f * Random.Range(3, 7);
+            segment.GetComponent<Track>().playSound = true;
             modulo = Random.Range(3, 10);
         }
     }

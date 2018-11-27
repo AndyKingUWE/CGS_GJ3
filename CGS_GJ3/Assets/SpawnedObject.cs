@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnedObject : MonoBehaviour {
 
     [SerializeField] private float breakForce;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] private AudioClip spawnAudioClip;
     [SerializeField] private AudioClip deathAudioClip;
     [SerializeField] private ParticleSystem spawnParticleSystem;
@@ -23,7 +23,7 @@ public class SpawnedObject : MonoBehaviour {
     void Start ()
     {
         mr = GetComponentInChildren<MeshRenderer>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         if (RandomRotation)
             transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360),0);
         OnSpawn();
@@ -38,16 +38,28 @@ public class SpawnedObject : MonoBehaviour {
         animator.enabled = false;
         transform.localScale = desiredScale;
     }
+  
+
+    public void PlaySound()
+    {
+        SoundManager.instance.PlaySingleAtSource(audioSource, spawnAudioClip);
+            Debug.Log("playing at: " + audioSource);
+    }
 
     public virtual void OnSpawn()
     {
         //animator.SetBool(boolName, true);
         StartCoroutine(WaitForFinish());
-        //if(audioSource)
-        //{
-        //    SoundManager.instance.PlaySingleAtSource(audioSource,spawnAudioClip);
-        //}
-        if(spawnParticleSystem!=null)
+        if (audioSource )
+        {
+            PlaySound();
+            
+        }
+        else
+        {
+            //SoundManager.instance.PlaySingle(spawnAudioClip);
+        }
+        if (spawnParticleSystem!=null)
             spawnParticleSystem.Play();
     }
 
