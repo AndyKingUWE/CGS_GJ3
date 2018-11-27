@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tracks
   - X
+  - SpawnTrigger
+  - pickaxe
   layers:
   - Default
   - TransparentFX
