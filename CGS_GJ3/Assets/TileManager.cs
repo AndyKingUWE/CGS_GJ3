@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,11 +62,18 @@ public class TileManager : MonoSingleton<TileManager>
         }
         trackLayFrequency = HandCarRef.input;
 
+        removeTiles();
     }
 
 
     public void removeTiles()
     {
+        if(spawnedTiles.Count>12)
+        {
+            var tile = spawnedTiles[0];
+            spawnedTiles.Remove(tile);
+            Destroy(tile.gameObject);
+        }
        //todo: needs redoing
         //List<Tile> toremove = new List<Tile>(spawnedTiles);
         //toremove.RemoveRange(toremove.Count-11,11);
@@ -74,5 +82,11 @@ public class TileManager : MonoSingleton<TileManager>
         //{
         //    Destroy(tile.gameObject);
         //}
+    }
+
+    internal void RemoveTile(Tile tile)
+    {
+        spawnedTiles.Remove(tile);
+        Destroy(tile.gameObject);
     }
 }

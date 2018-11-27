@@ -14,7 +14,7 @@ public class SpawnedObject : MonoBehaviour {
     [SerializeField] private Animator animator;
     [SerializeField] public Collider myCollider;
     [SerializeField] private string boolName= "GrowTriggered";
-
+    private MeshRenderer mr;
     public Vector3 desiredScale = Vector3.one;
     public bool AnimationFinished = false;
     public bool RandomRotation = false;
@@ -22,6 +22,7 @@ public class SpawnedObject : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        mr = GetComponentInChildren<MeshRenderer>();
         audioSource = GetComponent<AudioSource>();
         if (RandomRotation)
             transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360),0);
@@ -63,7 +64,14 @@ public class SpawnedObject : MonoBehaviour {
 
     public virtual void OnUpdate()
     {
-
+        if(spawnParticleSystem!=null && mr!=null)
+        {
+            if (!mr.isVisible && spawnParticleSystem.isPlaying)
+            {
+                spawnParticleSystem.Stop();
+            }
+        }
+        
     }
 
     public virtual void OnFixedUpdate()

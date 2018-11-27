@@ -43,6 +43,7 @@ public class Tile : MonoBehaviour
 
     private bool initialised;
     private FoliageSpawner fs;
+    [SerializeField] private float distance = 0;
 
     // Use this for initialization
     void Start()
@@ -73,6 +74,11 @@ public class Tile : MonoBehaviour
         {
             return;
         }
+        //distance = Vector3.Distance(transform.position, tileManager.HandCarRef.transform.position);
+        //if(distance>220)
+        //{
+        //    tileManager.RemoveTile(this);
+        //}
         //aliveTime += Time.deltaTime;
         tracksLaidfreq = tpsCount / Time.deltaTime;
         tpsCount = 0;
