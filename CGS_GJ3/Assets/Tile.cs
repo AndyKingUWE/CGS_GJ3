@@ -303,6 +303,7 @@ public class Tile : MonoBehaviour
     private void GenerateNextTile()
     {
         var size = tileManager.size;
+        GameObject chosenTile = null; 
         //Reduce x by 25% as hexagons are not uniform
 
         GameObject prefab = null;
@@ -332,15 +333,15 @@ public class Tile : MonoBehaviour
         {
             case DIRECTION.FORWARD:
                 prefab = tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)];
-
+                chosenTile = prefab; 
                 break;
             case DIRECTION.RIGHT:
                 prefab = tileManager.RightPrefabs[Random.Range(0, tileManager.RightPrefabs.Count)];
-
+                chosenTile = prefab;
                 break;
             case DIRECTION.LEFT:
                 prefab = tileManager.LeftPrefabs[Random.Range(0, tileManager.LeftPrefabs.Count)];
-
+                chosenTile = prefab;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -365,9 +366,15 @@ public class Tile : MonoBehaviour
                 Debug.Log(xd* 2);
                 var off = new Vector3(75f, 0, 43.3f);
                 //off = Quaternion.Euler(transform.rotation.x,-transform.rotation.y,transform.rotation.z) * off;
-               // xd.Scale(off);
+                // xd.Scale(off);
                 //Decorative Pieces
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
+                int chosenPiece = 1;
+                if (chosenTile.name == "HexagonTileCrossing")
+                    chosenPiece = 0;
+                else
+                    chosenPiece = Random.Range(1, tileManager.DecorativePrefabs.Count); 
+
+                decorative = Instantiate(tileManager.DecorativePrefabs[chosenPiece],
                     transform.position + xd ,
                     transform.rotation,
                     transform.parent);
@@ -375,7 +382,8 @@ public class Tile : MonoBehaviour
 
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 xd = transform.forward * 43.3f + transform.right * -75f;
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
+                
+                decorative = Instantiate(tileManager.DecorativePrefabs[chosenPiece],
                     transform.position + xd,
                     transform.rotation,
                     transform.parent);
@@ -398,7 +406,7 @@ public class Tile : MonoBehaviour
             case DIRECTION.FORWARD:
                 break;
             case DIRECTION.RIGHT:
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
                     obj.transform.position + obj.transform.forward * 86.6f,
                     obj.transform.rotation,
                     obj.transform.parent);
@@ -407,7 +415,7 @@ public class Tile : MonoBehaviour
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 var frr = obj.transform.forward * 43.3f + obj.transform.right * -75f;
 
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
                     obj.transform.position + frr,
                     obj.transform.rotation,
                     obj.transform.parent);
@@ -415,7 +423,7 @@ public class Tile : MonoBehaviour
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 break;
             case DIRECTION.LEFT:
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
                     obj.transform.position + obj.transform.forward * 86.6f,
                     obj.transform.rotation,
                     obj.transform.parent);
@@ -424,7 +432,7 @@ public class Tile : MonoBehaviour
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 var fr = obj.transform.forward * 43.3f + obj.transform.right * 75f;
 
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(0, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
                     obj.transform.position + fr,
                     obj.transform.rotation,
                     obj.transform.parent);
