@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: c60668f393c6a2a49b032a5c6ff00d61
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: lights_brakes
+    100004: lights_headlights
+    100006: lights_indicator_L
+    100008: lights_indicator_R
+    100010: lights_reverse
+    100012: lotus-carlton_backlight
+    100014: opel_gt_body
+    100016: opel_gt_wheel
+    400000: //RootNode
+    400002: lights_brakes
+    400004: lights_headlights
+    400006: lights_indicator_L
+    400008: lights_indicator_R
+    400010: lights_reverse
+    400012: lotus-carlton_backlight
+    400014: opel_gt_body
+    400016: opel_gt_wheel
+    2300000: lights_brakes
+    2300002: lights_headlights
+    2300004: lights_indicator_L
+    2300006: lights_indicator_R
+    2300008: lights_reverse
+    2300010: lotus-carlton_backlight
+    2300012: opel_gt_body
+    2300014: opel_gt_wheel
+    3300000: lights_brakes
+    3300002: lights_headlights
+    3300004: lights_indicator_L
+    3300006: lights_indicator_R
+    3300008: lights_reverse
+    3300010: lotus-carlton_backlight
+    3300012: opel_gt_body
+    3300014: opel_gt_wheel
+    4300000: lights_reverse
+    4300002: lights_indicator_L
+    4300004: lights_indicator_R
+    4300006: lights_headlights
+    4300008: lights_brakes
+    4300010: opel_gt_body
+    4300012: lotus-carlton_backlight
+    4300014: opel_gt_wheel
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black
+    second: {fileID: 2100000, guid: 3530b7625609d5946bac886c0dbf3618, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bodykit_dark
+    second: {fileID: 2100000, guid: 0c689477ed44d22479f8b59863f42fc8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: license_back
+    second: {fileID: 2100000, guid: 5c93255f3c7a4f24b8893259639f3221, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: license_front
+    second: {fileID: 2100000, guid: 29cfb5e7c6c39f743aa697adcaf2ac64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light_reverse
+    second: {fileID: 2100000, guid: ce48c2a5c484af1449cc94e6c10dcf12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights
+    second: {fileID: 2100000, guid: 165497c7cbe51aa43acd0fe62680fc6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights.orange
+    second: {fileID: 2100000, guid: ce5d6ba567557354eb641a36b378efcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights.red
+    second: {fileID: 2100000, guid: 284c5b12bde7a7a4d86b63a236b15c7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_alloy
+    second: {fileID: 2100000, guid: ad6fce00256904f43ba63ff9c6f02fbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_brakes
+    second: {fileID: 2100000, guid: f9986ca5770061049959f788593fbf13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: race_organge
+    second: {fileID: 2100000, guid: 4d2821e3d2184e94a9bd768e50deb816, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tires
+    second: {fileID: 2100000, guid: e3265a4f7b9bbf249b42836f97ea883c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: windows_material
+    second: {fileID: 2100000, guid: 44a21f499e36e9942a9ebf427bacd50f, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.001
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

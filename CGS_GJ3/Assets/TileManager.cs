@@ -46,7 +46,6 @@ public class TileManager : MonoSingleton<TileManager>
     // Use this for initialization
     void Start () {
         size = StartingPrefab.GetComponent<Renderer>().bounds.size;
-        Debug.Log(size);
         var obj = Instantiate(StartingPrefab, Vector3.zero, Quaternion.identity, transform);
         var tile = obj.GetComponent<Tile>();
         tile.firstTile = true;
@@ -62,7 +61,6 @@ public class TileManager : MonoSingleton<TileManager>
     void Update () {
         if (waitForPreviousTile != pastWait)
         {
-            Debug.Log(waitForPreviousTile);
             pastWait = waitForPreviousTile; 
         }
         trackLayFrequency = HandCarRef.input;

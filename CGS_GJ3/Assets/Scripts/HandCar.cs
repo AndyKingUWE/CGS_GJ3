@@ -31,6 +31,7 @@ public class HandCar : MonoBehaviour
     [SerializeField] private AudioClip track;
     private int trackCount = 0;
     private float soundtimer = 0f;
+    private bool live = true;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource audioSourceAmbient;
     [SerializeField] private List<ParticleSystem> brakingParticles;
@@ -44,11 +45,17 @@ public class HandCar : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //if (other.collider.tag == "Tracks")
-        //{
-        //    myRigidbody.AddForce(-other.relativeVelocity);
-        //    Debug.Log(other.relativeVelocity);
-        //}
+        if (other.gameObject.CompareTag("Enemy") && other.impulse.magnitude > 0)
+        {
+            Debug.Log(other.gameObject.name + ", V: " + other.relativeVelocity.magnitude + ", I: " + other.impulse.magnitude);
+
+            live = false;
+        }
+        if (other.gameObject.CompareTag("Tile"))
+        {
+            live = false;
+            Debug.Log("DED");
+        }
     }
 
     void GetCurrentTrack()
@@ -102,6 +109,8 @@ public class HandCar : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!live)
+            return;
         soundtimer += Time.fixedDeltaTime;
             GetCurrentTrack();
         BrakeLever();
@@ -169,14 +178,14 @@ public class HandCar : MonoBehaviour
 
 
         speed = input * 2;
-        if (speed < 3)
-        {
-            myRigidbody.isKinematic = true;
-        }
-        else
-        {
-            myRigidbody.isKinematic = false;
-        }
+        //if (speed < 3)
+        //{
+        //    myRigidbody.isKinematic = true;
+        //}
+        //else
+        //{
+        //    myRigidbody.isKinematic = false;
+        //}
     }
 
     private void Update()

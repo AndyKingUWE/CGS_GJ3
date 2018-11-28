@@ -413,8 +413,15 @@ public class Tile : MonoBehaviour
                     transform.rotation,
                     transform.parent);
                 decorative.GetComponent<Tile>().spawnTracks = false;
-
+                
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                if (chosenPiece == 0)
+                {
+                    decorative.GetComponent<CarSpawnerEnabler>().enableLeft = true;
+                    decorative.GetComponent<CarSpawnerEnabler>().enabled = true;
+                }
+
+
                 xd = transform.forward * 43.3f + transform.right * -75f;
                 
                 decorative = Instantiate(tileManager.DecorativePrefabs[chosenPiece],
@@ -423,8 +430,13 @@ public class Tile : MonoBehaviour
                     transform.parent);
                 decorative.GetComponent<Tile>().spawnTracks = false;
                 tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
-                
-                
+                if (chosenPiece == 0)
+                {
+                    decorative.GetComponent<CarSpawnerEnabler>().enableLeft = false;
+                    decorative.GetComponent<CarSpawnerEnabler>().enabled = true;
+                }
+
+
                 break;
             case DIRECTION.RIGHT:
                 break;
