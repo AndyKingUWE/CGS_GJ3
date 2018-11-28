@@ -42,8 +42,8 @@ public class SpawnedObject : MonoBehaviour {
 
     public void PlaySound()
     {
-        SoundManager.instance.PlaySingleAtSource(audioSource, spawnAudioClip);
-            Debug.Log("playing at: " + audioSource);
+        if(audioSource)
+         SoundManager.instance.PlaySingleAtSource(audioSource, spawnAudioClip);
     }
 
     public virtual void OnSpawn()

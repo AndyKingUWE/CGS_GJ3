@@ -187,6 +187,7 @@ public class FoliageSpawner : MonoBehaviour {
         var go = Instantiate(prefab,transform);
         yield return new WaitForEndOfFrame();
         go.transform.position = position;
+        if(currentTile)
         go.GetComponent<SpawnedObject>().audioSource = currentTile.audioSource;
         go.GetComponent<SpawnedObject>().PlaySound();
         go.GetComponent<SpawnedObject>().desiredScale = Vector3.one * Random.Range(0.8f, 1.2f);

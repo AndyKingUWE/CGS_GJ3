@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
+using UnityEngine.SceneManagement;
 
 public class HandCar : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class HandCar : MonoBehaviour
     private int trackCount = 0;
     private float soundtimer = 0f;
     private bool live = true;
+    private bool coroutineStarted2 = false;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource audioSourceAmbient;
     [SerializeField] private List<ParticleSystem> brakingParticles;
@@ -84,7 +86,7 @@ public class HandCar : MonoBehaviour
                         soundtimer= 0.0f;
                     }
                 }
-
+                ResetPosition();
             }
             else
             {
@@ -106,12 +108,25 @@ public class HandCar : MonoBehaviour
     }
 
 
-
+    private IEnumerator Ded()
+    {
+        coroutineStarted2 = true;
+           yield return new WaitForSeconds(3.0f);
+        Destroy(TileManager.instance.gameObject);
+        SceneManager.LoadScene(0);
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         if (!live)
+        {
+            if(!coroutineStarted2)
+            {
+                StartCoroutine(Ded());
+            }
             return;
+
+        }
         soundtimer += Time.fixedDeltaTime;
             GetCurrentTrack();
         BrakeLever();
@@ -248,7 +263,7 @@ public class HandCar : MonoBehaviour
             {
                 if (vrinput > 0)
                 {
-                    Debug.Log("nice one!");
+                    SoundManager.instance.PlaySingle("choose");
                     modifier++;
                     coroutineStarted = false;
                     if (modifier > 100)
@@ -263,7 +278,7 @@ public class HandCar : MonoBehaviour
             {
                 if (vrinput < 0)
                 {
-                    Debug.Log("nice one!");
+                    SoundManager.instance.PlaySingle("choose");
                     modifier++;
                     if (modifier > 100)
                     {
@@ -378,11 +393,15 @@ public class HandCar : MonoBehaviour
                 {
                     pumpState = PumpState.GRABBED;
                 }
-                var force = vrinput * Time.fixedDeltaTime * modifier;
+                var force = vrinput * Time.fixedDeltaTime *speedModifier ;
                 modifier += Mathf.Abs(force);
                 //movementLever.Rotate(Vector3.right, force);
                 timer = 0.0f;
-                input += Mathf.Abs(force / modifier);
+                input += Mathf.Abs(force) * modifier/100;
+                if(input>19f)
+                {
+                    input = 19f;
+                }
             }
             if (timer >= 1.0f)
             {
