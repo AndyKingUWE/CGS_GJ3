@@ -23,15 +23,30 @@ public class CarSensor : MonoBehaviour {
             {
                 if (item.collider.gameObject.CompareTag("Destroyable"))
                 {
-                    carController.Brake(Vector3.Distance(transform.position, item.collider.transform.position));
+                    var distance = Vector3.Distance(transform.position, item.collider.transform.position);
+                    carController.Brake(distance);
                     brake = true;
                 }
+                if (item.collider.gameObject.CompareTag("Player"))
+                {
+                    var distance2 = Vector3.Distance(transform.position, item.collider.transform.position);
+                    if(distance2<10)
+                    {
+                        item.collider.gameObject.GetComponentInParent<HandCar>().WillHit = true;
+                    }
+                    else
+                    {
+                        if(!item.collider.gameObject.GetComponentInParent<HandCar>().WillHit)
+                            item.collider.gameObject.GetComponentInParent<HandCar>().WillHit = false;
+
+                    }
+                }
             }
-        }
-        
-        if(!brake)
-        {
-            carController.Drive();
+
+            if (!brake)
+            {
+                carController.Drive();
+            }
         }
     }
 
