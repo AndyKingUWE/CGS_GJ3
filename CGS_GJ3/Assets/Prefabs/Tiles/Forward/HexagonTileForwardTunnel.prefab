@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 95668930186636120}
   m_Layer: 0
   m_Name: HexagonTileForwardTunnel
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2369,6 +2369,7 @@ MonoBehaviour:
   spawnTracks: 1
   AnimationFinished: 0
   distance: 0
+  audioSource: {fileID: 0}
 --- !u!198 &198378649089293598
 ParticleSystem:
   m_ObjectHideFlags: 1

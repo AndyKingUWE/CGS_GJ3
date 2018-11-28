@@ -17,7 +17,6 @@ public class TileManager : MonoSingleton<TileManager>
     public GameObject LeftTrackPrefab;
 
     public List<Tile> spawnedTiles;
-    public List<Material> autumnMaterials;
 
     [HideInInspector]
     public Vector3 size;

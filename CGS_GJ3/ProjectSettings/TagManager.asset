@@ -17,6 +17,7 @@ TagManager:
   - Rock
   - Destroyable
   - Enemy
+  - Tile
   layers:
   - Default
   - TransparentFX

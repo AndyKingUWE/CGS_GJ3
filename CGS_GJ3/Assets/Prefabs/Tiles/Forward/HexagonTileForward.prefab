@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 82593654628358328}
   m_Layer: 0
   m_Name: HexagonTileForward
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -675,6 +675,7 @@ MonoBehaviour:
   - {fileID: 1329060032431546, guid: 75fc433d8d4ecc441a68a6e22ed85094, type: 2}
   - {fileID: 1892894306908152, guid: 7cbd9f35796ac534fa1cf7443dc1457a, type: 2}
   currentTile: {fileID: 0}
+  spawnTrees: 0
 --- !u!114 &114899746397745868
 MonoBehaviour:
   m_ObjectHideFlags: 1

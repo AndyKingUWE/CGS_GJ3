@@ -39,7 +39,6 @@ public class Tile : MonoBehaviour
     Vector3 startHandCarPos = new Vector3(0, 5.7f, -41.5f);
     float distanceTravelled = 0;
     float waitForTurnTrack = 0; 
-    private TileManager tileManager;
 
     private bool initialised;
     private FoliageSpawner fs;
@@ -50,7 +49,6 @@ public class Tile : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-            tileManager = TileManager.instance;
         modulo = Random.Range(3, 10);
         fs = GetComponentInChildren<FoliageSpawner>();
         animator = GetComponent<Animator>();
@@ -78,10 +76,10 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        //distance = Vector3.Distance(transform.position, tileManager.HandCarRef.transform.position);
+        //distance = Vector3.Distance(transform.position, TileManager.instance.HandCarRef.transform.position);
         //if(distance>220)
         //{
-        //    tileManager.RemoveTile(this);
+        //    TileManager.instance.RemoveTile(this);
         //}
         //aliveTime += Time.deltaTime;
         tracksLaidfreq = tpsCount / Time.deltaTime;
@@ -98,10 +96,10 @@ public class Tile : MonoBehaviour
         //Track until previous tile has finished
         if (waitingForPreviousTile && !firstTile)
         {
-            waitingForPreviousTile = tileManager.waitForPreviousTile;
+            waitingForPreviousTile = TileManager.instance.waitForPreviousTile;
             //If tile is allowed to lay track, hold next tile
             if (waitingForPreviousTile == false)
-                tileManager.waitForPreviousTile = true;
+                TileManager.instance.waitForPreviousTile = true;
             return;
         }
 
@@ -116,11 +114,11 @@ public class Tile : MonoBehaviour
         //Once finished laying tiles prompt next tile to 
         else
         {
-            tileManager.waitForPreviousTile = false;
+            TileManager.instance.waitForPreviousTile = false;
            // enabled = false;
         }
 
-        if (tileManager.HandCarRef)
+        if (TileManager.instance.HandCarRef)
             distanceTravelled +=  Time.deltaTime;
         //Debug.Log(distanceTravelled);
     }
@@ -128,12 +126,11 @@ public class Tile : MonoBehaviour
 
     public void FirstTile()
     {
-        tileManager = TileManager.instance;
         modulo = Random.Range(3, 10);
         //Put down tracks for Hand car to start on 
         for (int i = 0; i < 3; i++)
         {
-            GameObject segment = Instantiate(tileManager.ForwardTrackPrefab, transform.GetChild(0));
+            GameObject segment = Instantiate(TileManager.instance.ForwardTrackPrefab, transform.GetChild(0));
             FallSpawner[] fallspawners = segment.transform.GetComponentsInChildren<FallSpawner>();
 
             //Set first track to not come down one at a time
@@ -148,9 +145,9 @@ public class Tile : MonoBehaviour
             counter++;
         }
         //Place handcar 
-        GameObject handCar = Instantiate(tileManager.HandCarPrefab, transform.parent);
+        GameObject handCar = Instantiate(TileManager.instance.HandCarPrefab, transform.parent);
         handCar.transform.localPosition = startHandCarPos;
-        tileManager.HandCarRef = handCar.GetComponent<HandCar>();
+        TileManager.instance.HandCarRef = handCar.GetComponent<HandCar>();
         AnimationFinished = true;
     }
 
@@ -160,7 +157,7 @@ public class Tile : MonoBehaviour
         if (waitForTurnTrack > 0)
             waitForTurnTrack -= Time.deltaTime;
 
-        if (distanceTravelled > 1/tileManager.trackLayFrequency && tracksLaidfreq < tileManager.trackLayMaxFreq)
+        if (distanceTravelled > 1/TileManager.instance.trackLayFrequency && tracksLaidfreq < TileManager.instance.trackLayMaxFreq)
         {
             if (direction == DIRECTION.LEFT || direction == DIRECTION.RIGHT)
             {
@@ -202,10 +199,10 @@ public class Tile : MonoBehaviour
             case DIRECTION.FORWARD:
                 break;
             case DIRECTION.RIGHT:
-                segment = Instantiate(tileManager.RightTrackPrefab, transform.GetChild(0));
+                segment = Instantiate(TileManager.instance.RightTrackPrefab, transform.GetChild(0));
                 break;
             case DIRECTION.LEFT:
-                segment = Instantiate(tileManager.LeftTrackPrefab, transform.GetChild(0));
+                segment = Instantiate(TileManager.instance.LeftTrackPrefab, transform.GetChild(0));
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -279,7 +276,7 @@ public class Tile : MonoBehaviour
 
     private void PlaceStraightTrack()
     {
-        GameObject segment = Instantiate(tileManager.ForwardTrackPrefab, transform.GetChild(0));
+        GameObject segment = Instantiate(TileManager.instance.ForwardTrackPrefab, transform.GetChild(0));
         if (direction == DIRECTION.LEFT && counter > 10)
         {
             segment.transform.Rotate(0, -60, 0);
@@ -336,7 +333,7 @@ public class Tile : MonoBehaviour
 
     private void GenerateNextTile()
     {
-        var size = tileManager.size;
+        var size = TileManager.instance.size;
         GameObject chosenTile = null; 
         //Reduce x by 25% as hexagons are not uniform
 
@@ -366,15 +363,15 @@ public class Tile : MonoBehaviour
         switch (newDir)
         {
             case DIRECTION.FORWARD:
-                prefab = tileManager.ForwardPrefabs[Random.Range(0, tileManager.ForwardPrefabs.Count)];
+                prefab = TileManager.instance.ForwardPrefabs[Random.Range(0, TileManager.instance.ForwardPrefabs.Count)];
                 chosenTile = prefab; 
                 break;
             case DIRECTION.RIGHT:
-                prefab = tileManager.RightPrefabs[Random.Range(0, tileManager.RightPrefabs.Count)];
+                prefab = TileManager.instance.RightPrefabs[Random.Range(0, TileManager.instance.RightPrefabs.Count)];
                 chosenTile = prefab;
                 break;
             case DIRECTION.LEFT:
-                prefab = tileManager.LeftPrefabs[Random.Range(0, tileManager.LeftPrefabs.Count)];
+                prefab = TileManager.instance.LeftPrefabs[Random.Range(0, TileManager.instance.LeftPrefabs.Count)];
                 chosenTile = prefab;
                 break;
             default:
@@ -389,7 +386,7 @@ public class Tile : MonoBehaviour
         obj.GetComponent<Tile>().PreviousDirection = direction;
         obj.GetComponent<Tile>().direction = newDir;
 
-        tileManager.spawnedTiles.Add(obj.GetComponent<Tile>());
+        TileManager.instance.spawnedTiles.Add(obj.GetComponent<Tile>());
 
         GameObject decorative = null;
         switch (direction)
@@ -406,15 +403,15 @@ public class Tile : MonoBehaviour
                 if (chosenTile.name == "HexagonTileCrossing")
                     chosenPiece = 0;
                 else
-                    chosenPiece = Random.Range(1, tileManager.DecorativePrefabs.Count); 
+                    chosenPiece = Random.Range(1, TileManager.instance.DecorativePrefabs.Count); 
 
-                decorative = Instantiate(tileManager.DecorativePrefabs[chosenPiece],
+                decorative = Instantiate(TileManager.instance.DecorativePrefabs[chosenPiece],
                     transform.position + xd ,
                     transform.rotation,
                     transform.parent);
                 decorative.GetComponent<Tile>().spawnTracks = false;
                 
-                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                TileManager.instance.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 if (chosenPiece == 0)
                 {
                     decorative.GetComponent<CarSpawnerEnabler>().enableLeft = true;
@@ -424,12 +421,12 @@ public class Tile : MonoBehaviour
 
                 xd = transform.forward * 43.3f + transform.right * -75f;
                 
-                decorative = Instantiate(tileManager.DecorativePrefabs[chosenPiece],
+                decorative = Instantiate(TileManager.instance.DecorativePrefabs[chosenPiece],
                     transform.position + xd,
                     transform.rotation,
                     transform.parent);
                 decorative.GetComponent<Tile>().spawnTracks = false;
-                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                TileManager.instance.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 if (chosenPiece == 0)
                 {
                     decorative.GetComponent<CarSpawnerEnabler>().enableLeft = false;
@@ -452,38 +449,38 @@ public class Tile : MonoBehaviour
             case DIRECTION.FORWARD:
                 break;
             case DIRECTION.RIGHT:
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(TileManager.instance.DecorativePrefabs[Random.Range(1, TileManager.instance.DecorativePrefabs.Count)],
                     obj.transform.position + obj.transform.forward * 86.6f,
                     obj.transform.rotation,
                     obj.transform.parent);
 
                 decorative.GetComponent<Tile>().spawnTracks = false;
-                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                TileManager.instance.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 var frr = obj.transform.forward * 43.3f + obj.transform.right * -75f;
 
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(TileManager.instance.DecorativePrefabs[Random.Range(1, TileManager.instance.DecorativePrefabs.Count)],
                     obj.transform.position + frr,
                     obj.transform.rotation,
                     obj.transform.parent);
                 decorative.GetComponent<Tile>().spawnTracks = false;
-                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                TileManager.instance.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 break;
             case DIRECTION.LEFT:
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(TileManager.instance.DecorativePrefabs[Random.Range(1, TileManager.instance.DecorativePrefabs.Count)],
                     obj.transform.position + obj.transform.forward * 86.6f,
                     obj.transform.rotation,
                     obj.transform.parent);
 
                 decorative.GetComponent<Tile>().spawnTracks = false;
-                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                TileManager.instance.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 var fr = obj.transform.forward * 43.3f + obj.transform.right * 75f;
 
-                decorative = Instantiate(tileManager.DecorativePrefabs[Random.Range(1, tileManager.DecorativePrefabs.Count)],
+                decorative = Instantiate(TileManager.instance.DecorativePrefabs[Random.Range(1, TileManager.instance.DecorativePrefabs.Count)],
                     obj.transform.position + fr,
                     obj.transform.rotation,
                     obj.transform.parent);
                 decorative.GetComponent<Tile>().spawnTracks = false;
-                tileManager.spawnedTiles.Add(decorative.GetComponent<Tile>());
+                TileManager.instance.spawnedTiles.Add(decorative.GetComponent<Tile>());
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
